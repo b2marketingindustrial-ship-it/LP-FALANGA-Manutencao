@@ -215,32 +215,30 @@ blocos:
     responde: [manutencao, assistencia]
     papeis: [Manutenção, Engenharia]
     eyebrow: Como funciona
-    title: Do diagnóstico ao compressor em operação.
-    highlight: compressor em operação.
-    microcopy: Equipe técnica especializada
-    text: Um processo completo para identificar falhas, recuperar o desempenho e planejar a manutenção do seu sistema.
-    cta: Solicitar cotação
+    title: Do diagnóstico ao compressor em operação
+    microcopy: Técnicos capacitados e certificados
+    text: Cada atendimento começa por uma inspeção completa do sistema e segue até o plano que reduz o tempo de inatividade da sua produção.
     steps:
       - id: inspecao
         icon: search
         title: Inspeção completa
-        description: Avaliação do sistema de ar comprimido com ferramentas de diagnóstico.
+        description: Inspeção do sistema de ar com ferramentas de diagnóstico avançadas.
       - id: diagnostico
-        icon: pulse
+        icon: bolt
         title: Diagnóstico técnico
-        description: Análise elétrica, mecânica e do sistema de controle do compressor.
+        description: Diagnósticos elétricos, mecânicos e do sistema de controle do compressor.
       - id: verificacao
         icon: droplet
         title: Verificação do sistema
-        description: Checagem de ventilação, refrigeração, tratamento de ar e condensados.
+        description: Ventilação, refrigeração, tratamento de ar e condensados verificados.
       - id: intervencao
         icon: wrench
         title: Intervenção técnica
         description: Manutenção preventiva, corretiva ou reconstrução com peças originais.
       - id: plano
-        icon: clipboard
+        icon: file
         title: Plano de manutenção
-        description: Plano preventivo ou preditivo, com ou sem fornecimento de peças.
+        description: Contrato preditivo ou preventivo, com ou sem peças sobressalentes.
 
   aplicacoes:
     veredicto: completo

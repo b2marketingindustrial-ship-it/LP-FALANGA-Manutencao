@@ -56,14 +56,6 @@ export const iconPaths = {
   /** Documento com caneta: contrato de manutenção (mockup Falanga, 21/10/2026). */
   contract:
     '<path d="M13.5 3.5H7a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h5.5"/><path d="M13.5 3.5 18 8v3"/><path d="M13.5 3.5V8H18"/><path d="M9 12h5M9 15.5h3"/><path d="m15 20.5.5-2.6 4.6-4.6a1.3 1.3 0 0 1 1.9 1.9l-4.6 4.6Z"/>',
-  /** Linha de pulso: diagnóstico técnico (mockup Falanga, 21/10/2026). */
-  pulse: '<path d="M3 12h4.5l2-5.5 4 11 2-5.5H21"/>',
-  /** Prancheta com linhas: plano de manutenção (mockup Falanga, 21/10/2026). */
-  clipboard:
-    '<rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 3h6v3.2H9z"/><path d="M8.8 11h6.4M8.8 14.5h6.4M8.8 18h4"/>',
-  /** Escudo com check: selo de equipe especializada (mockup Falanga, 21/10/2026). */
-  'shield-check':
-    '<path d="M12 3 19 5.8v5.6c0 4.5-3 7.8-7 9.3-4-1.5-7-4.8-7-9.3V5.8Z"/><path d="m8.7 12.2 2.4 2.4 4.3-4.5"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.5 2"/>',
   zap: '<path d="M13 3 6 13.5h5L10 21l7.5-10.5h-5L13 3Z"/>',
   'map-pin':
