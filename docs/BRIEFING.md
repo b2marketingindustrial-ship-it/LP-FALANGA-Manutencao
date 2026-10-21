@@ -183,6 +183,23 @@ A Schulz entrou na lista de marcas da ficha e a família de palavras-chave Schul
 
 As fotos do site têm 450×451 e 680×682: servem na largura em que aparecem, mas ficam suaves em tela de alta densidade. Vale pedir os originais.
 
+## Desvios do padrão — como funciona (21/10/2026)
+
+A seção `processo` foi refeita conforme o mockup "Do diagnóstico ao compressor em operação", que o cliente enviou em 21/10/2026. É uma **variante local** de `src/components/sections/ProcessSteps.astro`, como as outras, e **`npm run compose` desfaz a variante**.
+
+| O que o mockup pedia                                                   | Como entrou                                                                        | Regra do padrão afetada         |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------- |
+| Painel navy sem malha blueprint nem cantos laranja, com brilho azul    | igual; o painel continua sendo o bloco navy da primeira metade da página           | receita do painel navy (item 7) |
+| Fim do título em amarelo                                               | campo `highlight` em `processo.ts` e na ficha; em linha própria a partir do tablet | —                               |
+| Trilha com círculos amarelos numerados, linha e setas                  | igual a partir do desktop; no mobile, os cards empilham com o número no topo       | —                               |
+| Cada etapa num card contornado, com ícone amarelo                      | igual; ícones novos `pulse`, `clipboard` e `shield-check`                          | —                               |
+| Faixa final com "Equipe técnica especializada" e "Solicitar cotação →" | `microcopy` e o rótulo `cta` da seção; o botão é o `processo-cta`                  | vocabulário de CTA (item 8)     |
+| Logo da Falanga num card branco no canto                               | **não entrou** — a logo já está no header fixo                                     | —                               |
+
+A copy das cinco etapas foi trocada pela do mockup, sem prazos (`when`). O cliente ainda não confirmou prazos que assuma publicamente.
+
+O painel segue a largura do container do padrão (1320px). Por isso, em telas largas os títulos das etapas quebram em duas linhas, onde o mockup, mais largo, mostra uma.
+
 ## Estado da entrega
 
 - [x] Primeira versão de pé (`npm run check:lp:rascunho` passa) em: 21/10/2026
