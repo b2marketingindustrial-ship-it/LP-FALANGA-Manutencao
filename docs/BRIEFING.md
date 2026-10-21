@@ -109,8 +109,8 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 | ---------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |
 | Fotos da galeria de serviços | `src/assets/linhas/galeria-1.png` e `galeria-2.webp` | fotos do site do cliente, 450×451 e 680×682                      | entregue (baixa resolução: pedir originais)            |
 | 4 fotos de aplicação         | `src/assets/aplicacoes/aplicacao-1.png` … `-4.png`   | 1: site do cliente (450×451); 2–4: recortadas do mockup (~340px) | entregue — **provisório**, pedir originais em 1200×900 |
-| Cenário dos diferenciais     | `src/assets/diferenciais/cenario.jpg`                | 1600×900, sangra à direita do bloco navy                         | pendente                                               |
-| Técnico recortado            | `src/assets/diferenciais/pessoa.png`                 | 1220×1000, corpo inteiro, fundo transparente                     | pendente                                               |
+| Foto dos diferenciais        | `src/assets/diferenciais/cenario.jpg`                | recortada do mockup do cliente (1020×482), com o técnico         | entregue — **provisório**, pedir o original            |
+| Técnico recortado            | —                                                    | não usado: a foto dos diferenciais já traz o técnico             | dispensado (21/10/2026)                                |
 
 Imagens citadas no material e ainda não validadas para uso: `Design-sem-nome-46.png` (assistência técnica), `Design-sem-nome-30.png.webp` (contratos), `big-image.png`, `big-image-1.png`, `Falanga-Peneumatica-Locacao-de-Compressores.jpg-1.webp`.
 
@@ -215,9 +215,27 @@ A seção `aplicacoes` foi refeita conforme o mockup "Manutenção para todo o s
 
 Fotos: a 1 é a do site do cliente (`big-image.png`, 450×451). As 2–4 (secador, filtros e planta) foram **recortadas do mockup**, com cerca de 340px de largura. Servem de provisório; vale pedir os originais. O `check:lp` avisa da resolução baixa.
 
+## Desvios do padrão — diferenciais (21/10/2026)
+
+A seção `diferenciais` foi refeita conforme o mockup "Reduza o tempo de inatividade", que o cliente enviou em 21/10/2026. É uma **variante local** de `src/components/sections/WhyBrand.astro`, e **`npm run compose` desfaz a variante**. Ela substitui uma tentativa anterior, "Por que escolher a Falanga", que o usuário pediu para desfazer.
+
+| O que o mockup pedia                                                                                  | Como entrou                                                                                                                                          | Regra do padrão afetada                                            |
+| ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Bloco navy com "de inatividade." em amarelo, CTA em pílula amarela e "Atendimento em todo o Nordeste" | igual; o botão é o `diferenciais-cta`, com rótulo próprio (`cta`)                                                                                    | vocabulário de CTA (item 8) e botão de cantos retos                |
+| Foto do técnico à direita, fechada por uma faixa amarela curva                                        | foto única (`cenario.jpg`) com a borda esquerda esmaecida; a faixa e a cunha navy à direita são um SVG                                               | `person`: a pessoa recortada saiu, porque a foto já traz o técnico |
+| 5 cards sobrepostos à base, com ícone em quadrado amarelo ao lado do texto                            | igual; conteúdo e cards vão até 1680px, como o "Como funciona"                                                                                       | —                                                                  |
+| Novas descrições de três motivos                                                                      | "Suporte técnico para os imprevistos da sua operação.", "Avaliação elétrica, mecânica e de controle.", "Componentes para manutenção e reconstrução." | —                                                                  |
+
+A foto foi **recortada do mockup** (1020×482), sem a faixa amarela e sem os cards. Serve de provisório; o `check:lp` avisa da proporção e da resolução.
+
+Junto, dois ajustes:
+
+- O `npm run ficha` voltou a aceitar ícones com hífen (`map-pin`, `shield-check`). A correção da regex tinha saído junto com a reversão anterior.
+- As setas que rolam os cards no mobile passaram a funcionar. O script da biblioteca procurava `[data-why]`, que nenhum elemento tinha.
+
 ## Estado da entrega
 
 - [x] Primeira versão de pé (`npm run check:lp:rascunho` passa) em: 21/10/2026
-- [ ] Todos os assets reais entregues
-- [ ] `npm run verify` passa inteiro em: `____/____/______`
+- [ ] Todos os assets reais entregues — nenhum placeholder resta, mas banner do hero, fotos 2–4 das aplicações e foto dos diferenciais são **recortes provisórios dos mockups**, e logo e fotos do site estão em baixa resolução
+- [x] `npm run verify` passa inteiro em: 21/10/2026 (0 erros, 8 avisos de resolução e proporção)
 - [x] Padrão B2 versão: `2.8.0`

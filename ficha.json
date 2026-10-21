@@ -1,6 +1,6 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-21T15:41:18.850Z",
+  "gerado": "2026-10-21T16:04:44.509Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Falanga Pneumática",
@@ -388,19 +388,20 @@
           "Reduza o tempo",
           "de inatividade."
         ],
-        "text": "A Falanga Pneumática atende compressores multimarcas com técnicos capacitados e certificados, diagnóstico avançado e peças originais, para reduzir o tempo de inatividade da sua produção em todo o Nordeste.",
-        "scene": "Sala de compressores de ar industrial",
-        "person": "Técnico da Falanga Pneumática",
+        "text": "Assistência técnica multimarcas com equipe especializada, diagnóstico avançado e peças originais para manter sua produção em operação.",
+        "cta": "Solicitar cotação",
+        "area": "Atendimento em todo o Nordeste",
+        "scene": "Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo",
         "reasons": [
           {
-            "icon": "pin",
+            "icon": "map-pin",
             "title": "Cobertura no Nordeste",
             "description": "Atendimento em toda a região Nordeste."
           },
           {
             "icon": "clock",
             "title": "Assistência 24 horas",
-            "description": "Disponibilidade contínua para assistência técnica."
+            "description": "Suporte técnico para os imprevistos da sua operação."
           },
           {
             "icon": "users",
@@ -410,21 +411,19 @@
           {
             "icon": "search",
             "title": "Diagnóstico avançado",
-            "description": "Inspeção com ferramentas de diagnóstico avançadas."
+            "description": "Avaliação elétrica, mecânica e de controle."
           },
           {
-            "icon": "shield",
+            "icon": "shield-check",
             "title": "Peças originais",
-            "description": "Uso de peças originais na reconstrução."
+            "description": "Componentes para manutenção e reconstrução."
           }
         ]
       }
     }
   },
   "assets": {
-    "pendentes": [
-      "diferenciais"
-    ]
+    "pendentes": []
   },
   "fora": {
     "vitrine": {

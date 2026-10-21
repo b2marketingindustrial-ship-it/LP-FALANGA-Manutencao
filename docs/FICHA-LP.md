@@ -285,25 +285,26 @@ blocos:
     papeis: [Compras, Engenharia]
     eyebrow: Por que a Falanga
     titleLines: [Reduza o tempo, de inatividade.]
-    text: A Falanga Pneumática atende compressores multimarcas com técnicos capacitados e certificados, diagnóstico avançado e peças originais, para reduzir o tempo de inatividade da sua produção em todo o Nordeste.
-    scene: Sala de compressores de ar industrial
-    person: Técnico da Falanga Pneumática
+    text: Assistência técnica multimarcas com equipe especializada, diagnóstico avançado e peças originais para manter sua produção em operação.
+    cta: Solicitar cotação
+    area: Atendimento em todo o Nordeste
+    scene: Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo
     reasons:
-      - icon: pin
+      - icon: map-pin
         title: Cobertura no Nordeste
         description: Atendimento em toda a região Nordeste.
       - icon: clock
         title: Assistência 24 horas
-        description: Disponibilidade contínua para assistência técnica.
+        description: Suporte técnico para os imprevistos da sua operação.
       - icon: users
         title: Equipe especializada
         description: Técnicos capacitados e certificados.
       - icon: search
         title: Diagnóstico avançado
-        description: Inspeção com ferramentas de diagnóstico avançadas.
-      - icon: shield
+        description: Avaliação elétrica, mecânica e de controle.
+      - icon: shield-check
         title: Peças originais
-        description: Uso de peças originais na reconstrução.
+        description: Componentes para manutenção e reconstrução.
 
   perguntas:
     veredicto: insuficiente
@@ -314,7 +315,7 @@ blocos:
     falta: a oferta não é consolidação de compras de itens diferentes
 
 assets:
-  pendentes: [diferenciais]
+  pendentes: []
 
 conflitos: []
 
@@ -387,7 +388,7 @@ Famílias sem bloco que as responda: **marca Schulz** (atendimento à marca não
 | Banner do hero original                               | designer            | o atual foi recortado do mockup; pedir o arquivo sem texto, 1981×900, compressor no primeiro terço |
 | Fotos da galeria de serviços em alta                  | cliente             | as de `src/assets/linhas/` vieram do site (450×451 e 680×682); pedir os originais                  |
 | Fotos das aplicações em alta                          | cliente ou designer | as atuais são provisórias (site e recorte do mockup); pedir os originais em 1200×900               |
-| Cenário + técnico recortado                           | designer            | `src/assets/diferenciais/cenario.jpg` 1600×900 e `pessoa.png` 1220×1000 com fundo transparente     |
+| Foto dos diferenciais original                        | designer            | a atual foi recortada do mockup (1020×482); pedir o arquivo em 1600×900                            |
 | Validar a sequência de `processo` e as 4 `aplicacoes` | cliente             | foram inferidas do material; confirmar ou corrigir                                                 |
 | Público que pede cotação                              | cliente             | cargos reais (hoje inferido)                                                                       |
 | URL final e política de privacidade                   | cliente             | domínio de publicação e link da política                                                           |

@@ -1,15 +1,18 @@
 /**
  * Dados da seção "Diferenciais" (biblioteca B2, fase: autoridade).
  *
- * Bloco navy em largura total com a frase de autoridade e a pessoa recortada, e 5
+ * Bloco navy em largura total com a frase de autoridade e uma foto à direita, e 5
  * cards sobrepostos à base do bloco. São 5 exatos: o grid é `lg:grid-cols-5`.
+ *
+ * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): a foto de
+ * cenário já traz o técnico, então não há pessoa recortada. O CTA tem rótulo próprio
+ * (`cta`) e a área atendida aparece abaixo dele (`area`).
  */
 import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
 import { site } from '@data/site'
 
 import cenario from '@assets/diferenciais/cenario.jpg'
-import pessoa from '@assets/diferenciais/pessoa.png'
 
 export interface Reason {
   icon: IconName
@@ -19,27 +22,25 @@ export interface Reason {
 
 export const why = {
   eyebrow: `Por que a ${site.brandShort}`,
-  /** Cada item é uma linha do H2 (quebra forçada). 3–6 palavras no total. */
+  /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
   titleLines: ['Reduza o tempo', 'de inatividade.'],
-  text: 'A Falanga Pneumática atende compressores multimarcas com técnicos capacitados e certificados, diagnóstico avançado e peças originais, para reduzir o tempo de inatividade da sua produção em todo o Nordeste.',
+  text: 'Assistência técnica multimarcas com equipe especializada, diagnóstico avançado e peças originais para manter sua produção em operação.',
+  cta: 'Solicitar cotação',
+  area: 'Atendimento em todo o Nordeste',
   scene: {
     src: cenario,
-    alt: 'Sala de compressores de ar industrial',
-  },
-  person: {
-    src: pessoa,
-    alt: `Técnico da ${site.brand}`,
+    alt: 'Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo',
   },
   reasons: [
     {
-      icon: 'pin',
+      icon: 'map-pin',
       title: 'Cobertura no Nordeste',
       description: 'Atendimento em toda a região Nordeste.',
     },
     {
       icon: 'clock',
       title: 'Assistência 24 horas',
-      description: 'Disponibilidade contínua para assistência técnica.',
+      description: 'Suporte técnico para os imprevistos da sua operação.',
     },
     {
       icon: 'users',
@@ -49,19 +50,20 @@ export const why = {
     {
       icon: 'search',
       title: 'Diagnóstico avançado',
-      description: 'Inspeção com ferramentas de diagnóstico avançadas.',
+      description: 'Avaliação elétrica, mecânica e de controle.',
     },
     {
-      icon: 'shield',
+      icon: 'shield-check',
       title: 'Peças originais',
-      description: 'Uso de peças originais na reconstrução.',
+      description: 'Componentes para manutenção e reconstrução.',
     },
   ],
 } as const satisfies {
   eyebrow: string
-  titleLines: readonly string[]
+  titleLines: readonly [string, string]
   text: string
+  cta: string
+  area: string
   scene: Photo
-  person: Photo
   reasons: readonly [Reason, Reason, Reason, Reason, Reason]
 }
