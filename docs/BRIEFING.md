@@ -198,7 +198,7 @@ A seção `processo` foi refeita conforme o mockup "Do diagnóstico ao compresso
 
 A copy das cinco etapas foi trocada pela do mockup, sem prazos (`when`). O cliente ainda não confirmou prazos que assuma publicamente.
 
-O painel segue a largura do container do padrão (1320px). Por isso, em telas largas os títulos das etapas quebram em duas linhas, onde o mockup, mais largo, mostra uma.
+Ajuste de 21/10/2026, a pedido do usuário ("mais baixo e mais largo"): o painel sai do container do padrão (`container={false}`) e vai até 1680px de largura. Padding, título e cards ficaram mais compactos na vertical. Em 1920px o painel tem ~1616×678 (antes ~1240×940), e os títulos das etapas cabem numa linha. É o único bloco do miolo mais largo que o container de 1320px.
 
 ## Desvios do padrão — aplicações (21/10/2026)
 
