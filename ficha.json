@@ -1,6 +1,6 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-21T16:04:44.509Z",
+  "gerado": "2026-10-21T16:38:02.384Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Falanga Pneumática",
@@ -199,7 +199,12 @@
           "icon": "shield",
           "label": "Peças originais"
         }
-      ]
+      ],
+      "form": {
+        "title": "Como podemos ajudar?",
+        "text": "Preencha os dados e conte o que seu compressor precisa."
+      },
+      "lgpd": "Seus dados serão utilizados apenas para responder à sua solicitação."
     }
   },
   "secoes": {

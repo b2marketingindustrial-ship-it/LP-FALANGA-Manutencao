@@ -90,13 +90,22 @@ export const quote = {
     { icon: 'clock', label: 'Assistência técnica 24 horas' },
     { icon: 'shield', label: 'Peças originais' },
   ],
+  /**
+   * Cabeçalho do card do formulário (mockup do cliente, 21/10/2026). O `eyebrow` acima
+   * vai no card, e não mais na coluna de texto, para não aparecer duas vezes lado a lado.
+   */
+  form: {
+    title: 'Como podemos ajudar?',
+    text: 'Preencha os dados e conte o que seu compressor precisa.',
+  },
   /** Nota de LGPD exibida abaixo do formulário. */
-  lgpd: `Seus dados são usados apenas para responder à sua solicitação de cotação, conforme a LGPD.`,
+  lgpd: `Seus dados serão utilizados apenas para responder à sua solicitação.`,
 } as const satisfies {
   eyebrow: string
   title: string
   text: string
   trust: readonly [TrustItem, TrustItem, TrustItem]
+  form: { title: string; text: string }
   lgpd: string
 }
 

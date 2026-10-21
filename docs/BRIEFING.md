@@ -233,6 +233,18 @@ Junto, dois ajustes:
 - O `npm run ficha` voltou a aceitar ícones com hífen (`map-pin`, `shield-check`). A correção da regex tinha saído junto com a reversão anterior.
 - As setas que rolam os cards no mobile passaram a funcionar. O script da biblioteca procurava `[data-why]`, que nenhum elemento tinha.
 
+## Desvios do padrão — cotação (21/10/2026)
+
+A coluna do formulário da seção de cotação (`src/components/QuoteForm.astro`, estrutura fixa) foi refeita conforme o mockup do card de cotação, que o cliente enviou em 21/10/2026. O pedido foi para deixar **o espaço do formulário vazio**: nele entra só o shortcode, que o plugin de atendimento do WordPress troca pelo formulário. Na prévia da Vercel aparece o texto do shortcode.
+
+| O que o mockup pedia                                                                    | Como entrou                                                                                                                 | Regra do padrão afetada                   |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| Card branco com "Solicite sua cotação", "Como podemos ajudar?" e o subtítulo            | igual; o título do card é `h3`, e o `h2` da seção continua na coluna de texto                                               | 4.1.4                                     |
+| Campos do formulário e botão "Solicitar cotação"                                        | **não entraram** — o espaço fica vazio para o shortcode do plugin; o card não define fonte, cor nem alinhamento do conteúdo | regra 4 — formulário é sempre o shortcode |
+| Nota com cadeado "Seus dados serão utilizados apenas para responder à sua solicitação." | igual, em `quote.lgpd`; o link de privacidade entra quando `site.privacyUrl` existir                                        | 10.2 — nota de LGPD                       |
+
+A coluna de texto perdeu o selo "Solicite sua cotação", que passou para o card e apareceria duas vezes lado a lado. O traço e os ícones dos selos saíram do laranja para o amarelo e o azul da Falanga, e o botão do WhatsApp ganhou cantos arredondados. Grid, ordem das colunas e o CTA `cotacao-whatsapp` seguem os do padrão, e a assinatura A8 não precisou mudar.
+
 ## Estado da entrega
 
 - [x] Primeira versão de pé (`npm run check:lp:rascunho` passa) em: 21/10/2026

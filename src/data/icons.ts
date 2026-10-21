@@ -64,6 +64,8 @@ export const iconPaths = {
   /** Escudo com check: selo de equipe especializada (mockup Falanga, 21/10/2026). */
   'shield-check':
     '<path d="M12 3 19 5.8v5.6c0 4.5-3 7.8-7 9.3-4-1.5-7-4.8-7-9.3V5.8Z"/><path d="m8.7 12.2 2.4 2.4 4.3-4.5"/>',
+  /** Cadeado: nota de privacidade do formulário (mockup Falanga, 21/10/2026). */
+  lock: '<rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.5 2"/>',
   zap: '<path d="M13 3 6 13.5h5L10 21l7.5-10.5h-5L13 3Z"/>',
   'map-pin':

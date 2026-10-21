@@ -137,6 +137,10 @@ conteudo:
         label: Assistência técnica 24 horas
       - icon: shield
         label: Peças originais
+    form:
+      title: Como podemos ajudar?
+      text: Preencha os dados e conte o que seu compressor precisa.
+    lgpd: Seus dados serão utilizados apenas para responder à sua solicitação.
 
 blocos:
   linhas:
