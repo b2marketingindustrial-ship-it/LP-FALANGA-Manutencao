@@ -1,6 +1,6 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-21T15:21:30.521Z",
+  "gerado": "2026-10-21T15:34:23.463Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Falanga Pneumática",
@@ -344,32 +344,37 @@
       "data": "aplicacoes.ts",
       "conteudo": {
         "eyebrow": "Aplicações",
-        "title": "Manutenção para todo o sistema de ar comprimido",
-        "text": "Atendimento técnico do compressor ao tratamento do ar, para manter o sistema de ar comprimido da sua planta em operação.",
+        "title": "Manutenção para todo o sistema de ar comprimido.",
+        "text": "Do compressor ao tratamento do ar, suporte técnico para manter sua planta em operação.",
+        "closing": {
+          "title": "Seu sistema precisa de atenção especializada?",
+          "text": "Converse com a equipe da Falanga.",
+          "cta": "Solicitar atendimento"
+        },
         "items": [
           {
             "id": "compressores-parafuso",
             "label": "Compressores de parafuso",
-            "description": "Manutenção e reconstrução de unidades compressoras de parafuso.",
-            "photo": "Compressor de parafuso industrial em operação"
+            "description": "Manutenção e reconstrução de unidades compressoras para recuperar desempenho e confiabilidade.",
+            "photo": "Técnico da Falanga em manutenção de um compressor de parafuso Schulz SRP 4015"
           },
           {
             "id": "secadores",
             "label": "Secadores de ar",
-            "description": "Assistência técnica e manutenção de secadores de ar comprimido.",
-            "photo": "Secador de ar comprimido industrial"
+            "description": "Assistência técnica e manutenção para preservar a eficiência da secagem do ar comprimido.",
+            "photo": "Secador de ar comprimido industrial em sala de máquinas"
           },
           {
             "id": "tratamento",
             "label": "Tratamento de ar",
-            "description": "Limpeza de filtros e verificação do tratamento de ar e condensados.",
-            "photo": "Filtros e drenos do tratamento de ar comprimido"
+            "description": "Verificação de filtros, drenos e condensados para manter a qualidade do ar da sua operação.",
+            "photo": "Filtros de linha de ar comprimido com manômetros e drenos"
           },
           {
             "id": "sistemas",
             "label": "Sistemas de ar",
-            "description": "Inspeção de vazamentos e manutenção planejada do sistema de ar.",
-            "photo": "Tubulação de ar comprimido em planta industrial"
+            "description": "Inspeção de vazamentos e manutenção planejada para cuidar de todo o sistema de ar comprimido.",
+            "photo": "Reservatório e compressores em planta industrial com tubulação de ar"
           }
         ]
       }
@@ -418,7 +423,6 @@
   },
   "assets": {
     "pendentes": [
-      "aplicacoes",
       "diferenciais"
     ]
   },

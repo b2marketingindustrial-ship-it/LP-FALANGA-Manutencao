@@ -1,8 +1,12 @@
 /**
  * Dados da seção "Aplicações" (biblioteca B2, fase: prova).
  *
- * 4 cards-botão com foto 4:3 e cabeçalho centrado. O card inteiro é o CTA.
+ * 4 cards-botão com foto e cabeçalho centrado. O card inteiro é o CTA.
  * As quatro partes do sistema de ar vêm do que o material diz que a Falanga atende.
+ *
+ * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): a seção fecha com
+ * uma faixa de CTA (`closing`). A foto 1 é a do site do cliente; as fotos 2–4 foram
+ * recortadas do mockup, provisórias até os originais chegarem.
  */
 import type { Photo } from '@data/types'
 
@@ -20,37 +24,54 @@ export interface Application {
 
 export const applications = {
   eyebrow: 'Aplicações',
-  title: 'Manutenção para todo o sistema de ar comprimido',
-  text: 'Atendimento técnico do compressor ao tratamento do ar, para manter o sistema de ar comprimido da sua planta em operação.',
+  title: 'Manutenção para todo o sistema de ar comprimido.',
+  text: 'Do compressor ao tratamento do ar, suporte técnico para manter sua planta em operação.',
+  /** Faixa azul que fecha a seção, com o CTA `aplicacoes-atendimento`. */
+  closing: {
+    title: 'Seu sistema precisa de atenção especializada?',
+    text: 'Converse com a equipe da Falanga.',
+    cta: 'Solicitar atendimento',
+  },
   items: [
     {
       id: 'compressores-parafuso',
       label: 'Compressores de parafuso',
-      description: 'Manutenção e reconstrução de unidades compressoras de parafuso.',
-      photo: { src: app1, alt: 'Compressor de parafuso industrial em operação' },
+      description:
+        'Manutenção e reconstrução de unidades compressoras para recuperar desempenho e confiabilidade.',
+      photo: {
+        src: app1,
+        alt: 'Técnico da Falanga em manutenção de um compressor de parafuso Schulz SRP 4015',
+      },
     },
     {
       id: 'secadores',
       label: 'Secadores de ar',
-      description: 'Assistência técnica e manutenção de secadores de ar comprimido.',
-      photo: { src: app2, alt: 'Secador de ar comprimido industrial' },
+      description:
+        'Assistência técnica e manutenção para preservar a eficiência da secagem do ar comprimido.',
+      photo: { src: app2, alt: 'Secador de ar comprimido industrial em sala de máquinas' },
     },
     {
       id: 'tratamento',
       label: 'Tratamento de ar',
-      description: 'Limpeza de filtros e verificação do tratamento de ar e condensados.',
-      photo: { src: app3, alt: 'Filtros e drenos do tratamento de ar comprimido' },
+      description:
+        'Verificação de filtros, drenos e condensados para manter a qualidade do ar da sua operação.',
+      photo: { src: app3, alt: 'Filtros de linha de ar comprimido com manômetros e drenos' },
     },
     {
       id: 'sistemas',
       label: 'Sistemas de ar',
-      description: 'Inspeção de vazamentos e manutenção planejada do sistema de ar.',
-      photo: { src: app4, alt: 'Tubulação de ar comprimido em planta industrial' },
+      description:
+        'Inspeção de vazamentos e manutenção planejada para cuidar de todo o sistema de ar comprimido.',
+      photo: {
+        src: app4,
+        alt: 'Reservatório e compressores em planta industrial com tubulação de ar',
+      },
     },
   ],
 } as const satisfies {
   eyebrow: string
   title: string
   text: string
+  closing: { title: string; text: string; cta: string }
   items: readonly [Application, Application, Application, Application]
 }

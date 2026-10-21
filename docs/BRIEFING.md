@@ -105,12 +105,12 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 | Logo           | `src/assets/LOGO.png`   | logo oficial com o selo de 40 anos, 341×82, fundo transparente — baixada de falangapneumatica.com.br | entregue (baixa resolução: pedir vetor ou PNG 2×)              |
 | Banner do hero | `src/assets/heroBg.png` | 1981×900, recortado do segundo mockup do cliente (21/10/2026) e estendido à direita                  | **provisório** — pedir o arquivo original do banner, sem texto |
 
-| Asset                        | Arquivo esperado                                     | Especificação                                   | Status                                      |
-| ---------------------------- | ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------- |
-| Fotos da galeria de serviços | `src/assets/linhas/galeria-1.png` e `galeria-2.webp` | fotos do site do cliente, 450×451 e 680×682     | entregue (baixa resolução: pedir originais) |
-| 4 fotos de aplicação         | `src/assets/aplicacoes/aplicacao-1.png` … `-4.png`   | JPG/PNG 1200×900 (4:3), equipamento em operação | pendente                                    |
-| Cenário dos diferenciais     | `src/assets/diferenciais/cenario.jpg`                | 1600×900, sangra à direita do bloco navy        | pendente                                    |
-| Técnico recortado            | `src/assets/diferenciais/pessoa.png`                 | 1220×1000, corpo inteiro, fundo transparente    | pendente                                    |
+| Asset                        | Arquivo esperado                                     | Especificação                                                    | Status                                                 |
+| ---------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |
+| Fotos da galeria de serviços | `src/assets/linhas/galeria-1.png` e `galeria-2.webp` | fotos do site do cliente, 450×451 e 680×682                      | entregue (baixa resolução: pedir originais)            |
+| 4 fotos de aplicação         | `src/assets/aplicacoes/aplicacao-1.png` … `-4.png`   | 1: site do cliente (450×451); 2–4: recortadas do mockup (~340px) | entregue — **provisório**, pedir originais em 1200×900 |
+| Cenário dos diferenciais     | `src/assets/diferenciais/cenario.jpg`                | 1600×900, sangra à direita do bloco navy                         | pendente                                               |
+| Técnico recortado            | `src/assets/diferenciais/pessoa.png`                 | 1220×1000, corpo inteiro, fundo transparente                     | pendente                                               |
 
 Imagens citadas no material e ainda não validadas para uso: `Design-sem-nome-46.png` (assistência técnica), `Design-sem-nome-30.png.webp` (contratos), `big-image.png`, `big-image-1.png`, `Falanga-Peneumatica-Locacao-de-Compressores.jpg-1.webp`.
 
@@ -199,6 +199,19 @@ A seção `processo` foi refeita conforme o mockup "Do diagnóstico ao compresso
 A copy das cinco etapas foi trocada pela do mockup, sem prazos (`when`). O cliente ainda não confirmou prazos que assuma publicamente.
 
 O painel segue a largura do container do padrão (1320px). Por isso, em telas largas os títulos das etapas quebram em duas linhas, onde o mockup, mais largo, mostra uma.
+
+## Desvios do padrão — aplicações (21/10/2026)
+
+A seção `aplicacoes` foi refeita conforme o mockup "Manutenção para todo o sistema de ar comprimido", que o cliente enviou em 21/10/2026. É uma **variante local** de `src/components/sections/ApplicationsGallery.astro`, e **`npm run compose` desfaz a variante**.
+
+| O que o mockup pedia                                                                   | Como entrou                                                                                                                                | Regra do padrão afetada           |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
+| 4 cards com foto, número em quadrado amarelo e rodapé "Falar com especialista"         | igual; o card inteiro continua sendo o CTA `aplicacoes-{id}`                                                                               | —                                 |
+| Descrições de até 94 caracteres                                                        | limite de `item.description` em `aplicacoes` passa de 90 para 100 em `scripts/lib/contract.mjs`, que vale para a ficha e para o `check:lp` | contrato de `aplicacoes`          |
+| Faixa azul "Seu sistema precisa de atenção especializada?" com "Solicitar atendimento" | igual; o botão é `btn-slave-whats` com `data-cta="aplicacoes-atendimento"`                                                                 | —                                 |
+| Foto em 4:3                                                                            | moldura 16:10 com a foto ancorada no topo, para esconder o número do mockup embutido no rodapé das fotos 2–4                               | proporção do manifesto (1200×900) |
+
+Fotos: a 1 é a do site do cliente (`big-image.png`, 450×451). As 2–4 (secador, filtros e planta) foram **recortadas do mockup**, com cerca de 340px de largura. Servem de provisório; vale pedir os originais. O `check:lp` avisa da resolução baixa.
 
 ## Estado da entrega
 

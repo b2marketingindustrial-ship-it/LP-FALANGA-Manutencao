@@ -247,25 +247,29 @@ blocos:
     responde: [parafuso]
     papeis: [Manutenção, Engenharia]
     eyebrow: Aplicações
-    title: Manutenção para todo o sistema de ar comprimido
-    text: Atendimento técnico do compressor ao tratamento do ar, para manter o sistema de ar comprimido da sua planta em operação.
+    title: Manutenção para todo o sistema de ar comprimido.
+    text: Do compressor ao tratamento do ar, suporte técnico para manter sua planta em operação.
+    closing:
+      title: Seu sistema precisa de atenção especializada?
+      text: Converse com a equipe da Falanga.
+      cta: Solicitar atendimento
     items:
       - id: compressores-parafuso
         label: Compressores de parafuso
-        description: Manutenção e reconstrução de unidades compressoras de parafuso.
-        photo: Compressor de parafuso industrial em operação
+        description: Manutenção e reconstrução de unidades compressoras para recuperar desempenho e confiabilidade.
+        photo: Técnico da Falanga em manutenção de um compressor de parafuso Schulz SRP 4015
       - id: secadores
         label: Secadores de ar
-        description: Assistência técnica e manutenção de secadores de ar comprimido.
-        photo: Secador de ar comprimido industrial
+        description: Assistência técnica e manutenção para preservar a eficiência da secagem do ar comprimido.
+        photo: Secador de ar comprimido industrial em sala de máquinas
       - id: tratamento
         label: Tratamento de ar
-        description: Limpeza de filtros e verificação do tratamento de ar e condensados.
-        photo: Filtros e drenos do tratamento de ar comprimido
+        description: Verificação de filtros, drenos e condensados para manter a qualidade do ar da sua operação.
+        photo: Filtros de linha de ar comprimido com manômetros e drenos
       - id: sistemas
         label: Sistemas de ar
-        description: Inspeção de vazamentos e manutenção planejada do sistema de ar.
-        photo: Tubulação de ar comprimido em planta industrial
+        description: Inspeção de vazamentos e manutenção planejada para cuidar de todo o sistema de ar comprimido.
+        photo: Reservatório e compressores em planta industrial com tubulação de ar
 
   segmentos:
     veredicto: insuficiente
@@ -310,7 +314,7 @@ blocos:
     falta: a oferta não é consolidação de compras de itens diferentes
 
 assets:
-  pendentes: [aplicacoes, diferenciais]
+  pendentes: [diferenciais]
 
 conflitos: []
 
@@ -377,19 +381,19 @@ Famílias sem bloco que as responda: **marca Schulz** (atendimento à marca não
 
 ## Pendências
 
-| O que falta                                           | Quem resolve               | Especificação                                                                                      |
-| ----------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------- |
-| Logo em alta resolução                                | cliente                    | a de `src/assets/LOGO.png` (341×82) veio do site; pedir vetor ou PNG 2× com fundo transparente     |
-| Banner do hero original                               | designer                   | o atual foi recortado do mockup; pedir o arquivo sem texto, 1981×900, compressor no primeiro terço |
-| Fotos da galeria de serviços em alta                  | cliente                    | as de `src/assets/linhas/` vieram do site (450×451 e 680×682); pedir os originais                  |
-| 4 fotos de aplicação                                  | cliente ou banco de imagem | `src/assets/aplicacoes/aplicacao-1..4.png`, 1200×900 (4:3), equipamento em operação                |
-| Cenário + técnico recortado                           | designer                   | `src/assets/diferenciais/cenario.jpg` 1600×900 e `pessoa.png` 1220×1000 com fundo transparente     |
-| Validar a sequência de `processo` e as 4 `aplicacoes` | cliente                    | foram inferidas do material; confirmar ou corrigir                                                 |
-| Público que pede cotação                              | cliente                    | cargos reais (hoje inferido)                                                                       |
-| URL final e política de privacidade                   | cliente                    | domínio de publicação e link da política                                                           |
-| WhatsApp comercial                                    | cliente                    | número com DDI e DDD, só dígitos                                                                   |
-| Atendimento à marca Schulz                            | cliente                    | confirma? Se não, negativar os termos Schulz na campanha                                           |
-| Projeto e instalação de rede de ar                    | cliente                    | confirma? Se não, negativar os termos de rede na campanha                                          |
+| O que falta                                           | Quem resolve        | Especificação                                                                                      |
+| ----------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------- |
+| Logo em alta resolução                                | cliente             | a de `src/assets/LOGO.png` (341×82) veio do site; pedir vetor ou PNG 2× com fundo transparente     |
+| Banner do hero original                               | designer            | o atual foi recortado do mockup; pedir o arquivo sem texto, 1981×900, compressor no primeiro terço |
+| Fotos da galeria de serviços em alta                  | cliente             | as de `src/assets/linhas/` vieram do site (450×451 e 680×682); pedir os originais                  |
+| Fotos das aplicações em alta                          | cliente ou designer | as atuais são provisórias (site e recorte do mockup); pedir os originais em 1200×900               |
+| Cenário + técnico recortado                           | designer            | `src/assets/diferenciais/cenario.jpg` 1600×900 e `pessoa.png` 1220×1000 com fundo transparente     |
+| Validar a sequência de `processo` e as 4 `aplicacoes` | cliente             | foram inferidas do material; confirmar ou corrigir                                                 |
+| Público que pede cotação                              | cliente             | cargos reais (hoje inferido)                                                                       |
+| URL final e política de privacidade                   | cliente             | domínio de publicação e link da política                                                           |
+| WhatsApp comercial                                    | cliente             | número com DDI e DDD, só dígitos                                                                   |
+| Atendimento à marca Schulz                            | cliente             | confirma? Se não, negativar os termos Schulz na campanha                                           |
+| Projeto e instalação de rede de ar                    | cliente             | confirma? Se não, negativar os termos de rede na campanha                                          |
 
 Imagens citadas no material, ainda não validadas para uso: `Design-sem-nome-46.png` (assistência técnica), `Design-sem-nome-30.png.webp` (contratos), `big-image.png`, `big-image-1.png`, `Falanga-Peneumatica-Locacao-de-Compressores.jpg-1.webp`.
 
