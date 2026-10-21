@@ -15,23 +15,6 @@
  */
 
 /**
- * Limites de texto que esta LP troca, por seção — desvio registrado em docs/BRIEFING.md.
- *
- * A variante local de `diferenciais` (mockup do cliente, 21/10/2026) põe os 5 motivos em
- * cards largos de 3 colunas, onde a descrição do mockup (até ~100 caracteres) cabe em 3
- * linhas. O limite de 70 da biblioteca é o do card estreito sobreposto ao bloco navy.
- * Fica aqui, e não num consumidor só, para a ficha e o check:lp continuarem iguais.
- */
-const LOCAL_LIMITS = {
-  diferenciais: { 'item.description': 110 },
-}
-
-const withLocalLimits = (slug, contract) =>
-  LOCAL_LIMITS[slug]
-    ? { ...contract, maxLength: { ...contract.maxLength, ...LOCAL_LIMITS[slug] } }
-    : contract
-
-/**
  * Valida um objeto de conteúdo contra o `contract` do manifesto da seção.
  *
  * @param {string} file rótulo de origem (caminho do arquivo ou do bloco da ficha)
@@ -40,7 +23,7 @@ const withLocalLimits = (slug, contract) =>
  * @param {{ fail: (file: string, msg: string) => void, warn: (file: string, msg: string) => void }} report
  */
 export function checkContract(file, section, content, { fail, warn }) {
-  const c = withLocalLimits(section.slug, section.contract ?? {})
+  const c = section.contract ?? {}
   const label = `${section.slug}`
 
   const items = c.itemsPath ? content[c.itemsPath] : null

@@ -1,6 +1,6 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-21T15:10:46.811Z",
+  "gerado": "2026-10-21T15:15:16.111Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Falanga Pneumática",
@@ -376,49 +376,48 @@
       "dataExport": "why",
       "data": "diferenciais.ts",
       "conteudo": {
-        "eyebrow": "Diferenciais Falanga",
+        "eyebrow": "Por que a Falanga",
         "titleLines": [
-          "Por que escolher a Falanga",
-          "para cuidar dos seus compressores?"
+          "Reduza o tempo",
+          "de inatividade."
         ],
-        "text": "Da inspeção à manutenção, atenção técnica em cada detalhe do seu sistema de ar comprimido.",
+        "text": "A Falanga Pneumática atende compressores multimarcas com técnicos capacitados e certificados, diagnóstico avançado e peças originais, para reduzir o tempo de inatividade da sua produção em todo o Nordeste.",
+        "scene": "Sala de compressores de ar industrial",
+        "person": "Técnico da Falanga Pneumática",
         "reasons": [
           {
-            "icon": "clipboard-check",
-            "title": "Inspeção completa",
-            "description": "Verificação de vazamentos, filtros e componentes para identificar desgastes e reduzir paradas."
+            "icon": "pin",
+            "title": "Cobertura no Nordeste",
+            "description": "Atendimento em toda a região Nordeste."
           },
           {
-            "icon": "wrench",
-            "title": "Diagnóstico preciso",
-            "description": "Análise elétrica, mecânica e de controle para identificar a causa das falhas e orientar a manutenção."
+            "icon": "clock",
+            "title": "Assistência 24 horas",
+            "description": "Disponibilidade contínua para assistência técnica."
           },
           {
-            "icon": "chart",
-            "title": "Avaliação personalizada",
-            "description": "Identificação de ineficiências com recomendações adaptadas às necessidades da sua instalação."
+            "icon": "users",
+            "title": "Equipe especializada",
+            "description": "Técnicos capacitados e certificados."
           },
           {
-            "icon": "calendar",
-            "title": "Manutenção planejada",
-            "description": "Programas de serviço com cobertura de peças e serviços conforme as necessidades da operação."
+            "icon": "search",
+            "title": "Diagnóstico avançado",
+            "description": "Inspeção com ferramentas de diagnóstico avançadas."
           },
           {
-            "icon": "droplet",
-            "title": "Troca de consumíveis",
-            "description": "Substituição de lubrificantes e componentes conforme as recomendações do fabricante."
+            "icon": "shield",
+            "title": "Peças originais",
+            "description": "Uso de peças originais na reconstrução."
           }
-        ],
-        "closing": {
-          "title": "Conte com a experiência da Falanga.",
-          "text": "Converse com nossa equipe sobre a manutenção dos seus compressores."
-        }
+        ]
       }
     }
   },
   "assets": {
     "pendentes": [
-      "aplicacoes"
+      "aplicacoes",
+      "diferenciais"
     ]
   },
   "fora": {

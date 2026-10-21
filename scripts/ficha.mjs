@@ -146,10 +146,7 @@ const iconNames = (() => {
   const f = join(ROOT, 'src', 'data', 'icons.ts')
   if (!existsSync(f)) return null
   const src = readFileSync(f, 'utf8')
-  // Aceita também as chaves entre aspas (`'map-pin':`, `'clipboard-check':`): sem isso,
-  // todo ícone com hífen era recusado na ficha, embora exista em icons.ts. Defeito do
-  // starter v2.8.0, corrigido nesta LP em 21/10/2026.
-  const nomes = [...src.matchAll(/^ {2}'?([a-zA-Z][\w-]*)'?:/gm)].map((m) => m[1])
+  const nomes = [...src.matchAll(/^ {2}([a-zA-Z][\w-]*):/gm)].map((m) => m[1])
   return nomes.length ? new Set(nomes) : null
 })()
 

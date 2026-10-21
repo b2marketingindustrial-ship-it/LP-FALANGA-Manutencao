@@ -56,11 +56,6 @@ export const iconPaths = {
   /** Documento com caneta: contrato de manutenção (mockup Falanga, 21/10/2026). */
   contract:
     '<path d="M13.5 3.5H7a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h5.5"/><path d="M13.5 3.5 18 8v3"/><path d="M13.5 3.5V8H18"/><path d="M9 12h5M9 15.5h3"/><path d="m15 20.5.5-2.6 4.6-4.6a1.3 1.3 0 0 1 1.9 1.9l-4.6 4.6Z"/>',
-  /** Gráfico de barras: avaliação de ineficiências (mockup Falanga, 21/10/2026). */
-  chart: '<path d="M4 20h16"/><path d="M7 16.5v-3.5M10.7 16.5v-6M14.3 16.5V8M18 16.5V6"/>',
-  /** Calendário: manutenção planejada (mockup Falanga, 21/10/2026). */
-  calendar:
-    '<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M8 13.2h.01M12 13.2h.01M16 13.2h.01M8 16.8h.01M12 16.8h.01M16 16.8h.01" stroke-width="2.4"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.5 2"/>',
   zap: '<path d="M13 3 6 13.5h5L10 21l7.5-10.5h-5L13 3Z"/>',
   'map-pin':
