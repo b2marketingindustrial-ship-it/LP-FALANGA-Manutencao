@@ -1,6 +1,6 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-21T14:35:41.104Z",
+  "gerado": "2026-10-21T14:58:48.663Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Falanga Pneumática",
@@ -84,7 +84,7 @@
           "reparo compressor schulz",
           "manutenção em compressor schulz"
         ],
-        "responde": null
+        "responde": "linhas"
       },
       {
         "nome": "localizacao",
@@ -116,6 +116,7 @@
   "marcas": {
     "usarLogos": false,
     "nomes": [
+      "Schulz",
       "Sullair",
       "Worthington",
       "Parker Domnick Hunter",
@@ -206,60 +207,89 @@
       "dataExport": "productLines",
       "data": "linhas.ts",
       "conteudo": {
-        "eyebrow": "Serviços",
-        "title": "Serviços de manutenção em compressores",
-        "text": "Manutenção e assistência técnica para compressores Atlas Copco, Ingersoll Rand, Kaeser, Sullair, Chicago Pneumatic e outras marcas.",
+        "eyebrow": "Serviços especializados",
+        "title": "Mais confiabilidade para o seu sistema de ar comprimido.",
+        "text": "Manutenção, assistência técnica e soluções multimarcas para manter sua operação produtiva.",
+        "area": "Atendimento em todo o Nordeste",
+        "gallery": [
+          "Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015",
+          "Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga"
+        ],
+        "badge": {
+          "icon": "wrench",
+          "label": "Suporte técnico especializado"
+        },
+        "brands": {
+          "label": "Atendimento multimarcas",
+          "names": [
+            "Schulz",
+            "Atlas Copco",
+            "Ingersoll Rand",
+            "Sullair",
+            "Kaeser",
+            "Chicago Pneumatic"
+          ]
+        },
+        "closing": {
+          "title": "Conte com a experiência da Falanga.",
+          "text": "Solicite uma avaliação para o seu sistema de ar comprimido.",
+          "cta": "Solicitar cotação"
+        },
         "items": [
           {
             "id": "preventiva-corretiva",
             "tag": "Manutenção",
+            "icon": "tools",
             "title": "Manutenção preventiva e corretiva",
-            "description": "Manutenção planejada em intervalos regulares e correção de falhas no sistema de ar.",
+            "description": "Inspeções e correção de falhas para reduzir paradas e preservar o desempenho.",
             "features": [
               "Inspeção de vazamentos",
               "Limpeza de filtros",
               "Inspeção de componentes"
             ],
-            "photo": "Técnico em manutenção preventiva de compressor de ar",
+            "photo": "Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015",
             "dark": false
           },
           {
             "id": "assistencia-tecnica",
             "tag": "Assistência",
+            "icon": "worker",
             "title": "Assistência técnica especializada",
-            "description": "Atendimento técnico para compressores e secadores de ar, disponível 24 horas.",
+            "description": "Suporte para compressores e secadores, com diagnóstico e atendimento técnico.",
             "features": [
               "Compressores e secadores",
               "Disponível 24 horas",
               "Técnicos certificados"
             ],
-            "photo": "Técnico em atendimento a compressor de ar industrial",
+            "photo": "Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015",
             "dark": false
           },
           {
             "id": "reconstrucao",
             "tag": "Reforma",
+            "icon": "gear",
             "title": "Reconstrução de unidades compressoras",
-            "description": "Reconstrução de compressores de parafuso com foco em performance e durabilidade.",
+            "description": "Recupere a eficiência e a confiabilidade dos compressores de parafuso.",
             "features": [
               "Compressores de parafuso",
               "Peças originais",
               "Performance e durabilidade"
             ],
-            "photo": "Unidade compressora de parafuso em reconstrução",
+            "photo": "Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga",
             "dark": false
           },
           {
             "id": "contratos",
             "tag": "Contratos",
+            "icon": "contract",
             "title": "Contratos de manutenção",
-            "description": "Programas preditivos e preventivos, com ou sem peças sobressalentes.",
+            "description": "Planos preventivos e preditivos, com ou sem fornecimento de peças.",
             "features": [
               "Programas preditivos",
               "Programas preventivos",
               "Com ou sem peças"
             ],
-            "photo": "Sala de compressores de ar industrial",
+            "photo": "Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga",
             "dark": true
           }
         ]
@@ -386,7 +416,6 @@
   },
   "assets": {
     "pendentes": [
-      "linhas",
       "aplicacoes",
       "diferenciais"
     ]

@@ -50,6 +50,12 @@ export const iconPaths = {
   /** Chave inglesa e chave de fenda cruzadas: manutenção corretiva (mockup Falanga, 21/10/2026). */
   tools:
     '<path d="M14.5 3.6a4 4 0 0 0-4.6 5.3l-6 6a1.6 1.6 0 0 0 2.3 2.3l6-6a4 4 0 0 0 5.3-4.6l-2.5 2.5-2.3-.6-.6-2.3 2.4-2.6Z"/><path d="m4.3 3.3 2.4 1.2 1.2 2.4 6.6 6.6"/><path d="m14 14.6 1.8-1.8 4.6 4.6a1.3 1.3 0 0 1-1.8 1.8l-4.6-4.6Z"/>',
+  /** Técnico de capacete: assistência técnica (mockup Falanga, 21/10/2026). */
+  worker:
+    '<path d="M6.8 10.2a5.2 5.2 0 0 1 10.4 0"/><path d="M5.2 10.2h13.6"/><path d="M10.6 5.3v2.4M13.4 5.3v2.4"/><path d="M8.6 10.2v.6a3.4 3.4 0 0 0 6.8 0v-.6"/><path d="M5 20.5a7 7 0 0 1 14 0"/><path d="M9.5 15.4 12 18l2.5-2.6"/>',
+  /** Documento com caneta: contrato de manutenção (mockup Falanga, 21/10/2026). */
+  contract:
+    '<path d="M13.5 3.5H7a1 1 0 0 0-1 1v15a1 1 0 0 0 1 1h5.5"/><path d="M13.5 3.5 18 8v3"/><path d="M13.5 3.5V8H18"/><path d="M9 12h5M9 15.5h3"/><path d="m15 20.5.5-2.6 4.6-4.6a1.3 1.3 0 0 1 1.9 1.9l-4.6 4.6Z"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.5 2"/>',
   zap: '<path d="M13 3 6 13.5h5L10 21l7.5-10.5h-5L13 3Z"/>',
   'map-pin':

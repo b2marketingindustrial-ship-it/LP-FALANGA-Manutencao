@@ -105,13 +105,12 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 | Logo           | `src/assets/LOGO.png`   | logo oficial com o selo de 40 anos, 341×82, fundo transparente — baixada de falangapneumatica.com.br | entregue (baixa resolução: pedir vetor ou PNG 2×)              |
 | Banner do hero | `src/assets/heroBg.png` | 1981×900, recortado do segundo mockup do cliente (21/10/2026) e estendido à direita                  | **provisório** — pedir o arquivo original do banner, sem texto |
 
-| Asset                          | Arquivo esperado                                   | Especificação                                   | Status   |
-| ------------------------------ | -------------------------------------------------- | ----------------------------------------------- | -------- |
-| Fotos dos 3 primeiros serviços | `src/assets/linhas/linha-1.png` … `linha-3.png`    | PNG recortado 800×600, fundo transparente       | pendente |
-| Foto do card de contratos      | `src/assets/linhas/marcas.png`                     | 1280×800 (sala de compressores)                 | pendente |
-| 4 fotos de aplicação           | `src/assets/aplicacoes/aplicacao-1.png` … `-4.png` | JPG/PNG 1200×900 (4:3), equipamento em operação | pendente |
-| Cenário dos diferenciais       | `src/assets/diferenciais/cenario.jpg`              | 1600×900, sangra à direita do bloco navy        | pendente |
-| Técnico recortado              | `src/assets/diferenciais/pessoa.png`               | 1220×1000, corpo inteiro, fundo transparente    | pendente |
+| Asset                        | Arquivo esperado                                     | Especificação                                   | Status                                      |
+| ---------------------------- | ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------- |
+| Fotos da galeria de serviços | `src/assets/linhas/galeria-1.png` e `galeria-2.webp` | fotos do site do cliente, 450×451 e 680×682     | entregue (baixa resolução: pedir originais) |
+| 4 fotos de aplicação         | `src/assets/aplicacoes/aplicacao-1.png` … `-4.png`   | JPG/PNG 1200×900 (4:3), equipamento em operação | pendente                                    |
+| Cenário dos diferenciais     | `src/assets/diferenciais/cenario.jpg`                | 1600×900, sangra à direita do bloco navy        | pendente                                    |
+| Técnico recortado            | `src/assets/diferenciais/pessoa.png`                 | 1220×1000, corpo inteiro, fundo transparente    | pendente                                    |
 
 Imagens citadas no material e ainda não validadas para uso: `Design-sem-nome-46.png` (assistência técnica), `Design-sem-nome-30.png.webp` (contratos), `big-image.png`, `big-image-1.png`, `Falanga-Peneumatica-Locacao-de-Compressores.jpg-1.webp`.
 
@@ -163,6 +162,26 @@ Também nesta rodada:
 A foto começa 100px antes do fim da coluna 1, e o texto (no máximo 32rem) termina antes disso. A partir de ~1440px o técnico fica livre do card do chat. Entre 1024 e ~1400px o card cobre parte das costas dele, o mesmo limite do container de 1320px registrado na Spinplus.
 
 O banner foi recortado do segundo mockup e estendido à direita com o próprio desfoque. A foto original do site (`big-image-1.png`) tem só 450×451. A foto mostra compressores Schulz SRP; o site do cliente tem a página "assistência técnica Schulz" e a Schulz aparece na arte de marcas atendidas. Isso pode resolver a lacuna da família Schulz, mas o claim "autorizada" continua proibido até o cliente confirmar.
+
+## Desvios do padrão — serviços (21/10/2026)
+
+A seção `linhas` foi refeita conforme o mockup de serviços que o cliente enviou em 21/10/2026, como **variante local** do componente. É o mesmo caminho da LP Spinplus Manutenção: o arquivo `src/components/sections/ProductLines.astro` deixou de ser a cópia da biblioteca.
+
+**`npm run compose` desfaz a variante**, porque recopia o componente da biblioteca. Se a página precisar ser recomposta, reaplique a variante a partir do git.
+
+| O que o mockup pedia                                                                                         | Como entrou                                                                                                                             | Regra do padrão afetada                                          |
+| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Cabeçalho à esquerda e duas fotos à direita, a primeira com o selo "Suporte técnico especializado"           | igual; as fotos são as do site do cliente (`galeria-1.png`, `galeria-2.webp`)                                                           | regra 15 — componente da biblioteca não se edita na LP           |
+| Cards com ícone em quadrado amarelo, numeração e link "Falar com especialista →"                             | igual; um ícone por item (`icon`), com os ícones novos `worker` e `contract`                                                            | `scripts/ficha.mjs` aceita `icon` nos itens de `linhas` nesta LP |
+| Cards sem foto e sem a lista de características                                                              | `photo`, `tag` e `features` seguem no arquivo de dados e na ficha, porque o contrato da biblioteca os exige, mas não aparecem na página | contrato de `linhas`                                             |
+| Faixa "Atendimento multimarcas" com Schulz, Atlas Copco, Ingersoll Rand, Sullair, Kaeser e Chicago Pneumatic | nomes por extenso, sem logo                                                                                                             | entrada 7 — logo só com autorização                              |
+| Faixa de CTA "Conte com a experiência da Falanga." com "Solicitar cotação"                                   | igual; o botão é `btn-slave-whats` com `data-cta="linhas-cotacao"`                                                                      | —                                                                |
+| Logo da Falanga no canto da seção                                                                            | **não entrou** — a logo já está no header fixo                                                                                          | —                                                                |
+| Azul royal nos títulos, links e card escuro                                                                  | tokens `brand-blue`, `brand-yellow-soft` e `brand-mist`                                                                                 | item 2 — tokens da agência                                       |
+
+A Schulz entrou na lista de marcas da ficha e a família de palavras-chave Schulz passou a ser respondida por `linhas`. Isso tem base no material do cliente: o site tem a página "assistência técnica Schulz" e a Schulz aparece na arte de marcas atendidas. O claim "autorizada" continua proibido até o cliente confirmar a condição.
+
+As fotos do site têm 450×451 e 680×682: servem na largura em que aparecem, mas ficam suaves em tela de alta densidade. Vale pedir os originais.
 
 ## Estado da entrega
 

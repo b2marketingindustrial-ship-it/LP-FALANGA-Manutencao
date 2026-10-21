@@ -367,6 +367,9 @@ for (const [slug, bloco] of Object.entries(blocos)) {
         ...(contrato.exactlyOneTrue ?? []),
         ...(contrato.atMostOneTrue ?? []),
         ...(contrato.cellsMatchColumns ? ['cells'] : []),
+        // Desvio desta LP (21/10/2026, docs/BRIEFING.md): a variante local de `linhas`
+        // mostra um ícone por card. O nome passa pela mesma checagem de ícones abaixo.
+        ...(slug === 'linhas' ? ['icon'] : []),
       ]),
     ]
     conteudo[itemsPath].forEach((item, i) => chavesEstranhas(`blocos.${slug}`, item, permitidas, i))

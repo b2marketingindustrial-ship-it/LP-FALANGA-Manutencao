@@ -54,7 +54,7 @@ campanha:
           reparo compressor schulz,
           manutenção em compressor schulz,
         ]
-      responde: null
+      responde: linhas
     - nome: localizacao
       termos:
         [
@@ -79,6 +79,7 @@ publico: [Manutenção, Engenharia, Compras]
 marcas:
   usarLogos: false
   nomes:
+    - Schulz
     - Sullair
     - Worthington
     - Parker Domnick Hunter
@@ -140,39 +141,57 @@ conteudo:
 blocos:
   linhas:
     veredicto: completo
-    responde: [manutencao, preventiva, assistencia, parafuso, marca-atlas-copco]
+    responde: [manutencao, preventiva, assistencia, parafuso, marca-atlas-copco, marca-schulz]
     papeis: [Manutenção, Compras]
-    eyebrow: Serviços
-    title: Serviços de manutenção em compressores
-    text: Manutenção e assistência técnica para compressores Atlas Copco, Ingersoll Rand, Kaeser, Sullair, Chicago Pneumatic e outras marcas.
+    eyebrow: Serviços especializados
+    title: Mais confiabilidade para o seu sistema de ar comprimido.
+    text: Manutenção, assistência técnica e soluções multimarcas para manter sua operação produtiva.
+    area: Atendimento em todo o Nordeste
+    gallery:
+      - Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015
+      - Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga
+    badge:
+      icon: wrench
+      label: Suporte técnico especializado
+    brands:
+      label: Atendimento multimarcas
+      names: [Schulz, Atlas Copco, Ingersoll Rand, Sullair, Kaeser, Chicago Pneumatic]
+    closing:
+      title: Conte com a experiência da Falanga.
+      text: Solicite uma avaliação para o seu sistema de ar comprimido.
+      cta: Solicitar cotação
     items:
       - id: preventiva-corretiva
         tag: Manutenção
+        icon: tools
         title: Manutenção preventiva e corretiva
-        description: Manutenção planejada em intervalos regulares e correção de falhas no sistema de ar.
+        description: Inspeções e correção de falhas para reduzir paradas e preservar o desempenho.
         features: [Inspeção de vazamentos, Limpeza de filtros, Inspeção de componentes]
-        photo: Técnico em manutenção preventiva de compressor de ar
+        photo: Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015
         dark: false
       - id: assistencia-tecnica
         tag: Assistência
+        icon: worker
         title: Assistência técnica especializada
-        description: Atendimento técnico para compressores e secadores de ar, disponível 24 horas.
+        description: Suporte para compressores e secadores, com diagnóstico e atendimento técnico.
         features: [Compressores e secadores, Disponível 24 horas, Técnicos certificados]
-        photo: Técnico em atendimento a compressor de ar industrial
+        photo: Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015
         dark: false
       - id: reconstrucao
         tag: Reforma
+        icon: gear
         title: Reconstrução de unidades compressoras
-        description: Reconstrução de compressores de parafuso com foco em performance e durabilidade.
+        description: Recupere a eficiência e a confiabilidade dos compressores de parafuso.
         features: [Compressores de parafuso, Peças originais, Performance e durabilidade]
-        photo: Unidade compressora de parafuso em reconstrução
+        photo: Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga
         dark: false
       - id: contratos
         tag: Contratos
+        icon: contract
         title: Contratos de manutenção
-        description: Programas preditivos e preventivos, com ou sem peças sobressalentes.
+        description: Planos preventivos e preditivos, com ou sem fornecimento de peças.
         features: [Programas preditivos, Programas preventivos, Com ou sem peças]
-        photo: Sala de compressores de ar industrial
+        photo: Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga
         dark: true
 
   vitrine:
@@ -289,7 +308,7 @@ blocos:
     falta: a oferta não é consolidação de compras de itens diferentes
 
 assets:
-  pendentes: [linhas, aplicacoes, diferenciais]
+  pendentes: [aplicacoes, diferenciais]
 
 conflitos: []
 
@@ -360,8 +379,7 @@ Famílias sem bloco que as responda: **marca Schulz** (atendimento à marca não
 | ----------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------- |
 | Logo em alta resolução                                | cliente                    | a de `src/assets/LOGO.png` (341×82) veio do site; pedir vetor ou PNG 2× com fundo transparente     |
 | Banner do hero original                               | designer                   | o atual foi recortado do mockup; pedir o arquivo sem texto, 1981×900, compressor no primeiro terço |
-| 3 fotos de serviço recortadas                         | cliente                    | `src/assets/linhas/linha-1..3.png`, PNG 800×600, fundo transparente                                |
-| Foto da sala de compressores (card de contratos)      | cliente                    | `src/assets/linhas/marcas.png`, 1280×800                                                           |
+| Fotos da galeria de serviços em alta                  | cliente                    | as de `src/assets/linhas/` vieram do site (450×451 e 680×682); pedir os originais                  |
 | 4 fotos de aplicação                                  | cliente ou banco de imagem | `src/assets/aplicacoes/aplicacao-1..4.png`, 1200×900 (4:3), equipamento em operação                |
 | Cenário + técnico recortado                           | designer                   | `src/assets/diferenciais/cenario.jpg` 1600×900 e `pessoa.png` 1220×1000 com fundo transparente     |
 | Validar a sequência de `processo` e as 4 `aplicacoes` | cliente                    | foram inferidas do material; confirmar ou corrigir                                                 |

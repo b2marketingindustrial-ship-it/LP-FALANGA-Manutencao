@@ -19,6 +19,12 @@
      abertura — header e hero. Sempre com texto navy por cima, nunca branco. */
   --color-brand-yellow: #fde001;
   --color-brand-yellow-dark: #f0cf00;
+  /* Azul royal do mockup de serviços (21/10/2026): títulos, links e o card escuro da seção. */
+  --color-brand-blue: #0043a1;
+  --color-brand-blue-dark: #00377f;
+  /* Fundo dos quadrados de ícone e da faixa de CTA da seção de serviços. */
+  --color-brand-yellow-soft: #feedab;
+  --color-brand-mist: #ecf1f9;
 
   --container-page: 1320px;
 

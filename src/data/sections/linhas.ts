@@ -3,17 +3,22 @@
  *
  * LP de serviço: cada card é uma frente de manutenção da Falanga e o card escuro
  * fecha o grid com o atendimento recorrente — os contratos de manutenção.
+ *
+ * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): cabeçalho com
+ * duas fotos, cards com ícone, faixa de marcas e faixa de CTA. `tag`, `features` e
+ * `photo` dos itens seguem aqui porque o contrato da biblioteca os exige, mas a
+ * variante não os exibe — a foto de cada item aponta para uma das fotos da galeria.
  */
+import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
 
-import linha1 from '@assets/linhas/linha-1.png'
-import linha2 from '@assets/linhas/linha-2.png'
-import linha3 from '@assets/linhas/linha-3.png'
-import marcasPhoto from '@assets/linhas/marcas.png'
+import galeria1 from '@assets/linhas/galeria-1.png'
+import galeria2 from '@assets/linhas/galeria-2.webp'
 
 export interface ProductLine {
   id: string
   tag: string
+  icon: IconName
   title: string
   description: string
   photo: Photo
@@ -22,46 +27,70 @@ export interface ProductLine {
   dark: boolean
 }
 
+const tecnico: Photo = {
+  src: galeria1,
+  alt: 'Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015',
+}
+const compressores: Photo = {
+  src: galeria2,
+  alt: 'Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga',
+}
+
 export const productLines = {
-  eyebrow: 'Serviços',
-  title: 'Serviços de manutenção em compressores',
-  text: 'Manutenção e assistência técnica para compressores Atlas Copco, Ingersoll Rand, Kaeser, Sullair, Chicago Pneumatic e outras marcas.',
+  eyebrow: 'Serviços especializados',
+  title: 'Mais confiabilidade para o seu sistema de ar comprimido.',
+  text: 'Manutenção, assistência técnica e soluções multimarcas para manter sua operação produtiva.',
+  area: 'Atendimento em todo o Nordeste',
+  gallery: [tecnico, compressores],
+  /** Selo sobre a primeira foto da galeria. */
+  badge: { icon: 'wrench', label: 'Suporte técnico especializado' },
+  brands: {
+    label: 'Atendimento multimarcas',
+    names: ['Schulz', 'Atlas Copco', 'Ingersoll Rand', 'Sullair', 'Kaeser', 'Chicago Pneumatic'],
+  },
+  closing: {
+    title: 'Conte com a experiência da Falanga.',
+    text: 'Solicite uma avaliação para o seu sistema de ar comprimido.',
+    cta: 'Solicitar cotação',
+  },
   items: [
     {
       id: 'preventiva-corretiva',
       tag: 'Manutenção',
+      icon: 'tools',
       title: 'Manutenção preventiva e corretiva',
-      description:
-        'Manutenção planejada em intervalos regulares e correção de falhas no sistema de ar.',
-      photo: { src: linha1, alt: 'Técnico em manutenção preventiva de compressor de ar' },
+      description: 'Inspeções e correção de falhas para reduzir paradas e preservar o desempenho.',
+      photo: tecnico,
       features: ['Inspeção de vazamentos', 'Limpeza de filtros', 'Inspeção de componentes'],
       dark: false,
     },
     {
       id: 'assistencia-tecnica',
       tag: 'Assistência',
+      icon: 'worker',
       title: 'Assistência técnica especializada',
-      description: 'Atendimento técnico para compressores e secadores de ar, disponível 24 horas.',
-      photo: { src: linha2, alt: 'Técnico em atendimento a compressor de ar industrial' },
+      description: 'Suporte para compressores e secadores, com diagnóstico e atendimento técnico.',
+      photo: tecnico,
       features: ['Compressores e secadores', 'Disponível 24 horas', 'Técnicos certificados'],
       dark: false,
     },
     {
       id: 'reconstrucao',
       tag: 'Reforma',
+      icon: 'gear',
       title: 'Reconstrução de unidades compressoras',
-      description:
-        'Reconstrução de compressores de parafuso com foco em performance e durabilidade.',
-      photo: { src: linha3, alt: 'Unidade compressora de parafuso em reconstrução' },
+      description: 'Recupere a eficiência e a confiabilidade dos compressores de parafuso.',
+      photo: compressores,
       features: ['Compressores de parafuso', 'Peças originais', 'Performance e durabilidade'],
       dark: false,
     },
     {
       id: 'contratos',
       tag: 'Contratos',
+      icon: 'contract',
       title: 'Contratos de manutenção',
-      description: 'Programas preditivos e preventivos, com ou sem peças sobressalentes.',
-      photo: { src: marcasPhoto, alt: 'Sala de compressores de ar industrial' },
+      description: 'Planos preventivos e preditivos, com ou sem fornecimento de peças.',
+      photo: compressores,
       features: ['Programas preditivos', 'Programas preventivos', 'Com ou sem peças'],
       dark: true,
     },
@@ -70,6 +99,11 @@ export const productLines = {
   eyebrow: string
   title: string
   text: string
+  area: string
+  gallery: readonly [Photo, Photo]
+  badge: { icon: IconName; label: string }
+  brands: { label: string; names: readonly string[] }
+  closing: { title: string; text: string; cta: string }
   items:
     | readonly [ProductLine, ProductLine, ProductLine]
     | readonly [ProductLine, ProductLine, ProductLine, ProductLine]
