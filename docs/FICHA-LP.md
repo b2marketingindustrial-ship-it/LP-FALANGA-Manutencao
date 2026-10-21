@@ -106,22 +106,25 @@ conteudo:
   title: Manutenção de compressores em Fortaleza e Recife | Falanga Pneumática
   description: 'Manutenção de compressores multimarcas em Fortaleza e Recife: Atlas Copco, Ingersoll Rand, Kaeser, Sullair e outras. Assistência técnica 24 horas.'
   hero:
-    eyebrow: Assistência técnica multimarcas
-    title: Manutenção de compressores em Fortaleza e Recife.
-    highlight: Fortaleza e Recife.
-    text: Suporte especializado para manter sua produção em movimento. Atendimento em todo o Nordeste.
-    secondary: Conheça nossos serviços
-    banner: Compressor de parafuso em sala de ar comprimido industrial, com tubulação e reservatório
+    title: Manutenção de compressores
+    headline: [Mais eficiência.]
+    highlight: [Menos paradas, na sua indústria.]
+    text: Manutenção multimarcas e suporte especializado para manter seu sistema de ar comprimido em operação.
+    area: [Fortaleza e Recife, Atendimento em todo o Nordeste]
+    banner: Técnico da Falanga em manutenção de compressor de parafuso aberto, numa sala com outros compressores
     points:
       - icon: gear
         line1: Manutenção
         line2: preventiva
-      - icon: wrench
+      - icon: tools
         line1: Manutenção
         line2: corretiva
-      - icon: box
-        line1: Peças
-        line2: originais
+      - icon: file
+        line1: Contratos de
+        line2: manutenção
+      - icon: search
+        line1: Auditoria em
+        line2: ar comprimido
   quote:
     eyebrow: Solicite sua cotação
     title: Fale com quem entende de manutenção de compressores.

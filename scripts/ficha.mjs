@@ -278,7 +278,9 @@ function chavesEstranhas(onde, item, permitidas, i) {
 
 const pontos = get(ficha, 'conteudo.hero.points')
 if (Array.isArray(pontos)) {
-  if (pontos.length !== 3) fail('entrada 6', `${pontos.length} prova(s) no hero; são exatamente 3`)
+  // Desvio pedido pelo cliente em 21/10/2026 (docs/BRIEFING.md, Desvios do padrão): o
+  // hero desta LP mostra 4 pontos em grade 2×2, no lugar dos 3 em linha do padrão.
+  if (pontos.length !== 4) fail('entrada 6', `${pontos.length} prova(s) no hero; nesta LP são 4`)
   pontos.forEach((p, i) => {
     chavesEstranhas('entrada 6', p, ['icon', 'line1', 'line2'], i)
     for (const campo of ['icon', 'line1', 'line2'])

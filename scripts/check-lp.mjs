@@ -205,7 +205,7 @@ for (const f of astroFiles) {
     // colunas e a coluna de 300px do shortcode continuam os do padrão.
     'Hero.astro': [
       'grid-template-columns: minmax(0, 1fr) 270px 300px',
-      'left: calc(var(--col-end) - 40px)',
+      'left: calc(var(--col-end) - 100px)',
       'hero-chat',
       '<slot name="shortcode">',
       'lg:w-[300px]',

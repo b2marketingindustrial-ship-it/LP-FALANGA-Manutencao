@@ -47,6 +47,9 @@ export const iconPaths = {
     '<circle cx="5.5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="18.5" cy="12" r="1.4"/>',
   wrench:
     '<path d="M14.7 6.3a4.5 4.5 0 0 0-6 5.3L3.5 16.8l3.2 3.2 5.2-5.2a4.5 4.5 0 0 0 5.3-6l-2.9 2.9-2.4-.6-.6-2.4 2.9-2.9Z"/>',
+  /** Chave inglesa e chave de fenda cruzadas: manutenção corretiva (mockup Falanga, 21/10/2026). */
+  tools:
+    '<path d="M14.5 3.6a4 4 0 0 0-4.6 5.3l-6 6a1.6 1.6 0 0 0 2.3 2.3l6-6a4 4 0 0 0 5.3-4.6l-2.5 2.5-2.3-.6-.6-2.3 2.4-2.6Z"/><path d="m4.3 3.3 2.4 1.2 1.2 2.4 6.6 6.6"/><path d="m14 14.6 1.8-1.8 4.6 4.6a1.3 1.3 0 0 1-1.8 1.8l-4.6-4.6Z"/>',
   clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.5 2"/>',
   zap: '<path d="M13 3 6 13.5h5L10 21l7.5-10.5h-5L13 3Z"/>',
   'map-pin':

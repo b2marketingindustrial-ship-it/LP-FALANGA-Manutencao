@@ -103,7 +103,7 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 | Asset          | Arquivo esperado        | Especificação                                                                                        | Status                                                         |
 | -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Logo           | `src/assets/LOGO.png`   | logo oficial com o selo de 40 anos, 341×82, fundo transparente — baixada de falangapneumatica.com.br | entregue (baixa resolução: pedir vetor ou PNG 2×)              |
-| Banner do hero | `src/assets/heroBg.png` | 1981×900, recortado do mockup do cliente (21/10/2026) e estendido à direita                          | **provisório** — pedir o arquivo original do banner, sem texto |
+| Banner do hero | `src/assets/heroBg.png` | 1981×900, recortado do segundo mockup do cliente (21/10/2026) e estendido à direita                  | **provisório** — pedir o arquivo original do banner, sem texto |
 
 | Asset                          | Arquivo esperado                                   | Especificação                                   | Status   |
 | ------------------------------ | -------------------------------------------------- | ----------------------------------------------- | -------- |
@@ -139,23 +139,30 @@ Imagens citadas no material e ainda não validadas para uso: `Design-sem-nome-46
 
 ## Desvios do padrão — abertura (21/10/2026)
 
-Header e Hero refeitos conforme o mockup que o cliente enviou em 21/10/2026, seguindo o mesmo caminho da LP Spinplus Manutenção (19/10/2026).
+Header e Hero refeitos conforme os mockups que o cliente enviou em 21/10/2026. O segundo mockup substituiu o primeiro no hero. O caminho é o mesmo da LP Spinplus Manutenção (19/10/2026).
 
-| O que o mockup pedia                             | Como entrou                                                                 | Regra do padrão afetada                                         |
-| ------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| Header branco com a logo dentro da barra         | barra branca, logo alinhada, sem a placa pendurada                          | 4.1.1 — assinatura A8 do `check-lp.mjs` repinada                |
-| Menu A empresa · Serviços · Produtos · Contato   | **não entrou**; no lugar, a tagline em navy                                 | regra 1 — uma rota, uma página, sem menu                        |
-| CTA "Fale com um especialista" em pílula amarela | igual no desktop; "Cotação" no mobile                                       | vocabulário de CTA (item 8) e botão de cantos retos             |
-| Amarelo da Falanga                               | token `brand-yellow` (#FDE001) só na abertura, sempre com texto navy        | item 2 — o resto da página segue laranja e navy                 |
-| Foto do compressor logo depois do texto          | foto do fim da coluna 1 até a borda da tela, com a borda esquerda esmaecida | 4.1.2 — assinatura A8 repinada; grid e coluna de 300px mantidos |
-| Sem chat no hero                                 | chat **mantido** num card branco na margem direita, como na Spinplus        | regra 4 — dois slots de shortcode                               |
-| "Fortaleza e Recife." em amarelo                 | mesmo H1, com o trecho final em amarelo                                     | regra de copy sem ponto final em título                         |
-| 3 pontos: preventiva, corretiva, peças originais | itens soltos com ícone amarelo e divisórias                                 | 4.1.2 — caixa de vidro dos 3 pontos                             |
-| "Conheça nossos serviços" como link sublinhado   | link âncora para `#linhas`, com `data-cta="hero-secondary"`                 | regra 3 — todo CTA é `button.btn-slave-whats`                   |
+| O que o mockup pedia                                                            | Como entrou                                                                                        | Regra do padrão afetada                                                           |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Header branco com a logo dentro da barra                                        | barra branca, logo alinhada, sem a placa pendurada                                                 | 4.1.1 — assinatura A8 do `check-lp.mjs` repinada                                  |
+| Menu A empresa · Serviços · Produtos · Contato                                  | **não entrou**; no lugar, a tagline em navy                                                        | regra 1 — uma rota, uma página, sem menu                                          |
+| CTA "Fale com um especialista →" em pílula amarela                              | igual no desktop; "Cotação" no mobile                                                              | vocabulário de CTA (item 8) e botão de cantos retos                               |
+| Amarelo da Falanga                                                              | token `brand-yellow` (#FDE001) só na abertura, sempre com texto navy                               | item 2 — o resto da página segue laranja e navy                                   |
+| Manchete "Mais eficiência. Menos paradas na sua indústria." sem a palavra-chave | a linha de abertura "Manutenção de compressores" é o `<h1>`; a manchete é um parágrafo em destaque | regra 17 — a palavra-chave continua no H1 e no title, e visível na primeira dobra |
+| Foto do técnico no compressor logo depois do texto                              | foto do fim da coluna 1 até a borda da tela, com a borda esquerda esmaecida                        | 4.1.2 — assinatura A8 repinada; grid e coluna de 300px mantidos                   |
+| Sem chat no hero                                                                | chat **mantido** num card branco na margem direita, como na Spinplus                               | regra 4 — dois slots de shortcode                                                 |
+| 4 pontos em grade 2×2                                                           | preventiva, corretiva, contratos e auditoria, com ícone amarelo                                    | entrada 6 — 3 pontos; `scripts/ficha.mjs` aceita 4 nesta LP                       |
+| Um único CTA, sem botão secundário                                              | só "Solicite sua cotação →"; `hero-secondary` deixa de existir                                     | 4.1.2 — dois botões no hero                                                       |
+| "Fortaleza e Recife • Atendimento em todo o Nordeste" abaixo do CTA             | linha de área atendida no hero                                                                     | —                                                                                 |
 
-Também nesta rodada: o ícone `gear` passou a ser uma engrenagem de verdade (o da v2.8.0 desenha um sol), com o mesmo caminho da LP Spinplus. O `check:lp` avisa que a logo (341×82) não tem a proporção 240×200 do slot: é a proporção da logo oficial, e o header foi ajustado para ela.
+Também nesta rodada:
 
-Entre 1024 e cerca de 1600 px o card do chat cobre a borda direita do gabinete do compressor. É o limite do container de 1320 px, o mesmo registrado na Spinplus.
+- O ícone `gear` passou a ser uma engrenagem de verdade (o da v2.8.0 desenha um sol), com o mesmo caminho da LP Spinplus.
+- Entrou o ícone `tools` (chave inglesa e chave de fenda cruzadas), para "manutenção corretiva".
+- O `check:lp` avisa que a logo (341×82) não tem a proporção 240×200 do slot. É a proporção da logo oficial, e o header foi ajustado para ela.
+
+A foto começa 100px antes do fim da coluna 1, e o texto (no máximo 32rem) termina antes disso. A partir de ~1440px o técnico fica livre do card do chat. Entre 1024 e ~1400px o card cobre parte das costas dele, o mesmo limite do container de 1320px registrado na Spinplus.
+
+O banner foi recortado do segundo mockup e estendido à direita com o próprio desfoque. A foto original do site (`big-image-1.png`) tem só 450×451. A foto mostra compressores Schulz SRP; o site do cliente tem a página "assistência técnica Schulz" e a Schulz aparece na arte de marcas atendidas. Isso pode resolver a lacuna da família Schulz, mas o claim "autorizada" continua proibido até o cliente confirmar.
 
 ## Estado da entrega
 
