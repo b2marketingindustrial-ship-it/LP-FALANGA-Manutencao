@@ -56,8 +56,7 @@ const highlight = cut >= 0 ? hero.highlight : ''
         </p>
 
         <h1 class="mt-5 font-display text-[2.25rem] leading-[1.06] font-extrabold tracking-[-0.025em] text-neutral-light sm:text-[3rem] lg:text-[2.6rem] xl:text-[3.5rem] 2xl:text-[4rem]">
-          {lead}
-          {highlight && <span class="block text-brand-yellow">{highlight}</span>}
+          {lead} {highlight && <span class="block text-brand-yellow">{highlight}</span>}
         </h1>
 
         <p class="mt-6 max-w-[36rem] font-sans text-lg leading-relaxed text-neutral-light/85 2xl:text-xl">
