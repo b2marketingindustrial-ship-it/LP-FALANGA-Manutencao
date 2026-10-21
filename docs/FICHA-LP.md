@@ -275,29 +275,30 @@ blocos:
 
   diferenciais:
     veredicto: completo
-    responde: [assistencia, localizacao]
-    papeis: [Compras, Engenharia]
-    eyebrow: Por que a Falanga
-    titleLines: [Reduza o tempo, de inatividade.]
-    text: A Falanga Pneumática atende compressores multimarcas com técnicos capacitados e certificados, diagnóstico avançado e peças originais, para reduzir o tempo de inatividade da sua produção em todo o Nordeste.
-    scene: Sala de compressores de ar industrial
-    person: Técnico da Falanga Pneumática
+    responde: [assistencia, preventiva, manutencao]
+    papeis: [Manutenção, Engenharia, Compras]
+    eyebrow: Diferenciais Falanga
+    titleLines: [Por que escolher a Falanga, para cuidar dos seus compressores?]
+    text: Da inspeção à manutenção, atenção técnica em cada detalhe do seu sistema de ar comprimido.
     reasons:
-      - icon: pin
-        title: Cobertura no Nordeste
-        description: Atendimento em toda a região Nordeste.
-      - icon: clock
-        title: Assistência 24 horas
-        description: Disponibilidade contínua para assistência técnica.
-      - icon: users
-        title: Equipe especializada
-        description: Técnicos capacitados e certificados.
-      - icon: search
-        title: Diagnóstico avançado
-        description: Inspeção com ferramentas de diagnóstico avançadas.
-      - icon: shield
-        title: Peças originais
-        description: Uso de peças originais na reconstrução.
+      - icon: clipboard-check
+        title: Inspeção completa
+        description: Verificação de vazamentos, filtros e componentes para identificar desgastes e reduzir paradas.
+      - icon: wrench
+        title: Diagnóstico preciso
+        description: Análise elétrica, mecânica e de controle para identificar a causa das falhas e orientar a manutenção.
+      - icon: chart
+        title: Avaliação personalizada
+        description: Identificação de ineficiências com recomendações adaptadas às necessidades da sua instalação.
+      - icon: calendar
+        title: Manutenção planejada
+        description: Programas de serviço com cobertura de peças e serviços conforme as necessidades da operação.
+      - icon: droplet
+        title: Troca de consumíveis
+        description: Substituição de lubrificantes e componentes conforme as recomendações do fabricante.
+    closing:
+      title: Conte com a experiência da Falanga.
+      text: Converse com nossa equipe sobre a manutenção dos seus compressores.
 
   perguntas:
     veredicto: insuficiente
@@ -308,7 +309,7 @@ blocos:
     falta: a oferta não é consolidação de compras de itens diferentes
 
 assets:
-  pendentes: [aplicacoes, diferenciais]
+  pendentes: [aplicacoes]
 
 conflitos: []
 
@@ -381,7 +382,6 @@ Famílias sem bloco que as responda: **marca Schulz** (atendimento à marca não
 | Banner do hero original                               | designer                   | o atual foi recortado do mockup; pedir o arquivo sem texto, 1981×900, compressor no primeiro terço |
 | Fotos da galeria de serviços em alta                  | cliente                    | as de `src/assets/linhas/` vieram do site (450×451 e 680×682); pedir os originais                  |
 | 4 fotos de aplicação                                  | cliente ou banco de imagem | `src/assets/aplicacoes/aplicacao-1..4.png`, 1200×900 (4:3), equipamento em operação                |
-| Cenário + técnico recortado                           | designer                   | `src/assets/diferenciais/cenario.jpg` 1600×900 e `pessoa.png` 1220×1000 com fundo transparente     |
 | Validar a sequência de `processo` e as 4 `aplicacoes` | cliente                    | foram inferidas do material; confirmar ou corrigir                                                 |
 | Público que pede cotação                              | cliente                    | cargos reais (hoje inferido)                                                                       |
 | URL final e política de privacidade                   | cliente                    | domínio de publicação e link da política                                                           |

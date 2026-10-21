@@ -105,12 +105,11 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 | Logo           | `src/assets/LOGO.png`   | logo oficial com o selo de 40 anos, 341×82, fundo transparente — baixada de falangapneumatica.com.br | entregue (baixa resolução: pedir vetor ou PNG 2×)              |
 | Banner do hero | `src/assets/heroBg.png` | 1981×900, recortado do segundo mockup do cliente (21/10/2026) e estendido à direita                  | **provisório** — pedir o arquivo original do banner, sem texto |
 
-| Asset                        | Arquivo esperado                                     | Especificação                                   | Status                                      |
-| ---------------------------- | ---------------------------------------------------- | ----------------------------------------------- | ------------------------------------------- |
-| Fotos da galeria de serviços | `src/assets/linhas/galeria-1.png` e `galeria-2.webp` | fotos do site do cliente, 450×451 e 680×682     | entregue (baixa resolução: pedir originais) |
-| 4 fotos de aplicação         | `src/assets/aplicacoes/aplicacao-1.png` … `-4.png`   | JPG/PNG 1200×900 (4:3), equipamento em operação | pendente                                    |
-| Cenário dos diferenciais     | `src/assets/diferenciais/cenario.jpg`                | 1600×900, sangra à direita do bloco navy        | pendente                                    |
-| Técnico recortado            | `src/assets/diferenciais/pessoa.png`                 | 1220×1000, corpo inteiro, fundo transparente    | pendente                                    |
+| Asset                                        | Arquivo esperado                                     | Especificação                                    | Status                                      |
+| -------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------ | ------------------------------------------- |
+| Fotos da galeria de serviços                 | `src/assets/linhas/galeria-1.png` e `galeria-2.webp` | fotos do site do cliente, 450×451 e 680×682      | entregue (baixa resolução: pedir originais) |
+| 4 fotos de aplicação                         | `src/assets/aplicacoes/aplicacao-1.png` … `-4.png`   | JPG/PNG 1200×900 (4:3), equipamento em operação  | pendente                                    |
+| Cenário e técnico recortado dos diferenciais | —                                                    | não usados pela variante local de `diferenciais` | dispensados (21/10/2026)                    |
 
 Imagens citadas no material e ainda não validadas para uso: `Design-sem-nome-46.png` (assistência técnica), `Design-sem-nome-30.png.webp` (contratos), `big-image.png`, `big-image-1.png`, `Falanga-Peneumatica-Locacao-de-Compressores.jpg-1.webp`.
 
@@ -182,6 +181,23 @@ A seção `linhas` foi refeita conforme o mockup de serviços que o cliente envi
 A Schulz entrou na lista de marcas da ficha e a família de palavras-chave Schulz passou a ser respondida por `linhas`. Isso tem base no material do cliente: o site tem a página "assistência técnica Schulz" e a Schulz aparece na arte de marcas atendidas. O claim "autorizada" continua proibido até o cliente confirmar a condição.
 
 As fotos do site têm 450×451 e 680×682: servem na largura em que aparecem, mas ficam suaves em tela de alta densidade. Vale pedir os originais.
+
+## Desvios do padrão — diferenciais (21/10/2026)
+
+A seção `diferenciais` foi refeita conforme o mockup "Por que escolher a Falanga", que o cliente enviou em 21/10/2026. É uma **variante local** de `src/components/sections/WhyBrand.astro`, no mesmo caminho da Spinplus, e **`npm run compose` desfaz a variante**.
+
+A copy dos cinco motivos veio da lista "Por que escolher as nossas soluções de manutenção de compressores?" do site do cliente, reescrita no mockup.
+
+| O que o mockup pedia                                                         | Como entrou                                                                                                                                  | Regra do padrão afetada                    |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| Cabeçalho "Por que escolher a Falanga para cuidar dos seus compressores?"    | igual, em 2 linhas a partir do desktop                                                                                                       | needs.copy — `titleLines` com 3–6 palavras |
+| 5 motivos em cards de 3 colunas, com ícone em quadrado amarelo e numeração   | igual; ícones novos `chart` e `calendar`                                                                                                     | —                                          |
+| Descrições de até ~100 caracteres                                            | limite de `item.description` em `diferenciais` passa de 70 para 110 em `scripts/lib/contract.mjs`, que vale para a ficha e para o `check:lp` | contrato de `diferenciais`                 |
+| Card azul "Conte com a experiência da Falanga." com "Falar com especialista" | igual; é o CTA `diferenciais-cta` e o bloco escuro da segunda metade da página                                                               | 4.2 — bloco navy em largura total          |
+| Sem foto de cenário nem pessoa recortada                                     | os dois placeholders saíram, e `diferenciais` saiu de `assets.pendentes`                                                                     | assets do manifesto                        |
+| Logo da Falanga ao lado do título                                            | **não entrou** — a logo já está no header fixo                                                                                               | —                                          |
+
+Junto, um defeito do starter corrigido nesta LP: o `npm run ficha` recusava ícones com hífen (`map-pin`, `clipboard-check`), embora existam em `icons.ts`. A regex que lê os nomes passou a aceitar as chaves entre aspas.
 
 ## Estado da entrega
 
