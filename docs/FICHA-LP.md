@@ -106,20 +106,22 @@ conteudo:
   title: Manutenção de compressores em Fortaleza e Recife | Falanga Pneumática
   description: 'Manutenção de compressores multimarcas em Fortaleza e Recife: Atlas Copco, Ingersoll Rand, Kaeser, Sullair e outras. Assistência técnica 24 horas.'
   hero:
-    eyebrow: Ar comprimido industrial
-    title: Manutenção de compressores em Fortaleza e Recife
-    text: Assistência técnica multimarcas para compressores e secadores de ar, com unidades no Ceará e em Pernambuco e atendimento em todo o Nordeste.
-    banner: Compressor de ar industrial em manutenção
+    eyebrow: Assistência técnica multimarcas
+    title: Manutenção de compressores em Fortaleza e Recife.
+    highlight: Fortaleza e Recife.
+    text: Suporte especializado para manter sua produção em movimento. Atendimento em todo o Nordeste.
+    secondary: Conheça nossos serviços
+    banner: Compressor de parafuso em sala de ar comprimido industrial, com tubulação e reservatório
     points:
       - icon: gear
-        line1: Compressores
-        line2: multimarcas
-      - icon: pin
-        line1: Atendimento em
-        line2: todo o Nordeste
-      - icon: clock
-        line1: Assistência técnica
-        line2: 24 horas
+        line1: Manutenção
+        line2: preventiva
+      - icon: wrench
+        line1: Manutenção
+        line2: corretiva
+      - icon: box
+        line1: Peças
+        line2: originais
   quote:
     eyebrow: Solicite sua cotação
     title: Fale com quem entende de manutenção de compressores.
@@ -284,7 +286,7 @@ blocos:
     falta: a oferta não é consolidação de compras de itens diferentes
 
 assets:
-  pendentes: [LOGO, heroBg, linhas, aplicacoes, diferenciais]
+  pendentes: [linhas, aplicacoes, diferenciais]
 
 conflitos: []
 
@@ -351,20 +353,20 @@ Famílias sem bloco que as responda: **marca Schulz** (atendimento à marca não
 
 ## Pendências
 
-| O que falta                                           | Quem resolve               | Especificação                                                                                  |
-| ----------------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------- |
-| Logo Falanga Pneumática                               | cliente                    | `src/assets/LOGO.png`, 240×200, fundo transparente                                             |
-| Banner do hero                                        | designer                   | `src/assets/heroBg.png`, 1981×900, assunto entre 62% e 79% da largura, lado esquerdo escuro    |
-| 3 fotos de serviço recortadas                         | cliente                    | `src/assets/linhas/linha-1..3.png`, PNG 800×600, fundo transparente                            |
-| Foto da sala de compressores (card de contratos)      | cliente                    | `src/assets/linhas/marcas.png`, 1280×800                                                       |
-| 4 fotos de aplicação                                  | cliente ou banco de imagem | `src/assets/aplicacoes/aplicacao-1..4.png`, 1200×900 (4:3), equipamento em operação            |
-| Cenário + técnico recortado                           | designer                   | `src/assets/diferenciais/cenario.jpg` 1600×900 e `pessoa.png` 1220×1000 com fundo transparente |
-| Validar a sequência de `processo` e as 4 `aplicacoes` | cliente                    | foram inferidas do material; confirmar ou corrigir                                             |
-| Público que pede cotação                              | cliente                    | cargos reais (hoje inferido)                                                                   |
-| URL final e política de privacidade                   | cliente                    | domínio de publicação e link da política                                                       |
-| WhatsApp comercial                                    | cliente                    | número com DDI e DDD, só dígitos                                                               |
-| Atendimento à marca Schulz                            | cliente                    | confirma? Se não, negativar os termos Schulz na campanha                                       |
-| Projeto e instalação de rede de ar                    | cliente                    | confirma? Se não, negativar os termos de rede na campanha                                      |
+| O que falta                                           | Quem resolve               | Especificação                                                                                      |
+| ----------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------- |
+| Logo em alta resolução                                | cliente                    | a de `src/assets/LOGO.png` (341×82) veio do site; pedir vetor ou PNG 2× com fundo transparente     |
+| Banner do hero original                               | designer                   | o atual foi recortado do mockup; pedir o arquivo sem texto, 1981×900, compressor no primeiro terço |
+| 3 fotos de serviço recortadas                         | cliente                    | `src/assets/linhas/linha-1..3.png`, PNG 800×600, fundo transparente                                |
+| Foto da sala de compressores (card de contratos)      | cliente                    | `src/assets/linhas/marcas.png`, 1280×800                                                           |
+| 4 fotos de aplicação                                  | cliente ou banco de imagem | `src/assets/aplicacoes/aplicacao-1..4.png`, 1200×900 (4:3), equipamento em operação                |
+| Cenário + técnico recortado                           | designer                   | `src/assets/diferenciais/cenario.jpg` 1600×900 e `pessoa.png` 1220×1000 com fundo transparente     |
+| Validar a sequência de `processo` e as 4 `aplicacoes` | cliente                    | foram inferidas do material; confirmar ou corrigir                                                 |
+| Público que pede cotação                              | cliente                    | cargos reais (hoje inferido)                                                                       |
+| URL final e política de privacidade                   | cliente                    | domínio de publicação e link da política                                                           |
+| WhatsApp comercial                                    | cliente                    | número com DDI e DDD, só dígitos                                                                   |
+| Atendimento à marca Schulz                            | cliente                    | confirma? Se não, negativar os termos Schulz na campanha                                           |
+| Projeto e instalação de rede de ar                    | cliente                    | confirma? Se não, negativar os termos de rede na campanha                                          |
 
 Imagens citadas no material, ainda não validadas para uso: `Design-sem-nome-46.png` (assistência técnica), `Design-sem-nome-30.png.webp` (contratos), `big-image.png`, `big-image-1.png`, `Falanga-Peneumatica-Locacao-de-Compressores.jpg-1.webp`.
 

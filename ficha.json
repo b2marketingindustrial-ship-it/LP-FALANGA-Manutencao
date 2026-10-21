@@ -1,6 +1,6 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-21T13:42:28.081Z",
+  "gerado": "2026-10-21T14:08:47.608Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Falanga Pneumática",
@@ -144,25 +144,27 @@
     "title": "Manutenção de compressores em Fortaleza e Recife | Falanga Pneumática",
     "description": "Manutenção de compressores multimarcas em Fortaleza e Recife: Atlas Copco, Ingersoll Rand, Kaeser, Sullair e outras. Assistência técnica 24 horas.",
     "hero": {
-      "eyebrow": "Ar comprimido industrial",
-      "title": "Manutenção de compressores em Fortaleza e Recife",
-      "text": "Assistência técnica multimarcas para compressores e secadores de ar, com unidades no Ceará e em Pernambuco e atendimento em todo o Nordeste.",
-      "banner": "Compressor de ar industrial em manutenção",
+      "eyebrow": "Assistência técnica multimarcas",
+      "title": "Manutenção de compressores em Fortaleza e Recife.",
+      "highlight": "Fortaleza e Recife.",
+      "text": "Suporte especializado para manter sua produção em movimento. Atendimento em todo o Nordeste.",
+      "secondary": "Conheça nossos serviços",
+      "banner": "Compressor de parafuso em sala de ar comprimido industrial, com tubulação e reservatório",
       "points": [
         {
           "icon": "gear",
-          "line1": "Compressores",
-          "line2": "multimarcas"
+          "line1": "Manutenção",
+          "line2": "preventiva"
         },
         {
-          "icon": "pin",
-          "line1": "Atendimento em",
-          "line2": "todo o Nordeste"
+          "icon": "wrench",
+          "line1": "Manutenção",
+          "line2": "corretiva"
         },
         {
-          "icon": "clock",
-          "line1": "Assistência técnica",
-          "line2": "24 horas"
+          "icon": "box",
+          "line1": "Peças",
+          "line2": "originais"
         }
       ]
     },
@@ -371,8 +373,6 @@
   },
   "assets": {
     "pendentes": [
-      "LOGO",
-      "heroBg",
       "linhas",
       "aplicacoes",
       "diferenciais"

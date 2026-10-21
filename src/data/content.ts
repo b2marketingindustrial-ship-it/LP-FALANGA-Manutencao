@@ -41,27 +41,36 @@ export const cta = {
 
 export const header = {
   tagline: site.product,
+  /** Rótulo do CTA do header no desktop, do mockup do cliente (21/10/2026). */
+  cta: 'Fale com um especialista',
 } as const
 
 /* -------------------------------------------------------------------- hero */
 
 export const hero = {
-  eyebrow: 'Ar comprimido industrial',
-  title: 'Manutenção de compressores em Fortaleza e Recife',
-  text: 'Assistência técnica multimarcas para compressores e secadores de ar, com unidades no Ceará e em Pernambuco e atendimento em todo o Nordeste.',
+  eyebrow: 'Assistência técnica multimarcas',
+  /** H1 inteiro: é o que o check:lp confere contra a palavra-chave da campanha. */
+  title: 'Manutenção de compressores em Fortaleza e Recife.',
+  /** Trecho final do H1 que vai em amarelo, em linha própria. Tem de estar em `title`. */
+  highlight: 'Fortaleza e Recife.',
+  text: 'Suporte especializado para manter sua produção em movimento. Atendimento em todo o Nordeste.',
+  /** Link de rolagem até os serviços, no lugar do botão secundário (mockup do cliente). */
+  secondary: { label: 'Conheça nossos serviços', target: '#linhas' },
   banner: {
     src: heroBg,
-    alt: 'Compressor de ar industrial em manutenção',
+    alt: 'Compressor de parafuso em sala de ar comprimido industrial, com tubulação e reservatório',
   },
   points: [
-    { icon: 'gear', line1: 'Compressores', line2: 'multimarcas' },
-    { icon: 'pin', line1: 'Atendimento em', line2: 'todo o Nordeste' },
-    { icon: 'clock', line1: 'Assistência técnica', line2: '24 horas' },
+    { icon: 'gear', line1: 'Manutenção', line2: 'preventiva' },
+    { icon: 'wrench', line1: 'Manutenção', line2: 'corretiva' },
+    { icon: 'box', line1: 'Peças', line2: 'originais' },
   ],
 } as const satisfies {
   eyebrow: string
   title: string
+  highlight: string
   text: string
+  secondary: { label: string; target: `#${string}` }
   banner: Photo
   points: readonly [HeroPoint, HeroPoint, HeroPoint]
 }

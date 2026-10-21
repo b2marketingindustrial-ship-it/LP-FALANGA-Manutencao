@@ -1,82 +1,75 @@
 ---
 /**
  * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.2). Grid desktop: texto (1fr) · coluna VAZIA (270px) · shortcode (300px).
- * A coluna 2 é a janela do banner; nunca coloque conteúdo nela. O banner segue o brief 4.1.3.
- * Abra a página com `?grid=1` para ver as colunas e a zona do assunto sobre a imagem.
+ * A coluna 2 é a janela do banner; nunca coloque conteúdo nela.
+ * Abra a página com `?grid=1` para ver as colunas e o início da foto.
+ *
+ * Desvio pedido pelo cliente em 21/10/2026 (mockup da abertura): o compressor começa logo
+ * depois do texto, com a foto ancorada ao fim da coluna 1 até a borda da tela; a parte
+ * final do H1 vem em amarelo; os três pontos são itens soltos com ícone amarelo e
+ * divisórias; o CTA primário é uma pílula amarela e o secundário, um link sublinhado
+ * que rola até os serviços. O shortcode do chat fica num card branco que encosta na
+ * margem da tela. Grid e coluna de 300px do shortcode seguem os do padrão.
+ * Registrado em docs/BRIEFING.md (Desvios do padrão).
  */
 import { Picture } from 'astro:assets'
 import Icon from './Icon.astro'
-import Button from './Button.astro'
-import Eyebrow from './Eyebrow.astro'
 import { hero, cta } from '../data/content'
 
 const isDev = import.meta.env.DEV
+
+// O trecho em amarelo é o fim do H1; o texto inteiro continua em `hero.title`.
+const cut = hero.title.lastIndexOf(hero.highlight)
+const lead = cut >= 0 ? hero.title.slice(0, cut).trimEnd() : hero.title
+const highlight = cut >= 0 ? hero.highlight : ''
 ---
 
-<section class="relative overflow-hidden border-b border-white/15 bg-primary-dark-900" data-hero>
-  {/* z1 — banner ancorado à borda direita do container (desktop) */}
-  <div class="hero-photo absolute inset-0 z-[1]">
+<section class="hero relative overflow-hidden [container-type:inline-size]" data-hero>
+  {/* z1 — banner: faixa no rodapé da seção no mobile; no desktop, do fim da coluna de texto à borda da tela */}
+  <div class="hero-photo hero-fade absolute inset-x-0 bottom-0 z-[1] h-[300px] lg:inset-y-0 lg:h-auto">
     <Picture
       src={hero.banner.src}
       alt={hero.banner.alt}
       widths={[640, 1024, 1536, 1981]}
-      sizes="(min-width: 1024px) 1700px, 100vw"
+      sizes="(min-width: 1024px) 1660px, 700px"
       formats={['avif', 'webp']}
       fallbackFormat="webp"
       loading="eager"
       fetchpriority="high"
       decoding="async"
-      class="h-full w-full object-cover"
+      class="h-full w-full object-cover object-left"
       pictureAttributes={{ class: 'block h-full w-full' }}
     />
   </div>
 
-  {/* z2 — véus navy: esquerdo (texto) e direito (shortcode) */}
-  <div class="hero-navy pointer-events-none absolute inset-y-0 left-0 z-[2] w-full"></div>
-  <div class="hero-navy-right pointer-events-none absolute inset-y-0 right-0 z-[2] hidden lg:block"></div>
-
-  {/* z3 — malha de pontos */}
-  <div
-    class="hero-dots pointer-events-none absolute inset-y-0 left-0 z-[3] w-full opacity-[0.35] lg:[mask-image:linear-gradient(to_right,black_70%,transparent_100%)]"
-    style="background-image: radial-gradient(circle, rgb(255 255 255 / 0.5) 1px, transparent 1px); background-size: 28px 28px;"
-  ></div>
-
-  {/* z4 — mira técnica */}
-  <svg
-    class="pointer-events-none absolute top-6 left-6 z-[4] size-4 text-white/50"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.5"
-    aria-hidden="true"
-  >
-    <circle cx="12" cy="12" r="9"></circle>
-    <path d="M12 3v4M12 17v4M3 12h4M17 12h4"></path>
-  </svg>
-
   {/* z5 — conteúdo */}
-  <div class="relative z-[5] mx-auto max-w-page px-6 py-20 lg:px-10 lg:py-24">
-    <div class="hero-grid grid items-center gap-y-12 lg:gap-x-6">
+  <div class="relative z-[5] mx-auto max-w-page px-6 pt-14 pb-[320px] lg:px-10 lg:py-24">
+    <div class="hero-grid grid items-center gap-y-12 lg:min-h-[560px] lg:gap-x-6">
       {/* Coluna 1 — textos */}
       <div class="max-w-xl lg:max-w-none">
-        <Eyebrow tone="light">{hero.eyebrow}</Eyebrow>
+        <p class="flex items-center gap-4 font-sans text-[12px] font-semibold tracking-[0.2em] text-neutral-light/90 uppercase sm:text-[13px]">
+          <span
+            aria-hidden="true"
+            class="h-[3px] w-12 shrink-0 rounded-full bg-brand-yellow"
+          ></span>
+          {hero.eyebrow}
+        </p>
 
-        <h1 class="mt-2 font-display text-[2.75rem] leading-[1.1] font-extrabold text-neutral-light sm:text-[3rem] lg:text-[2.75rem] xl:text-[3.1rem]">
-          {hero.title}
+        <h1 class="mt-5 font-display text-[2.25rem] leading-[1.06] font-extrabold tracking-[-0.025em] text-neutral-light sm:text-[3rem] lg:text-[2.6rem] xl:text-[3.5rem] 2xl:text-[4rem]">
+          {lead}
+          {highlight && <span class="block text-brand-yellow">{highlight}</span>}
         </h1>
 
-        <p class="mt-5 font-sans text-lg leading-relaxed text-neutral-light/75 lg:text-base">
+        <p class="mt-6 max-w-[36rem] font-sans text-lg leading-relaxed text-neutral-light/85 2xl:text-xl">
           {hero.text}
         </p>
 
-        {/* Caixa de 3 pontos — texto sempre em duas linhas */}
-        <ul class="hero-points relative z-[3] mt-7 inline-flex max-w-full flex-wrap gap-x-5 gap-y-3 rounded-xl border border-white/10 bg-primary-dark-900/55 px-3.5 py-2.5 shadow-[0_18px_40px_-24px_rgba(0,0,0,0.7)] backdrop-blur-md sm:gap-x-6 sm:px-4 lg:w-max lg:max-w-none lg:flex-nowrap lg:gap-x-6">
+        {/* 3 pontos soltos: ícone amarelo e texto sempre em duas linhas, com divisórias */}
+        <ul class="hero-points mt-8 flex flex-col gap-y-4 sm:flex-row sm:gap-y-0">
           {hero.points.map((point) => (
-            <li class="hero-point flex items-center gap-2.5">
-              <span class="flex size-10 shrink-0 items-center justify-center rounded-lg border border-white/25 bg-white/10 backdrop-blur-sm">
-                <Icon name={point.icon} class="size-[18px] text-neutral-light" />
-              </span>
-              <span class="font-sans text-[13.5px] leading-snug font-semibold text-neutral-light [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+            <li class="hero-point flex items-center gap-3.5">
+              <Icon name={point.icon} class="size-9 shrink-0 text-brand-yellow" />
+              <span class="font-sans text-[15px] leading-snug font-medium text-neutral-light/90">
                 <span class="block whitespace-nowrap">{point.line1}</span>
                 <span class="block whitespace-nowrap">{point.line2}</span>
               </span>
@@ -84,65 +77,68 @@ const isDev = import.meta.env.DEV
           ))}
         </ul>
 
-        <div class="mt-7 flex flex-wrap items-center gap-4">
-          <Button cta="hero-primary" variant="primary">
-            {cta.primary}
-          </Button>
-          <Button
-            cta="hero-secondary"
-            variant="outline-light"
-            iconName="search"
-            iconPosition="left"
+        <div class="mt-9 flex flex-wrap items-center gap-x-9 gap-y-5">
+          <button
+            type="button"
+            data-cta="hero-primary"
+            class="btn-slave-whats inline-flex items-center gap-3 rounded-full bg-brand-yellow px-8 py-4 font-sans text-[17px] font-bold text-primary-dark-900 shadow-[0_16px_32px_-16px_rgba(253,224,1,0.6)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none"
           >
-            {cta.secondary}
-          </Button>
+            {cta.primary}
+            <Icon name="chevron-right" class="size-5 [stroke-width:2.6]" />
+          </button>
+          <a
+            href={hero.secondary.target}
+            data-cta="hero-secondary"
+            class="border-b-2 border-neutral-light/80 pb-1 font-sans text-[16px] font-semibold text-neutral-light transition-colors duration-200 hover:border-brand-yellow hover:text-brand-yellow motion-reduce:transition-none"
+          >
+            {hero.secondary.label}
+          </a>
         </div>
       </div>
 
       {/* Coluna 2 — VAZIA de propósito: janela do banner */}
       <div class="hidden lg:block" aria-hidden="true"></div>
 
-      {/* Coluna 3 — shortcode do chat (300px) */}
-      <div class="w-full lg:w-[300px]">
-        <slot name="shortcode">
-          {isDev ? (
-            <div
-              class="flex min-h-[430px] w-full flex-col gap-3 rounded-lg border border-white/15 bg-neutral-light p-4 text-left"
-              aria-label="Mock do chat (só em desenvolvimento)"
-            >
-              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
-                Mock · chat
-              </span>
-              <p class="font-display text-base font-bold text-ink">Fale com um especialista</p>
-              <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
-              <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
-              <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
-              <div class="h-24 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
-              <div class="mt-auto h-11 rounded bg-accent-orange/80" />
-            </div>
-          ) : (
-            <div class="flex min-h-[430px] w-full flex-col items-center justify-center gap-3 border border-dashed border-neutral-light/35 bg-primary-dark-900/80 p-6 text-center backdrop-blur-sm">
-              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
-                Espaço reservado
-              </span>
-              <p class="font-display text-lg font-bold text-neutral-light">Shortcode — 300px</p>
-            </div>
-          )}
-        </slot>
+      {/* Coluna 3 — shortcode do chat (300px), em card branco que encosta na margem da tela */}
+      <div class="hero-chat w-full lg:w-[300px]">
+        <div class="min-h-[430px] w-full overflow-hidden rounded-2xl bg-neutral-light p-4 shadow-[0_30px_60px_-28px_rgba(0,0,0,0.7)]">
+          <slot name="shortcode">
+            {isDev ? (
+              <div
+                class="flex min-h-[398px] w-full flex-col gap-3 text-left"
+                aria-label="Mock do chat (só em desenvolvimento)"
+              >
+                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-primary-dark uppercase">
+                  Mock · chat
+                </span>
+                <p class="font-display text-base font-bold text-ink">Inicie seu atendimento</p>
+                <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
+                <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
+                <div class="h-24 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
+                <div class="mt-auto h-11 rounded-full bg-brand-yellow" />
+              </div>
+            ) : (
+              <div class="flex min-h-[398px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-primary-dark/25 p-6 text-center">
+                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
+                  Espaço reservado
+                </span>
+                <p class="font-display text-lg font-bold text-ink">Shortcode — 300px</p>
+              </div>
+            )}
+          </slot>
+        </div>
       </div>
     </div>
   </div>
 
   {/* Overlay de depuração: ?grid=1 */}
   <div data-hero-grid hidden class="pointer-events-none absolute inset-0 z-[9]">
-    <div class="hero-photo absolute inset-0">
-      <div class="absolute inset-y-0 left-[62%] w-[17%] border-x-2 border-dashed border-accent-orange bg-accent-orange/10">
-        <span class="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[11px] font-bold whitespace-nowrap text-accent-orange">
-          zona B · 62–79%
+    <div class="hero-photo absolute inset-0 hidden lg:block">
+      <div class="absolute inset-y-0 left-0 border-l-2 border-dashed border-brand-yellow">
+        <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] whitespace-nowrap text-brand-yellow">
+          início da foto
         </span>
       </div>
-      <div class="absolute inset-x-0 top-[17.5%] border-t border-dashed border-white/50"></div>
-      <div class="absolute inset-x-0 bottom-[17.5%] border-t border-dashed border-white/50"></div>
     </div>
     <div class="mx-auto h-full max-w-page px-6 lg:px-10">
       <div class="hero-grid grid h-full lg:gap-x-6">
@@ -151,8 +147,8 @@ const isDev = import.meta.env.DEV
             col 1 · texto
           </span>
         </div>
-        <div class="hidden border-x border-dashed border-accent-orange lg:block">
-          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-accent-orange">
+        <div class="hidden border-x border-dashed border-brand-yellow lg:block">
+          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-brand-yellow">
             col 2 · 270px · vazia
           </span>
         </div>
@@ -167,39 +163,35 @@ const isDev = import.meta.env.DEV
 </section>
 
 <style>
-  /* Divisórias sutis entre os destaques do hero (a partir de tablet) */
-  @media (width >= 40rem) {
-    .hero-point + .hero-point {
-      padding-left: 1.25rem;
-      border-left: 1px solid rgb(255 255 255 / 0.18);
-    }
+  /* Fundo do mockup: azul mais claro no canto superior esquerdo, navy no resto. */
+  .hero {
+    background:
+      radial-gradient(900px 560px at 0% 0%, rgb(1 69 136 / 0.85) 0%, transparent 62%),
+      linear-gradient(180deg, #00244c 0%, #002247 55%, #002753 100%);
   }
 
-  @media (width >= 64rem) {
+  /* Divisórias sutis entre os pontos (a partir de tablet) */
+  @media (width >= 40rem) {
     .hero-point + .hero-point {
-      padding-left: 1.5rem;
+      margin-left: 1.75rem;
+      padding-left: 1.75rem;
+      border-left: 1px solid rgb(255 255 255 / 0.2);
     }
   }
 
   /* Metade da largura da página (1320px / 2): ancora as colunas e a foto no mesmo eixo. */
   .hero-photo,
-  .hero-navy,
-  .hero-navy-right,
-  .hero-dots,
   .hero-grid {
     --page-half: calc(var(--container-page) / 2);
     --page-edge: max(0px, calc(50% - var(--page-half)));
+    /* Fim da coluna de texto: page-edge + min(100%, página) − 658px (padding 40 · 270 · 300 · 2 gaps de 24). */
+    --col-end: calc(var(--page-edge) + min(100%, var(--container-page)) - 658px);
   }
 
-  .hero-navy {
-    background:
-      radial-gradient(1100px 520px at 12% -8%, rgb(255 255 255 / 0.1) 0%, transparent 55%),
-      linear-gradient(
-        to right,
-        var(--color-primary-dark) 0%,
-        var(--color-primary-dark-800) 55%,
-        transparent 96%
-      );
+  /* Mobile: a faixa da foto no rodapé do hero nasce do fundo navy, sem borda reta. */
+  .hero-fade {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7rem);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 7rem);
   }
 
   @media (min-width: 1024px) {
@@ -208,40 +200,30 @@ const isDev = import.meta.env.DEV
       grid-template-columns: minmax(0, 1fr) 270px 300px;
     }
 
-    /* A foto termina na borda direita da página; com 1700px o assunto (62–79% da foto) cai na coluna 2. */
+    /* A foto começa 40px antes do fim do texto (a borda esquerda dela é esfumada) e vai */
+    /* até a borda da tela. Com o hero de ao menos 752px, o compressor (primeiros ~28% */
+    /* do banner) cai na coluna 2, logo depois do texto, como no mockup. */
     .hero-photo {
-      left: auto;
-      right: var(--page-edge);
-      width: 1700px;
+      left: calc(var(--col-end) - 40px);
+      right: 0;
     }
 
-    /* Navy sólido sob a coluna 1, dissolvendo antes da janela. */
-    .hero-navy {
-      width: calc(50% - 20px);
-      background:
-        radial-gradient(900px 520px at 10% -10%, rgb(255 255 255 / 0.1) 0%, transparent 55%),
-        linear-gradient(
-          to left,
-          transparent 0px,
-          rgb(0 24 48 / 0.45) 70px,
-          var(--color-primary-dark-800) 150px,
-          var(--color-primary-dark) 100%
-        );
-    }
-
-    /* Navy da direita: cobre a coluna do shortcode e fecha a margem da página. */
-    .hero-navy-right {
-      width: calc(50% - 261px);
-      background: linear-gradient(
+    /* A borda esquerda da foto some no fundo da seção: o banner foi recortado do mockup e */
+    /* começa no meio do reservatório. Máscara, e não véu por cima, para não haver cor a casar. */
+    .hero-fade {
+      -webkit-mask-image: linear-gradient(
         to right,
-        transparent 0px,
-        rgb(0 24 48 / 0.55) 200px,
-        var(--color-primary-dark-900) 364px
+        transparent 0,
+        rgb(0 0 0 / 0.45) 90px,
+        #000 220px
       );
+      mask-image: linear-gradient(to right, transparent 0, rgb(0 0 0 / 0.45) 90px, #000 220px);
     }
 
-    .hero-dots {
-      width: calc(50% - 60px);
+    /* O card do chat sai do container e encosta na margem da tela, sobre o fundo azul. */
+    /* cqw e não %: em translateX o % seria da largura do próprio card, não da seção. */
+    .hero-chat {
+      transform: translateX(max(0px, calc(50cqw - var(--container-page) / 2)));
     }
   }
 </style>

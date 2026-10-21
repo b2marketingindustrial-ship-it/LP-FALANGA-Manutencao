@@ -190,11 +190,24 @@ for (const f of astroFiles) {
 /* A8. Estrutura fixa: assinaturas do Header, Hero, Cotação e Footer ---------- */
 {
   const expect = {
-    'Header.astro': ['sticky top-0 z-50', '-mt-3 -mb-10', 'rounded-b-xl', 'data-cta="header-cta"'],
+    // Desvio pedido pelo cliente em 21/10/2026 (mockup da abertura, docs/BRIEFING.md,
+    // Desvios do padrão): barra branca com a logo alinhada dentro dela, no lugar da barra
+    // navy com a placa pendurada. A assinatura foi repinada na estrutura nova — ela
+    // continua guardando contra mudança acidental, agora a partir desta base.
+    'Header.astro': [
+      'sticky top-0 z-50',
+      'bg-neutral-light',
+      'header-logo',
+      'data-cta="header-cta"',
+    ],
+    // Mesmo desvio: a foto vai do fim da coluna de texto até a borda da tela, e o
+    // shortcode do chat fica num card branco que encosta na margem. O grid de três
+    // colunas e a coluna de 300px do shortcode continuam os do padrão.
     'Hero.astro': [
       'grid-template-columns: minmax(0, 1fr) 270px 300px',
-      'right: var(--page-edge)',
-      'width: 1700px',
+      'left: calc(var(--col-end) - 40px)',
+      'hero-chat',
+      '<slot name="shortcode">',
       'lg:w-[300px]',
       'data-hero-grid',
       'fetchpriority="high"',

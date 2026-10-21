@@ -15,6 +15,10 @@
   --color-neutral-gray-200: #a0a0a0;
   --color-ink: #1b2733;
   --color-ink-soft: #44546a;
+  /* Falanga (entrada 14, mockup do cliente de 21/10/2026): amarelo da logo, usado na
+     abertura — header e hero. Sempre com texto navy por cima, nunca branco. */
+  --color-brand-yellow: #fde001;
+  --color-brand-yellow-dark: #f0cf00;
 
   --container-page: 1320px;
 
@@ -27,6 +31,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  /* O link "Conheça nossos serviços" do hero rola até a seção: desconta o header fixo. */
+  section[id] {
+    scroll-margin-top: 5.5rem;
   }
 
   body {

@@ -100,10 +100,10 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 
 ## Assets
 
-| Asset          | Arquivo esperado        | Especificação               | Status   |
-| -------------- | ----------------------- | --------------------------- | -------- |
-| Logo           | `src/assets/LOGO.png`   | 240×200, fundo transparente | pendente |
-| Banner do hero | `src/assets/heroBg.png` | 1981×900, brief 4.1.3       | pendente |
+| Asset          | Arquivo esperado        | Especificação                                                                                        | Status                                                         |
+| -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Logo           | `src/assets/LOGO.png`   | logo oficial com o selo de 40 anos, 341×82, fundo transparente — baixada de falangapneumatica.com.br | entregue (baixa resolução: pedir vetor ou PNG 2×)              |
+| Banner do hero | `src/assets/heroBg.png` | 1981×900, recortado do mockup do cliente (21/10/2026) e estendido à direita                          | **provisório** — pedir o arquivo original do banner, sem texto |
 
 | Asset                          | Arquivo esperado                                   | Especificação                                   | Status   |
 | ------------------------------ | -------------------------------------------------- | ----------------------------------------------- | -------- |
@@ -136,6 +136,26 @@ Imagens citadas no material e ainda não validadas para uso: `Design-sem-nome-46
 - **`src/data/sections/processo.ts`** com o tipo anotado em vez de `as const satisfies`: sem `when` em nenhuma etapa, o tipo literal não tem a propriedade e `ProcessSteps.astro` não tipa. Defeito da biblioteca a corrigir no starter.
 - **`.prettierignore`** recebeu `ficha.json` (gerado) e `docs/PROMPT-FICHA-LP.md` (vem do starter): sem isso o `format:check` falha em toda LP v2.8.0.
 - **`lp.manifest.json` → `library`** apontado para `../Projetos B2/LP-STARTER-B2/sections`, onde o starter está nesta máquina.
+
+## Desvios do padrão — abertura (21/10/2026)
+
+Header e Hero refeitos conforme o mockup que o cliente enviou em 21/10/2026, seguindo o mesmo caminho da LP Spinplus Manutenção (19/10/2026).
+
+| O que o mockup pedia                             | Como entrou                                                                 | Regra do padrão afetada                                         |
+| ------------------------------------------------ | --------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Header branco com a logo dentro da barra         | barra branca, logo alinhada, sem a placa pendurada                          | 4.1.1 — assinatura A8 do `check-lp.mjs` repinada                |
+| Menu A empresa · Serviços · Produtos · Contato   | **não entrou**; no lugar, a tagline em navy                                 | regra 1 — uma rota, uma página, sem menu                        |
+| CTA "Fale com um especialista" em pílula amarela | igual no desktop; "Cotação" no mobile                                       | vocabulário de CTA (item 8) e botão de cantos retos             |
+| Amarelo da Falanga                               | token `brand-yellow` (#FDE001) só na abertura, sempre com texto navy        | item 2 — o resto da página segue laranja e navy                 |
+| Foto do compressor logo depois do texto          | foto do fim da coluna 1 até a borda da tela, com a borda esquerda esmaecida | 4.1.2 — assinatura A8 repinada; grid e coluna de 300px mantidos |
+| Sem chat no hero                                 | chat **mantido** num card branco na margem direita, como na Spinplus        | regra 4 — dois slots de shortcode                               |
+| "Fortaleza e Recife." em amarelo                 | mesmo H1, com o trecho final em amarelo                                     | regra de copy sem ponto final em título                         |
+| 3 pontos: preventiva, corretiva, peças originais | itens soltos com ícone amarelo e divisórias                                 | 4.1.2 — caixa de vidro dos 3 pontos                             |
+| "Conheça nossos serviços" como link sublinhado   | link âncora para `#linhas`, com `data-cta="hero-secondary"`                 | regra 3 — todo CTA é `button.btn-slave-whats`                   |
+
+Também nesta rodada: o ícone `gear` passou a ser uma engrenagem de verdade (o da v2.8.0 desenha um sol), com o mesmo caminho da LP Spinplus. O `check:lp` avisa que a logo (341×82) não tem a proporção 240×200 do slot: é a proporção da logo oficial, e o header foi ajustado para ela.
+
+Entre 1024 e cerca de 1600 px o card do chat cobre a borda direita do gabinete do compressor. É o limite do container de 1320 px, o mesmo registrado na Spinplus.
 
 ## Estado da entrega
 
