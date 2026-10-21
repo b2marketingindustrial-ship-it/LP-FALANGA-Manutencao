@@ -183,6 +183,8 @@ A Schulz entrou na lista de marcas da ficha e a família de palavras-chave Schul
 
 As fotos do site têm 450×451 e 680×682: servem na largura em que aparecem, mas ficam suaves em tela de alta densidade. Vale pedir os originais.
 
+Troca de 21/10/2026, a pedido do usuário: a primeira foto da galeria (`galeria-1.png`) passou do técnico agachado (`big-image-1.png` do site) para o técnico em pé no SRP 4015 (`big-image.png`). É a mesma foto do card 1 das aplicações (`aplicacao-1.png`).
+
 ## Desvios do padrão — como funciona (21/10/2026)
 
 A seção `processo` foi refeita conforme o mockup "Do diagnóstico ao compressor em operação", que o cliente enviou em 21/10/2026. É uma **variante local** de `src/components/sections/ProcessSteps.astro`, como as outras, e **`npm run compose` desfaz a variante**.
