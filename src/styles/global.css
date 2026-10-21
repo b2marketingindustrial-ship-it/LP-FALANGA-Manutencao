@@ -140,3 +140,62 @@
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Falanga: divisões entre as seções com cantos arredondados (pedido do cliente,
+   21/10/2026 — o mesmo tratamento da LP Spinplus Manutenção). Cada seção termina com
+   os cantos de baixo curvos e a seguinte sobe por baixo dela: a margem negativa a
+   esconde sob a curva e a borda transparente do mesmo tamanho devolve o espaço, então
+   conteúdo e decorações não mudam de lugar. `:not(:first-of-type)` e não
+   `section + section`: o Astro renderiza o <script> de uma seção entre ela e a seguinte.
+   Fora de @layer de propósito: precisa vencer as utilities de fundo e de borda.
+   A curva só aparece entre cores diferentes; o bloco navy de `diferenciais` sobe até a
+   borda da seção (ver WhyBrand.astro) para a curva das aplicações aparecer sobre ele.
+   --------------------------------------------------------------------------- */
+:root {
+  --lp-round: 2rem;
+}
+
+@media (width >= 64rem) {
+  :root {
+    --lp-round: 3rem;
+  }
+}
+
+#main > section {
+  position: relative;
+  border-bottom-left-radius: var(--lp-round);
+  border-bottom-right-radius: var(--lp-round);
+}
+
+#main > section:not(:first-of-type),
+#main + footer {
+  position: relative;
+  margin-top: calc(-1 * var(--lp-round));
+  border-top: var(--lp-round) solid transparent;
+}
+
+/* Cada seção por cima da seguinte, para a curva aparecer sobre ela */
+#main > section:nth-of-type(1) {
+  z-index: 6;
+}
+
+#main > section:nth-of-type(2) {
+  z-index: 5;
+}
+
+#main > section:nth-of-type(3) {
+  z-index: 4;
+}
+
+#main > section:nth-of-type(4) {
+  z-index: 3;
+}
+
+#main > section:nth-of-type(5) {
+  z-index: 2;
+}
+
+#main > section:nth-of-type(6) {
+  z-index: 1;
+}

@@ -17,17 +17,25 @@ import { Picture } from 'astro:assets'
 import Section from '@components/Section.astro'
 import Icon from '@components/Icon.astro'
 import type { SectionProps } from '@lib/layout'
+import { RHYTHMS } from '@lib/rhythm.mjs'
 import { why } from '@data/sections/diferenciais'
 
 type Props = SectionProps
 
 const { tone, rhythm } = Astro.props
 const [titleTop, titleBottom] = why.titleLines
+
+/* O navy sobe sobre o respiro de cima e a faixa sob a curva da seção anterior
+   (--lp-round, global.css), para a divisória arredondada das aplicações cair sobre ele. */
+const bleedTop = RHYTHMS[rhythm]?.top ?? 0
 ---
 
 <Section id="diferenciais" tone={tone} rhythm={rhythm} container={false} class="relative">
   {/* Bloco navy em largura total */}
-  <div class="why-hero relative overflow-hidden">
+  <div
+    class="why-hero relative overflow-hidden"
+    style={`margin-top: calc(-${bleedTop}px - var(--lp-round, 0px)); padding-top: var(--lp-round, 0px)`}
+  >
     {/* Foto à direita (desktop), com a borda esquerda esmaecida no navy */}
     <div class="why-photo absolute inset-y-0 right-0 hidden w-[58%] lg:block">
       <Picture

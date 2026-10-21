@@ -245,6 +245,21 @@ A coluna do formulário da seção de cotação (`src/components/QuoteForm.astro
 
 A coluna de texto perdeu o selo "Solicite sua cotação", que passou para o card e apareceria duas vezes lado a lado. O traço e os ícones dos selos saíram do laranja para o amarelo e o azul da Falanga, e o botão do WhatsApp ganhou cantos arredondados. Grid, ordem das colunas e o CTA `cotacao-whatsapp` seguem os do padrão, e a assinatura A8 não precisou mudar.
 
+## Divisórias arredondadas entre as seções (21/10/2026)
+
+Pedido do usuário, com o mesmo tratamento da LP Spinplus Manutenção. Cada seção termina com os cantos de baixo curvos (`--lp-round`: 32px no mobile, 48px a partir de 1024px), e a seguinte passa por baixo dela. O CSS está no fim de `src/styles/global.css` e não desloca conteúdo, porque a margem negativa e a borda transparente do mesmo tamanho se anulam.
+
+A curva só aparece entre cores diferentes:
+
+| Divisão                    | O que fica de cada lado            | Ajuste                                                                                                                      |
+| -------------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Topo → Serviços            | navy e foto do hero sobre o branco | nenhum: o hero já recorta o conteúdo                                                                                        |
+| Serviços → Como funciona   | branco sobre branco                | não aparece; o painel navy já tem cantos próprios                                                                           |
+| Como funciona → Aplicações | branco sobre o cinza               | nenhum                                                                                                                      |
+| Aplicações → Diferenciais  | cinza sobre o navy                 | o navy de `diferenciais` sobe sobre o respiro de cima e a faixa sob a curva, lendo o valor do ritmo (`RHYTHMS[rhythm].top`) |
+| Diferenciais → Cotação     | cinza sobre cinza                  | não aparece                                                                                                                 |
+| Cotação → Rodapé           | cinza sobre o navy                 | nenhum                                                                                                                      |
+
 ## Estado da entrega
 
 - [x] Primeira versão de pé (`npm run check:lp:rascunho` passa) em: 21/10/2026
