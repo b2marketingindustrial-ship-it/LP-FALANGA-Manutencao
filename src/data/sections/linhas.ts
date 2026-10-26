@@ -4,10 +4,11 @@
  * LP de serviço: cada card é uma frente de manutenção da Falanga e o card escuro
  * fecha o grid com o atendimento recorrente — os contratos de manutenção.
  *
- * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): cabeçalho com
- * duas fotos, cards com ícone e carrossel de marcas. `tag`, `features` e
- * `photo` dos itens seguem aqui porque o contrato da biblioteca os exige, mas a
- * variante não os exibe — a foto de cada item aponta para uma das fotos da galeria.
+ * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md), dividida em três
+ * seções em 26/10/2026: marcas, abertura com duas fotos e cards com caixa de imagem.
+ * `icon`, `features` e `photo` dos itens seguem aqui porque o contrato da biblioteca os
+ * exige, mas a variante não os exibe — a foto de cada item aponta para uma das fotos da
+ * galeria. A caixa de imagem do card usa `cardPhoto`; sem ela, mostra o espaço reservado.
  */
 import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
@@ -25,6 +26,13 @@ export interface ProductLine {
   features: readonly [string, string, string]
   /** Exatamente um card escuro por grid. Informe sempre (true/false). */
   dark: boolean
+  /** Foto da caixa de imagem do card. Pendente: as fotos de cada serviço ainda não chegaram. */
+  cardPhoto?: Photo
+}
+
+export interface Highlight {
+  icon: IconName
+  label: string
 }
 
 const tecnico: Photo = {
@@ -42,6 +50,12 @@ export const productLines = {
   /** Sem a linha de área atendida desde 26/10/2026: o Nordeste fica no hero e nos diferenciais. */
   text: 'Da manutenção preventiva à reconstrução, serviços multimarcas para compressores e secadores.',
   gallery: [tecnico, compressores],
+  /** O que entra na manutenção, na coluna de texto da abertura (26/10/2026). */
+  highlights: [
+    { icon: 'layers', label: 'Compressores e secadores' },
+    { icon: 'droplet', label: 'Limpeza de filtros' },
+    { icon: 'search', label: 'Inspeção de componentes' },
+  ],
   /** Selo sobre a primeira foto da galeria. */
   badge: { icon: 'wrench', label: 'Suporte técnico especializado' },
   brands: {
@@ -95,6 +109,7 @@ export const productLines = {
   title: string
   text: string
   gallery: readonly [Photo, Photo]
+  highlights: readonly [Highlight, Highlight, Highlight]
   badge: { icon: IconName; label: string }
   brands: { label: string; names: readonly string[] }
   items:

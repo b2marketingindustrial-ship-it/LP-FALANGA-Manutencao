@@ -339,27 +339,35 @@
   padding-top: 0;
 }
 
-/* Cada seção por cima da seguinte, para a curva aparecer sobre ela */
+/* Cada seção por cima da seguinte, para a curva aparecer sobre ela (8 seções no #main) */
 #main > section:nth-of-type(1) {
-  z-index: 6;
+  z-index: 8;
 }
 
 #main > section:nth-of-type(2) {
-  z-index: 5;
+  z-index: 7;
 }
 
 #main > section:nth-of-type(3) {
-  z-index: 4;
+  z-index: 6;
 }
 
 #main > section:nth-of-type(4) {
-  z-index: 3;
+  z-index: 5;
 }
 
 #main > section:nth-of-type(5) {
-  z-index: 2;
+  z-index: 4;
 }
 
 #main > section:nth-of-type(6) {
+  z-index: 3;
+}
+
+#main > section:nth-of-type(7) {
+  z-index: 2;
+}
+
+#main > section:nth-of-type(8) {
   z-index: 1;
 }
