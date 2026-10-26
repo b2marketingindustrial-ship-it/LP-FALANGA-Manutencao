@@ -48,18 +48,15 @@ export const header = {
 /* -------------------------------------------------------------------- hero */
 
 export const hero = {
+  /** Frase de efeito na pílula acima do título, como nas outras LPs Falanga (26/10/2026). */
+  pill: 'Seu compressor sempre pronto',
   /**
-   * H1 da página, exibido como a linha de abertura acima da manchete (mockup do cliente,
-   * 21/10/2026). É o que o check:lp confere contra a palavra-chave da campanha.
+   * H1 da página, agora o título grande com o foco da página (pedido do usuário, 26/10/2026,
+   * como na LP de compressores de parafuso). É o que o check:lp confere contra a palavra-chave
+   * da campanha. `tail` completa a frase na segunda linha, em amarelo.
    */
   title: 'Manutenção de compressores',
-  /**
-   * Manchete em duas linhas: `headline` em branco (e os itens de `highlight` antes do último,
-   * em amarelo) na primeira; o último item de `highlight`, em amarelo, na segunda. Versão A,
-   * escolhida pelo usuário em 26/10/2026, na linha da LP de peças.
-   */
-  headline: ['Sua produção não para.'],
-  highlight: ['Seu compressor também não.'],
+  tail: 'que mantém sua produção ativa.',
   text: 'Preventiva, corretiva e reconstrução para compressores multimarcas, com equipe técnica e assistência 24 horas.',
   /** Linha de área atendida abaixo do CTA, separada por ponto. */
   area: ['Unidades em Fortaleza e Recife', 'Atendimento em todo o Nordeste'],
@@ -74,9 +71,9 @@ export const hero = {
     { icon: 'search', line1: 'Auditoria em', line2: 'ar comprimido' },
   ],
 } as const satisfies {
+  pill: string
   title: string
-  headline: readonly string[]
-  highlight: readonly string[]
+  tail: string
   text: string
   area: readonly string[]
   banner: Photo

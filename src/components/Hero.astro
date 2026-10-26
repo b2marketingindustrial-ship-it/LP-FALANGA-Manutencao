@@ -6,7 +6,7 @@
  *
  * Desvio pedido pelo cliente em 21/10/2026 (segundo mockup da abertura): o técnico e o
  * compressor começam logo depois do texto, com a foto ancorada ao fim da coluna 1 até a
- * borda da tela. O H1 com a palavra-chave é a linha de abertura, acima da manchete
+ * borda da tela. Pílula com a frase de efeito e o H1 com a palavra-chave como título grande
  * (primeira linha em branco, a segunda em amarelo); os quatro pontos ficam numa barra
  * de vidro; um único CTA, em pílula amarela, com a área atendida embaixo.
  * Registrado em docs/BRIEFING.md.
@@ -47,26 +47,18 @@ const isDev = import.meta.env.DEV
       {/* Coluna 1 — textos */}
       <div class="max-w-xl lg:max-w-none">
         {/* H1 com a palavra-chave da campanha, na forma de linha de abertura */}
-        <h1 class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.14em] text-neutral-light/90 uppercase sm:text-[15px]">
-          <span
-            aria-hidden="true"
-            class="h-[3px] w-12 shrink-0 rounded-full bg-brand-yellow"
-          ></span>
-          {hero.title}
-        </h1>
-
-        {/* Manchete em duas linhas (pedido do usuário, 26/10/2026), como na LP de peças:
-            `headline` (branco) e os itens de `highlight` antes do último (amarelo) abrem a
-            primeira; o último item de `highlight` fecha a segunda, em amarelo. */}
-        <p class="mt-4 font-display text-[2rem] leading-[1.06] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[2.6rem] lg:text-[2.1rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">
-          <span class="block lg:whitespace-nowrap">
-            {hero.headline.join(' ')}
-            {hero.highlight.length > 1 && (
-              <span class="text-brand-yellow"> {hero.highlight.slice(0, -1).join(' ')}</span>
-            )}
-          </span>
-          <span class="block text-brand-yellow lg:whitespace-nowrap">{hero.highlight.at(-1)}</span>
+        {/* Pílula com a frase de efeito, como nas LPs de parafuso e peças */}
+        <p class="inline-flex items-center gap-2 rounded-full border border-brand-yellow/40 bg-white/[0.06] px-3 py-1 font-sans text-[11px] font-bold tracking-[0.12em] text-brand-yellow uppercase sm:text-[12px]">
+          <span aria-hidden="true" class="size-1.5 shrink-0 rounded-full bg-brand-yellow"></span>
+          {hero.pill}
         </p>
+
+        {/* H1 com o foco da página em duas linhas: a palavra-chave em branco e o fim da frase
+            em amarelo (pedido do usuário, 26/10/2026) */}
+        <h1 class="mt-5 font-display text-[2rem] leading-[1.06] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[2.6rem] lg:text-[2.1rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">
+          <span class="block lg:whitespace-nowrap">{hero.title}</span>
+          <span class="block text-brand-yellow lg:whitespace-nowrap">{hero.tail}</span>
+        </h1>
 
         <p class="mt-5 max-w-[32rem] font-sans text-lead text-neutral-light/90">{hero.text}</p>
 
