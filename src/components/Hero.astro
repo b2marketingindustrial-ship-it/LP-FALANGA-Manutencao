@@ -225,9 +225,8 @@ const isDev = import.meta.env.DEV
       right: 0;
     }
 
-    /* Abaixo de 1440px a coluna 1 encolhe, mas a manchete e a barra de vidro dos pontos não:
-         a foto começa depois delas (~640px da borda do conteúdo), para não passar por baixo do
-         texto (26/10/2026). */
+    /* Abaixo de 1440px a coluna 1 encolhe, mas a manchete e a barra de pontos não: */
+    /* a foto começa depois delas (~640px da borda do conteúdo), fora do texto (26/10/2026). */
     @media (max-width: 1439px) {
       .hero-photo {
         left: max(calc(var(--col-end) - 100px), calc(var(--page-edge) + 640px));
