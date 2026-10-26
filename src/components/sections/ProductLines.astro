@@ -153,8 +153,22 @@ const [photo1, photo2] = productLines.gallery
       <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
       {productLines.brands.label}
     </span>
-    <div class="min-w-0 flex-1">
+    <div class="linhas-brands min-w-0 flex-1">
       <BrandCarousel />
     </div>
   </div>
 </Section>
+
+<style>
+  /* Celular e tablet: 3 logos por vez, para não ficarem minúsculas; 5 no desktop. O
+     !important vence o --brand-visible que o carrossel grava no style do próprio elemento. */
+  .linhas-brands :global(.brand-carousel) {
+    --brand-visible: 3 !important;
+  }
+
+  @media (width >= 64rem) {
+    .linhas-brands :global(.brand-carousel) {
+      --brand-visible: 5 !important;
+    }
+  }
+</style>
