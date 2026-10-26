@@ -1,6 +1,6 @@
 ---
 /**
- * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.2). Grid desktop: texto (1fr) · coluna VAZIA (270px) · shortcode (300px).
+ * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.2). Grid desktop: texto (1fr) · coluna VAZIA (270px) · shortcode (340px).
  * A coluna 2 é a janela do banner; nunca coloque conteúdo nela.
  * Abra a página com `?grid=1` para ver as colunas e o início da foto.
  *
@@ -9,8 +9,11 @@
  * borda da tela. O H1 com a palavra-chave é a linha de abertura, acima da manchete
  * ("Mais eficiência." em branco, o resto em amarelo); os quatro pontos ficam em grade
  * 2×2 com ícone amarelo; um único CTA, em pílula amarela, com a área atendida embaixo.
- * O shortcode do chat fica num card branco que encosta na margem da tela. Grid e coluna
- * de 300px do shortcode seguem os do padrão. Registrado em docs/BRIEFING.md.
+ * Registrado em docs/BRIEFING.md.
+ *
+ * Regras das LPs de compressores de parafuso e de peças, levadas para esta (26/10/2026):
+ * altura definida pelo conteúdo, com 100px acima dos textos e abaixo do botão; shortcode
+ * do chat sozinho na coluna 3, de 340px, sem card; conteúdo até 1450px; CTA do sistema `cta`.
  */
 import { Picture } from 'astro:assets'
 import Icon from './Icon.astro'
@@ -19,6 +22,7 @@ import { hero, cta } from '../data/content'
 const isDev = import.meta.env.DEV
 ---
 
+{/* Desktop: altura definida pelo conteúdo, com 100px de respiro acima dos textos e abaixo do botão. */}
 <section class="hero relative overflow-hidden [container-type:inline-size]" data-hero>
   {/* z1 — banner: faixa no rodapé da seção no mobile; no desktop, do fim da coluna de texto à borda da tela */}
   <div class="hero-photo hero-fade absolute inset-x-0 bottom-0 z-[1] h-[300px] lg:inset-y-0 lg:h-auto">
@@ -38,8 +42,8 @@ const isDev = import.meta.env.DEV
   </div>
 
   {/* z5 — conteúdo */}
-  <div class="relative z-[5] mx-auto max-w-page px-6 pt-14 pb-[320px] lg:px-10 lg:py-24">
-    <div class="hero-grid grid items-center gap-y-12 lg:min-h-[560px] lg:gap-x-6">
+  <div class="page-container relative z-[5] pt-14 pb-[320px] lg:py-[100px]">
+    <div class="hero-grid grid items-center gap-y-12 lg:gap-x-6">
       {/* Coluna 1 — textos */}
       <div class="max-w-xl lg:max-w-none">
         {/* H1 com a palavra-chave da campanha, na forma de linha de abertura */}
@@ -61,9 +65,7 @@ const isDev = import.meta.env.DEV
           ))}
         </p>
 
-        <p class="mt-5 max-w-[32rem] font-sans text-lg leading-relaxed text-neutral-light/90 2xl:text-xl">
-          {hero.text}
-        </p>
+        <p class="mt-5 max-w-[32rem] font-sans text-lead text-neutral-light/90">{hero.text}</p>
 
         {/* 4 pontos em grade 2×2: ícone amarelo e texto sempre em duas linhas */}
         <ul class="mt-8 grid max-w-[30rem] grid-cols-2 gap-x-6 gap-y-6 sm:gap-x-10">
@@ -78,13 +80,9 @@ const isDev = import.meta.env.DEV
           ))}
         </ul>
 
-        <button
-          type="button"
-          data-cta="hero-primary"
-          class="btn-slave-whats mt-9 inline-flex items-center gap-3 rounded-full bg-brand-yellow px-9 py-4 font-sans text-[18px] font-bold text-primary-dark-900 shadow-[0_16px_32px_-16px_rgba(253,224,1,0.6)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none"
-        >
+        <button type="button" data-cta="hero-primary" class="btn-slave-whats cta cta-yellow mt-9">
           {cta.primary}
-          <Icon name="arrow-right" class="size-5 [stroke-width:2.4]" />
+          <Icon name="arrow-right" class="shrink-0" />
         </button>
 
         {/* Área atendida, separada por ponto */}
@@ -105,30 +103,31 @@ const isDev = import.meta.env.DEV
       {/* Coluna 2 — VAZIA de propósito: janela do banner */}
       <div class="hidden lg:block" aria-hidden="true"></div>
 
-      {/* Coluna 3 — shortcode do chat (300px), em card branco que encosta na margem da tela */}
-      <div class="hero-chat w-full lg:w-[300px]">
-        <div class="min-h-[430px] w-full overflow-hidden rounded-2xl bg-neutral-light p-4 shadow-[0_30px_60px_-28px_rgba(0,0,0,0.7)]">
+      {/* Coluna 3 — só o shortcode do chat, sem card em volta (como nas LPs de parafuso e peças).
+          A altura de 340px só é reservada no desktop; no celular o chat ocupa o que renderizar. */}
+      <div class="hero-chat w-full lg:w-[340px]">
+        <div class="w-full lg:min-h-[340px]">
           <slot name="shortcode">
             {isDev ? (
               <div
-                class="flex min-h-[398px] w-full flex-col gap-3 text-left"
+                class="flex min-h-[340px] w-full flex-col gap-3 text-left"
                 aria-label="Mock do chat (só em desenvolvimento)"
               >
-                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-primary-dark uppercase">
+                <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-brand-yellow uppercase">
                   Mock · chat
                 </span>
-                <p class="font-display text-base font-bold text-ink">Inicie seu atendimento</p>
-                <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
-                <div class="h-10 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
-                <div class="h-24 rounded border border-neutral-gray-200/70 bg-neutral-gray-100" />
-                <div class="mt-auto h-11 rounded-full bg-brand-yellow" />
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="h-11 rounded-lg bg-neutral-light/10" />
+                <div class="mt-auto h-12 rounded-full bg-brand-yellow" />
               </div>
             ) : (
-              <div class="flex min-h-[398px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-primary-dark/25 p-6 text-center">
+              <div class="flex min-h-[340px] w-full flex-col items-center justify-center gap-3 rounded-xl border border-dashed border-neutral-light/30 p-6 text-center">
                 <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
                   Espaço reservado
                 </span>
-                <p class="font-display text-lg font-bold text-ink">Shortcode — 300px</p>
+                <p class="font-display text-lg font-bold text-neutral-light">Shortcode — 340px</p>
               </div>
             )}
           </slot>
@@ -160,7 +159,7 @@ const isDev = import.meta.env.DEV
         </div>
         <div class="hidden border-x border-dashed border-white/60 lg:block">
           <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
-            col 3 · 300px · shortcode
+            col 3 · 340px · shortcode
           </span>
         </div>
       </div>
@@ -174,13 +173,13 @@ const isDev = import.meta.env.DEV
     background: linear-gradient(180deg, #01264e 0%, #012751 55%, #012856 100%);
   }
 
-  /* Metade da largura da página (1320px / 2): ancora as colunas e a foto no mesmo eixo. */
+  /* Metade da largura da página (1450px / 2): ancora as colunas e a foto no mesmo eixo. */
   .hero-photo,
   .hero-grid {
     --page-half: calc(var(--container-page) / 2);
     --page-edge: max(0px, calc(50% - var(--page-half)));
-    /* Fim da coluna de texto: page-edge + min(100%, página) − 658px (padding 40 · 270 · 300 · 2 gaps de 24). */
-    --col-end: calc(var(--page-edge) + min(100%, var(--container-page)) - 658px);
+    /* Fim da coluna de texto: page-edge + min(100%, página) − 706px (padding 48 · 270 · 340 · 2 gaps de 24). */
+    --col-end: calc(var(--page-edge) + min(100%, var(--container-page)) - 706px);
   }
 
   /* Mobile: a faixa da foto no rodapé do hero nasce do fundo navy, sem borda reta. */
@@ -190,9 +189,9 @@ const isDev = import.meta.env.DEV
   }
 
   @media (min-width: 1024px) {
-    /* Col 1 (1fr) | Col 2 janela do banner | Col 3 shortcode 300px */
+    /* Col 1 (1fr) | Col 2 janela do banner | Col 3 shortcode 340px */
     .hero-grid {
-      grid-template-columns: minmax(0, 1fr) 270px 300px;
+      grid-template-columns: minmax(0, 1fr) 270px 340px;
     }
 
     /* A foto começa 100px antes do fim da coluna 1 — o texto (máx. 32rem) acaba antes disso — */
@@ -215,12 +214,6 @@ const isDev = import.meta.env.DEV
         #000 120px
       );
       mask-image: linear-gradient(to right, transparent 0, rgb(0 0 0 / 0.6) 50px, #000 120px);
-    }
-
-    /* O card do chat sai do container e encosta na margem da tela, sobre o fundo azul. */
-    /* cqw e não %: em translateX o % seria da largura do próprio card, não da seção. */
-    .hero-chat {
-      transform: translateX(max(0px, calc(50cqw - var(--container-page) / 2)));
     }
   }
 </style>
