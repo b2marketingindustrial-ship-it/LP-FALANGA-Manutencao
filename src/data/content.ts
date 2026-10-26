@@ -84,7 +84,7 @@ export const hero = {
 export const quote = {
   eyebrow: 'Solicite sua cotação',
   title: 'Fale com quem entende de manutenção de compressores.',
-  text: 'Nossa equipe avalia o seu compressor e indica o serviço certo para reduzir o tempo de inatividade. Preencha o formulário ou fale direto conosco pelo WhatsApp.',
+  text: 'Nossa equipe avalia o seu compressor e indica o serviço certo. Preencha o formulário ou fale conosco pelo WhatsApp.',
   trust: [
     { icon: 'pin', label: 'Atendimento em todo o Nordeste' },
     { icon: 'clock', label: 'Assistência técnica 24 horas' },
