@@ -5,7 +5,7 @@
  * fecha o grid com o atendimento recorrente — os contratos de manutenção.
  *
  * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): cabeçalho com
- * duas fotos, cards com ícone, faixa de marcas e faixa de CTA. `tag`, `features` e
+ * duas fotos, cards com ícone e carrossel de marcas. `tag`, `features` e
  * `photo` dos itens seguem aqui porque o contrato da biblioteca os exige, mas a
  * variante não os exibe — a foto de cada item aponta para uma das fotos da galeria.
  */
@@ -39,8 +39,8 @@ const compressores: Photo = {
 export const productLines = {
   eyebrow: 'Serviços especializados',
   title: 'Mais confiabilidade para o seu sistema de ar comprimido.',
-  text: 'Manutenção, assistência técnica e soluções multimarcas para manter sua operação produtiva.',
-  area: 'Atendimento em todo o Nordeste',
+  /** Sem a linha de área atendida desde 26/10/2026: o Nordeste fica no hero e nos diferenciais. */
+  text: 'Da manutenção preventiva à reconstrução, serviços multimarcas para compressores e secadores.',
   gallery: [tecnico, compressores],
   /** Selo sobre a primeira foto da galeria. */
   badge: { icon: 'wrench', label: 'Suporte técnico especializado' },
@@ -94,7 +94,6 @@ export const productLines = {
   eyebrow: string
   title: string
   text: string
-  area: string
   gallery: readonly [Photo, Photo]
   badge: { icon: IconName; label: string }
   brands: { label: string; names: readonly string[] }

@@ -58,7 +58,7 @@ export const hero = {
   highlight: ['Menos paradas', 'na sua indústria.'],
   text: 'Manutenção multimarcas e suporte especializado para manter seu sistema de ar comprimido em operação.',
   /** Linha de área atendida abaixo do CTA, separada por ponto. */
-  area: ['Fortaleza e Recife', 'Atendimento em todo o Nordeste'],
+  area: ['Unidades em Fortaleza e Recife', 'Atendimento em todo o Nordeste'],
   banner: {
     src: heroBg,
     alt: 'Técnico da Falanga em manutenção de compressor de parafuso aberto, numa sala com outros compressores',

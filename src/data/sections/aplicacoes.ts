@@ -25,7 +25,7 @@ export interface Application {
 export const applications = {
   eyebrow: 'Aplicações',
   title: 'Manutenção para todo o sistema de ar comprimido.',
-  text: 'Do compressor ao tratamento do ar, suporte técnico para manter sua planta em operação.',
+  text: 'Do compressor ao tratamento do ar, atendimento técnico para cada parte do sistema.',
   items: [
     {
       id: 'compressores-parafuso',

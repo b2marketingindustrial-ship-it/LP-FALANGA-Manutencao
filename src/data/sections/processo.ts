@@ -67,7 +67,7 @@ export const process: Process = {
       id: 'intervencao',
       icon: 'wrench',
       title: 'Intervenção técnica',
-      description: 'Manutenção preventiva, corretiva ou reconstrução com peças originais.',
+      description: 'Manutenção preventiva, corretiva ou reconstrução da unidade compressora.',
     },
     {
       id: 'plano',

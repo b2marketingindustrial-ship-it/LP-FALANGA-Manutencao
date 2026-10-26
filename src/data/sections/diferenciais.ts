@@ -6,7 +6,8 @@
  *
  * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): a foto de
  * cenário já traz o técnico, então não há pessoa recortada. O CTA tem rótulo próprio
- * (`cta`) e a área atendida aparece abaixo dele (`area`).
+ * (`cta`). A linha de área atendida abaixo do CTA saiu em 26/10/2026, como na LP de peças,
+ * e o texto foi reescrito para não repetir os cards.
  */
 import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
@@ -24,9 +25,8 @@ export const why = {
   eyebrow: `Por que a ${site.brandShort}`,
   /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
   titleLines: ['Reduza o tempo', 'de inatividade.'],
-  text: 'Assistência técnica multimarcas com equipe especializada, diagnóstico avançado e peças originais para manter sua produção em operação.',
+  text: 'Compressor parado é produção parada. A Falanga cuida do seu sistema de ar comprimido para que isso aconteça cada vez menos.',
   cta: 'Solicitar cotação',
-  area: 'Atendimento em todo o Nordeste',
   scene: {
     src: cenario,
     alt: 'Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo',
@@ -63,7 +63,6 @@ export const why = {
   titleLines: readonly [string, string]
   text: string
   cta: string
-  area: string
   scene: Photo
   reasons: readonly [Reason, Reason, Reason, Reason, Reason]
 }
