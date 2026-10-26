@@ -4,13 +4,13 @@
  *
  * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup da seção de
  * serviços, docs/BRIEFING.md) e retrabalhada a pedido do usuário em 26/10/2026, como a
- * LP de compressores de parafuso: vira três seções com o respiro padrão e fundo alternado.
- *   1. `#marcas` — o carrossel de marcas atendidas, logo depois do hero (branca).
- *   2. `#linhas` — abertura em duas colunas, texto e duas fotos com a mesma altura (cinza).
- *   3. `#servicos` — os cards de serviço, com caixa de imagem no lugar do ícone (branca).
+ * LP de compressores de parafuso: vira duas seções com o respiro padrão e fundo alternado.
+ *   1. `#linhas` (branca) — logo depois do hero, a faixa do carrossel de marcas atendidas e,
+ *      abaixo dela, a abertura em duas colunas: texto e duas fotos com a mesma altura.
+ *   2. `#servicos` (cinza) — os cards de serviço, com caixa de imagem no lugar do ícone.
  * A faixa de CTA final saiu a pedido do usuário (26/10/2026). O contrato da seção é o
  * mesmo da biblioteca — dados, CTAs `linhas-{id}`, um card escuro, `tone`/`rhythm`; os
- * tons das três seções são fixos aqui.
+ * tons das duas seções são fixos aqui.
  *
  * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
  * Recompor a página exige reaplicá-la a partir do git.
@@ -30,23 +30,23 @@ const lines: readonly ProductLine[] = productLines.items
 const [photo1, photo2] = productLines.gallery
 ---
 
-{/* 1. Marcas atendidas: rótulo e carrossel de logos da LP de peças */}
-<Section id="marcas" tone="light" rhythm={rhythm}>
-  <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-10">
+{/* 1. Marcas e abertura numa seção só (pedido do usuário, 26/10/2026) */}
+<Section id="linhas" tone="light" rhythm={rhythm}>
+  {/* Faixa das marcas atendidas: rótulo e carrossel de logos da LP de peças */}
+  <div class="flex flex-col gap-4 rounded-2xl border border-brand-blue/10 bg-neutral-gray-100 px-5 py-4 lg:flex-row lg:items-center lg:gap-10 lg:px-8">
     <span class="flex shrink-0 items-center gap-4 font-display text-[17px] font-extrabold text-primary-dark">
       <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
       {productLines.brands.label}
     </span>
+    <span aria-hidden="true" class="hidden h-10 w-px shrink-0 bg-primary-dark/15 lg:block"></span>
     <div class="linhas-brands min-w-0 flex-1">
       <BrandCarousel />
     </div>
   </div>
-</Section>
 
-{/* 2. Abertura em duas colunas. No desktop as fotos têm a altura da coluna de texto
-    (pedido do usuário, 26/10/2026): a imagem fica absoluta para não empurrar a linha. */}
-<Section id="linhas" tone="gray" rhythm={rhythm}>
-  <div class="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-12">
+  {/* Abertura em duas colunas. No desktop as fotos têm a altura da coluna de texto
+      (pedido do usuário, 26/10/2026): a imagem fica absoluta para não empurrar a linha. */}
+  <div class="mt-14 grid gap-10 lg:mt-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-stretch lg:gap-12">
     <div>
       <p class="flex items-center gap-4 font-sans text-[13px] font-bold tracking-[0.14em] text-brand-blue uppercase sm:text-[14px]">
         <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
@@ -103,9 +103,9 @@ const [photo1, photo2] = productLines.gallery
   </div>
 </Section>
 
-{/* 3. Cards de serviço, um escuro, com caixa de imagem no lugar do ícone (pedido do usuário,
+{/* 2. Cards de serviço, um escuro, com caixa de imagem no lugar do ícone (pedido do usuário,
     26/10/2026). Sem `cardPhoto`, a caixa mostra o espaço reservado da foto do serviço. */}
-<Section id="servicos" tone="light" rhythm={rhythm}>
+<Section id="servicos" tone="gray" rhythm={rhythm}>
   <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
     {lines.map((line, i) => (
       <article
@@ -198,10 +198,16 @@ const [photo1, photo2] = productLines.gallery
 </Section>
 
 <style>
-  /* Celular e tablet: 3 logos por vez, para não ficarem minúsculas; 5 no desktop. O
-     !important vence o --brand-visible que o carrossel grava no style do próprio elemento. */
+  /* Logos por vez: 2 no celular, 3 no tablet e 5 no desktop, para não ficarem minúsculas.
+     O !important vence o --brand-visible que o carrossel grava no style do próprio elemento. */
   .linhas-brands :global(.brand-carousel) {
-    --brand-visible: 3 !important;
+    --brand-visible: 2 !important;
+  }
+
+  @media (width >= 40rem) {
+    .linhas-brands :global(.brand-carousel) {
+      --brand-visible: 3 !important;
+    }
   }
 
   @media (width >= 64rem) {
