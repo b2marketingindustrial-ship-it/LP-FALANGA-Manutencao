@@ -53,7 +53,7 @@ export const hero = {
    * 21/10/2026). É o que o check:lp confere contra a palavra-chave da campanha.
    */
   title: 'Manutenção de compressores',
-  /** Manchete visual, uma linha por item: primeiro em branco, depois em amarelo. */
+  /** Manchete em duas linhas: `headline` em branco e `highlight[0]` em amarelo na primeira; o resto de `highlight` na segunda. */
   headline: ['Mais eficiência.'],
   highlight: ['Menos paradas', 'na sua indústria.'],
   text: 'Manutenção multimarcas e suporte especializado para manter seu sistema de ar comprimido em operação.',
@@ -83,7 +83,8 @@ export const hero = {
 
 export const quote = {
   eyebrow: 'Solicite sua cotação',
-  title: 'Fale com quem entende de manutenção de compressores.',
+  /** Título em duas linhas (pedido do usuário, 26/10/2026): uma linha por item. */
+  titleLines: ['Fale com quem entende de', 'manutenção de compressores.'],
   text: 'Nossa equipe avalia o seu compressor e indica o serviço certo. Preencha o formulário ou fale conosco pelo WhatsApp.',
   trust: [
     { icon: 'pin', label: 'Atendimento em todo o Nordeste' },
@@ -102,7 +103,7 @@ export const quote = {
   lgpd: `Seus dados serão utilizados apenas para responder à sua solicitação.`,
 } as const satisfies {
   eyebrow: string
-  title: string
+  titleLines: readonly [string, string]
   text: string
   trust: readonly [TrustItem, TrustItem, TrustItem]
   form: { title: string; text: string }

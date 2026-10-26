@@ -60,8 +60,12 @@ const isDev = import.meta.env.DEV
           ></span>
           {quote.eyebrow}
         </p>
-        <h2 class="mt-3 font-display title-section leading-[1.08] font-extrabold tracking-[-0.03em] text-primary-dark">
-          {quote.title}
+        {/* Duas linhas (pedido do usuário, 26/10/2026): a partir de 1280px o título fica um
+            degrau abaixo da escala (40px) para "manutenção de compressores." caber na coluna. */}
+        <h2 class="mt-3 font-display title-section leading-[1.08] font-extrabold tracking-[-0.03em] text-primary-dark xl:text-[2.5rem]">
+          {quote.titleLines.map((line) => (
+            <span class="block">{line}</span>
+          ))}
         </h2>
 
         <span
