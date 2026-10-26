@@ -12,7 +12,7 @@ export const site = {
   /** Contexto de uso (entrada 4). Completa o H1 e o title. */
   context: 'ar comprimido industrial',
   /** URL absoluta da página no ar (entrada 10). Usada em canonical e og:url. */
-  url: 'https://lp-manuten-o-falanga.vercel.app',
+  url: 'https://falangapneumatica.com.br/manutencao-de-compressores/',
   /** Endereço completo com CEP (entrada 9). Footer e JSON-LD. */
   address: 'R. Mirian Rocha, 97 - Fortaleza - CE · Rua Tomaz Gonzaga, 74 - Zumbi, Recife - PE',
   /** Link da política de privacidade do cliente (entrada 10). Vazio esconde o link, mas a nota de LGPD continua. */

@@ -4,6 +4,8 @@
 >
 > **Desvio desta execução:** não houve entrevista no chat. A ficha foi montada no editor a partir do briefing organizado, por pedido explícito de uma primeira versão publicada na Vercel. O que foi inferido está marcado e precisa de validação com o cliente.
 
+> **Revisão de 26/10/2026 — regras das LPs de compressores de parafuso e de peças.** A pedido, esta LP passou a seguir as regras e padrões consolidados nas LPs irmãs, decididos ponto a ponto com o usuário: conteúdo em 1450px (`page-container`) em toda a página, inclusive "Como funciona" e diferenciais; 70px de respiro em toda seção (ritmo `uniform`); escala única de títulos e textos; botões no sistema `.cta`; header da LP de peças; hero sem altura fixa (100px acima dos textos e abaixo do botão) e chat de 340px sem card; cotação só com o shortcode (sai o card do mockup); sem as faixas de CTA de Serviços e Aplicações (saem `linhas-cotacao` e `aplicacoes-atendimento` — reconfigurar o GTM); carrossel de logos da LP de peças com as 5 marcas da ficha que têm logo (Kaeser fica de fora até a logo chegar); sem WhatsApp flutuante; texto sem repetições; "Unidades em Fortaleza e Recife"; URL final `falangapneumatica.com.br/manutencao-de-compressores/`. As seções "Desvios do padrão" abaixo descrevem o estado anterior a esta revisão onde ela os alterou.
+
 ## Origem
 
 | Campo                     | Valor                                                                                 |
@@ -80,23 +82,23 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 
 ## Entradas do núcleo
 
-| #   | Entrada                 | Valor                                                                             | Origem                                          |
-| --- | ----------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 1   | MARCA                   | Falanga Pneumática                                                                | briefing                                        |
-| 2   | MARCA_CURTA             | Falanga                                                                           | briefing (inferido)                             |
-| 3   | PRODUTO_PRINCIPAL       | Manutenção de compressores                                                        | briefing (inferido)                             |
-| 4   | CONTEXTO_DE_USO         | ar comprimido industrial                                                          | **inferido**                                    |
-| 5   | PUBLICO                 | Manutenção, Engenharia, Compras                                                   | **inferido** — ausente no material              |
-| 6   | HERO                    | compressores multimarcas · atendimento em todo o Nordeste · assistência 24 h      | briefing                                        |
-| 7   | MARCAS_ATENDIDAS        | 18 marcas, só por extenso (sem logo)                                              | logos de terceiros: decisão do cliente pendente |
-| 8   | SELOS_DE_CONFIANCA      | Atendimento em todo o Nordeste · Assistência técnica 24 horas · Peças originais   | briefing                                        |
-| 9   | ENDERECO                | R. Mirian Rocha, 97 - Fortaleza - CE · Rua Tomaz Gonzaga, 74 - Zumbi, Recife - PE | briefing (sem CEP)                              |
-| 10  | URL_FINAL + PRIVACIDADE | `https://lp-manuten-o-falanga.vercel.app` · sem política                          | **provisório** — URL final não informada        |
-| 11  | SHORTCODES              | padrão do plugin                                                                  | default                                         |
-| 12  | WHATSAPP                | vazio — sem botão flutuante                                                       | decisão do usuário (21/10/2026)                 |
-| 13  | STACK + PUBLICACAO      | Astro · `main` → `wp-build` · prévia na Vercel                                    | default do padrão + Vercel                      |
-| 14  | TOKENS_DE_COR + FONTE   | visual padrão da agência                                                          | default                                         |
-| 15  | CAMPANHA                | `manutenção de compressores`                                                      | briefing                                        |
+| #   | Entrada                 | Valor                                                                             | Origem                                            |
+| --- | ----------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------- |
+| 1   | MARCA                   | Falanga Pneumática                                                                | briefing                                          |
+| 2   | MARCA_CURTA             | Falanga                                                                           | briefing (inferido)                               |
+| 3   | PRODUTO_PRINCIPAL       | Manutenção de compressores                                                        | briefing (inferido)                               |
+| 4   | CONTEXTO_DE_USO         | ar comprimido industrial                                                          | **inferido**                                      |
+| 5   | PUBLICO                 | Manutenção, Engenharia, Compras                                                   | **inferido** — ausente no material                |
+| 6   | HERO                    | compressores multimarcas · atendimento em todo o Nordeste · assistência 24 h      | briefing                                          |
+| 7   | MARCAS_ATENDIDAS        | 18 marcas, só por extenso (sem logo)                                              | logos de terceiros: decisão do cliente pendente   |
+| 8   | SELOS_DE_CONFIANCA      | Atendimento em todo o Nordeste · Assistência técnica 24 horas · Peças originais   | briefing                                          |
+| 9   | ENDERECO                | R. Mirian Rocha, 97 - Fortaleza - CE · Rua Tomaz Gonzaga, 74 - Zumbi, Recife - PE | briefing (sem CEP)                                |
+| 10  | URL_FINAL + PRIVACIDADE | `https://falangapneumatica.com.br/manutencao-de-compressores/` · sem política     | definida em 26/10/2026, no formato das outras LPs |
+| 11  | SHORTCODES              | padrão do plugin                                                                  | default                                           |
+| 12  | WHATSAPP                | vazio — sem botão flutuante                                                       | decisão do usuário (21/10/2026)                   |
+| 13  | STACK + PUBLICACAO      | Astro · `main` → `wp-build` · prévia na Vercel                                    | default do padrão + Vercel                        |
+| 14  | TOKENS_DE_COR + FONTE   | visual padrão da agência                                                          | default                                           |
+| 15  | CAMPANHA                | `manutenção de compressores`                                                      | briefing                                          |
 
 ## Assets
 

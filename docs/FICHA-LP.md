@@ -10,7 +10,7 @@ site:
   brandShort: Falanga
   product: Manutenção de compressores
   context: ar comprimido industrial
-  url: https://lp-manuten-o-falanga.vercel.app
+  url: https://falangapneumatica.com.br/manutencao-de-compressores/
   address: R. Mirian Rocha, 97 - Fortaleza - CE · Rua Tomaz Gonzaga, 74 - Zumbi, Recife - PE
   privacyUrl: ''
   whatsapp: ''
