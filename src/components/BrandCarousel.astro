@@ -1,5 +1,5 @@
 ---
-// Carrossel infinito de logos — 5 itens visíveis por vez (largura de cada item = 1/5 do trilho, via container query).
+// Carrossel infinito de logos — `visible` itens por vez (largura de cada item = 1/visible do trilho, via container query).
 import { Image } from 'astro:assets'
 import { brands } from '../data/brands'
 
@@ -14,24 +14,30 @@ import { brands } from '../data/brands'
  * — hoje `linhas` — o importam, e o build quebra sem ele. Quem remove os três é o
  * `compose`, e só quando nenhuma seção da composição usa o carrossel.
  */
+interface Props {
+  visible?: number
+}
+
+const { visible = 5 } = Astro.props
 const show = brands.length >= 4
 ---
 
 {show && (
-  <div class="brand-carousel relative overflow-hidden">
+  <div class="brand-carousel relative overflow-hidden" style={`--brand-visible: ${visible}`}>
     <div class="brand-carousel-track flex items-center">
       {/* Lista duplicada para o loop infinito ficar contínuo */}
       {[0, 1].map((copy) => (
         <ul class="flex shrink-0 items-center" aria-hidden={copy === 1 ? 'true' : undefined}>
           {brands.map((brand) => (
-            <li class="brand-item flex h-14 shrink-0 items-center justify-center px-4">
+            <li class="brand-item flex h-20 shrink-0 items-center justify-center px-5">
               <Image
                 src={brand.src}
                 alt={brand.name}
                 format="webp"
                 loading="lazy"
                 decoding="async"
-                class="h-14 w-auto object-contain"
+                width={240}
+                class="max-h-12 w-auto max-w-full object-contain"
               />
             </li>
           ))}
@@ -66,7 +72,7 @@ const show = brands.length >= 4
   }
 
   .brand-item {
-    width: calc(100cqw / 5);
+    width: calc(100cqw / var(--brand-visible));
   }
 
   .brand-carousel:hover .brand-carousel-track {

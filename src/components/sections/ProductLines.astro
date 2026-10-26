@@ -4,9 +4,10 @@
  *
  * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup da seção de
  * serviços, docs/BRIEFING.md): cabeçalho à esquerda com duas fotos à direita, cards
- * com ícone em quadrado amarelo e numeração, uma faixa de marcas atendidas e uma faixa
- * de CTA. O contrato da seção é o mesmo da biblioteca — dados, CTAs `linhas-{id}`, um
- * card escuro, `tone`/`rhythm` — mais o CTA `linhas-cotacao` da faixa final.
+ * com ícone em quadrado amarelo e numeração e o carrossel de marcas atendidas. A faixa de
+ * CTA final saiu a pedido do usuário (26/10/2026), como nas LPs de parafuso e peças. O
+ * contrato da seção é o mesmo da biblioteca — dados, CTAs `linhas-{id}`, um card escuro,
+ * `tone`/`rhythm`.
  *
  * ATENÇÃO: `npm run compose` recopia o componente da biblioteca e desfaz esta variante.
  * Recompor a página exige reaplicá-la a partir do git.
@@ -149,51 +150,15 @@ const [photo1, photo2] = productLines.gallery
     ))}
   </div>
 
-  {/* Marcas atendidas, por extenso (logos só com autorização — entrada 7) */}
-  <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 lg:px-6">
-    <span class="flex items-center gap-4 font-display text-[17px] font-extrabold text-primary-dark">
+  {/* Marcas atendidas: o rótulo e o carrossel de logos da LP de peças (pedido do usuário,
+      26/10/2026). A faixa de CTA que fechava a seção saiu, como nas outras LPs. */}
+  <div class="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-10 lg:px-6">
+    <span class="flex shrink-0 items-center gap-4 font-display text-[17px] font-extrabold text-primary-dark">
       <span aria-hidden="true" class="h-[3px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
       {productLines.brands.label}
     </span>
-    <span aria-hidden="true" class="hidden h-6 w-px bg-ink/25 sm:block"></span>
-    <ul
-      class="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[16px] text-ink-soft"
-      aria-label={productLines.brands.label}
-    >
-      {productLines.brands.names.map((name, i) => (
-        <li class="flex items-center gap-3">
-          {i > 0 && (
-            <span aria-hidden="true" class="text-ink/40">
-              •
-            </span>
-          )}
-          {name}
-        </li>
-      ))}
-    </ul>
-  </div>
-  <BrandCarousel />
-
-  {/* Faixa de CTA */}
-  <div class="mt-6 flex flex-col gap-5 rounded-2xl bg-brand-mist px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
-    <div class="flex items-center gap-5">
-      <span aria-hidden="true" class="h-12 w-1 shrink-0 rounded-full bg-brand-yellow"></span>
-      <div>
-        <p class="font-display text-[20px] leading-snug font-extrabold text-brand-blue sm:text-[22px]">
-          {productLines.closing.title}
-        </p>
-        <p class="mt-1 font-sans text-[15px] text-ink-soft sm:text-[16px]">
-          {productLines.closing.text}
-        </p>
-      </div>
+    <div class="min-w-0 flex-1">
+      <BrandCarousel />
     </div>
-    <button
-      type="button"
-      data-cta="linhas-cotacao"
-      class="btn-slave-whats inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-brand-blue px-8 py-4 font-sans text-[17px] font-bold text-neutral-light shadow-[0_14px_30px_-16px_rgba(0,67,161,0.7)] transition-colors duration-200 hover:bg-brand-blue-dark motion-reduce:transition-none"
-    >
-      <Icon name="whatsapp" class="size-6 shrink-0" />
-      {productLines.closing.cta}
-    </button>
   </div>
 </Section>

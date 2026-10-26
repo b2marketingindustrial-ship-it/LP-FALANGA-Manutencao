@@ -4,10 +4,10 @@
  *
  * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup "Manutenção para
  * todo o sistema de ar comprimido", docs/BRIEFING.md): cabeçalho centrado, 4 cards-botão
- * com foto, número em quadrado amarelo e rodapé "Falar com especialista", e uma faixa
- * azul de CTA fechando a seção. O contrato é o mesmo da biblioteca — 4 itens, o card
- * inteiro é o CTA `aplicacoes-{id}`, `tone`/`rhythm` —, mais o CTA
- * `aplicacoes-atendimento` da faixa e a descrição até 100 caracteres
+ * com foto, número em quadrado amarelo e rodapé "Falar com especialista". A faixa azul
+ * de CTA que fechava a seção saiu a pedido do usuário (26/10/2026), como nas LPs de
+ * parafuso e peças. O contrato é o mesmo da biblioteca — 4 itens, o card inteiro é o CTA
+ * `aplicacoes-{id}`, `tone`/`rhythm` —, mais a descrição até 100 caracteres
  * (scripts/lib/contract.mjs).
  *
  * A moldura é 16:10 com a foto ancorada no topo: as fotos 2–4, recortadas do mockup,
@@ -86,36 +86,4 @@ const { tone, rhythm } = Astro.props
       </li>
     ))}
   </ul>
-
-  {/* Faixa de CTA */}
-  <div class="apps-closing mt-8 flex flex-col gap-5 overflow-hidden rounded-2xl px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-10">
-    <div class="flex items-center gap-5">
-      <span aria-hidden="true" class="h-12 w-1 shrink-0 rounded-full bg-brand-yellow"></span>
-      <div>
-        <p class="font-display text-[20px] leading-snug font-extrabold text-neutral-light sm:text-[24px]">
-          {applications.closing.title}
-        </p>
-        <p class="mt-1 font-sans text-[16px] font-semibold text-[#7fc0ff]">
-          {applications.closing.text}
-        </p>
-      </div>
-    </div>
-    <button
-      type="button"
-      data-cta="aplicacoes-atendimento"
-      class="btn-slave-whats inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-brand-yellow px-6 py-4 font-sans text-[17px] font-bold whitespace-nowrap text-primary-dark-900 shadow-[0_14px_30px_-16px_rgba(0,0,0,0.55)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none sm:px-8"
-    >
-      {applications.closing.cta}
-      <Icon name="arrow-right" class="size-5 shrink-0 [stroke-width:2.4]" />
-    </button>
-  </div>
 </Section>
-
-<style>
-  /* Faixa azul do mockup, com um brilho discreto à direita. */
-  .apps-closing {
-    background:
-      radial-gradient(700px 220px at 85% 50%, rgb(255 255 255 / 0.07) 0%, transparent 70%),
-      linear-gradient(100deg, #01418f 0%, #01458f 45%, #013b81 100%);
-  }
-</style>

@@ -4,8 +4,8 @@
  * 4 cards-botão com foto e cabeçalho centrado. O card inteiro é o CTA.
  * As quatro partes do sistema de ar vêm do que o material diz que a Falanga atende.
  *
- * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): a seção fecha com
- * uma faixa de CTA (`closing`). A foto 1 é a do site do cliente; as fotos 2–4 foram
+ * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md). A faixa de CTA que
+ * fechava a seção saiu em 26/10/2026, como nas outras LPs da Falanga. A foto 1 é a do site do cliente; as fotos 2–4 foram
  * recortadas do mockup, provisórias até os originais chegarem.
  */
 import type { Photo } from '@data/types'
@@ -26,12 +26,6 @@ export const applications = {
   eyebrow: 'Aplicações',
   title: 'Manutenção para todo o sistema de ar comprimido.',
   text: 'Do compressor ao tratamento do ar, suporte técnico para manter sua planta em operação.',
-  /** Faixa azul que fecha a seção, com o CTA `aplicacoes-atendimento`. */
-  closing: {
-    title: 'Seu sistema precisa de atenção especializada?',
-    text: 'Converse com a equipe da Falanga.',
-    cta: 'Solicitar atendimento',
-  },
   items: [
     {
       id: 'compressores-parafuso',
@@ -72,6 +66,5 @@ export const applications = {
   eyebrow: string
   title: string
   text: string
-  closing: { title: string; text: string; cta: string }
   items: readonly [Application, Application, Application, Application]
 }

@@ -48,11 +48,6 @@ export const productLines = {
     label: 'Atendimento multimarcas',
     names: ['Schulz', 'Atlas Copco', 'Ingersoll Rand', 'Sullair', 'Kaeser', 'Chicago Pneumatic'],
   },
-  closing: {
-    title: 'Conte com a experiência da Falanga.',
-    text: 'Solicite uma avaliação para o seu sistema de ar comprimido.',
-    cta: 'Solicitar cotação',
-  },
   items: [
     {
       id: 'preventiva-corretiva',
@@ -103,7 +98,6 @@ export const productLines = {
   gallery: readonly [Photo, Photo]
   badge: { icon: IconName; label: string }
   brands: { label: string; names: readonly string[] }
-  closing: { title: string; text: string; cta: string }
   items:
     | readonly [ProductLine, ProductLine, ProductLine]
     | readonly [ProductLine, ProductLine, ProductLine, ProductLine]
