@@ -6,7 +6,7 @@
  * inatividade", docs/BRIEFING.md): bloco navy em largura total com o fim do título em
  * amarelo, CTA em pílula amarela e a área atendida; à direita, uma foto única (o técnico
  * já está nela) fechada por uma faixa amarela curva; e os 5 cards sobrepostos à base,
- * com ícone em quadrado amarelo ao lado do texto. Conteúdo e cards vão até 1680px, como
+ * com ícone em quadrado amarelo ao lado do título (trilho com rolagem abaixo de 1280px). Conteúdo e cards vão até 1450px, como
  * o "Como funciona". O contrato é o mesmo da biblioteca — 5 motivos, CTA
  * `diferenciais-cta`, bloco navy, `tone`/`rhythm`.
  *
@@ -17,24 +17,20 @@ import { Picture } from 'astro:assets'
 import Section from '@components/Section.astro'
 import Icon from '@components/Icon.astro'
 import type { SectionProps } from '@lib/layout'
-import { RHYTHMS } from '@lib/rhythm.mjs'
 import { why } from '@data/sections/diferenciais'
 
 type Props = SectionProps
 
 const { tone, rhythm } = Astro.props
-const [titleTop, titleBottom] = why.titleLines
-
-/* O navy sobe sobre o respiro de cima e a faixa sob a curva da seção anterior
-   (--lp-round, global.css), para a divisória arredondada das aplicações cair sobre ele. */
-const bleedTop = RHYTHMS[rhythm]?.top ?? 0
+const titleTop = why.titleLines.slice(0, -1)
+const titleBottom = why.titleLines.at(-1)
 ---
 
 <Section id="diferenciais" tone={tone} rhythm={rhythm} container={false} class="relative">
   {/* Bloco navy em largura total */}
   <div
     class="why-hero relative overflow-hidden"
-    style={`margin-top: calc(-${bleedTop}px - var(--lp-round, 0px)); padding-top: var(--lp-round, 0px)`}
+    style="margin-top: calc(-1 * var(--section-space) - var(--lp-round)); padding-top: var(--lp-round)"
   >
     {/* Foto à direita (desktop), com a borda esquerda esmaecida no navy */}
     <div class="why-photo absolute inset-y-0 right-0 hidden w-[58%] lg:block">
@@ -69,8 +65,8 @@ const bleedTop = RHYTHMS[rhythm]?.top ?? 0
       ></path>
     </svg>
 
-    <div class="relative z-[2] mx-auto w-full max-w-[1680px] px-6 pt-12 pb-10 lg:px-12 lg:pt-16 lg:pb-36">
-      <div class="max-w-xl lg:max-w-[44%]">
+    <div class="page-container relative z-[2] pt-(--section-space) pb-10 lg:pb-36">
+      <div class="max-w-xl lg:max-w-[44%] xl:max-w-[40rem]">
         <p class="flex items-center gap-4 font-sans text-[13px] font-semibold tracking-[0.16em] text-[#97d1f7] uppercase sm:text-[15px]">
           <span
             aria-hidden="true"
@@ -78,23 +74,22 @@ const bleedTop = RHYTHMS[rhythm]?.top ?? 0
           ></span>
           {why.eyebrow}
         </p>
-        <h2 class="mt-4 font-display text-[2.6rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[3.25rem] xl:text-[3.6rem] 2xl:text-[4rem]">
-          <span class="block">{titleTop}</span>
-          <span class="block text-brand-yellow">{titleBottom}</span>
+        <h2 class="mt-4 font-display text-[2.25rem] leading-[1.04] sm:text-[2.75rem] lg:text-[3.1rem] xl:text-[3.5rem] font-extrabold tracking-[-0.03em] text-neutral-light">
+          {/* Quebra forçada só no desktop; no celular o título corre, sem "em" sozinho na linha */}
+          {titleTop.map((line) => (
+            <span class="lg:block">{line} </span>
+          ))}
+          <span class="text-brand-yellow lg:block">{titleBottom}</span>
         </h2>
-        <p class="mt-5 font-sans text-lg leading-relaxed text-[#8cc6f2] 2xl:text-xl">{why.text}</p>
+        <p class="mt-5 font-sans text-lead text-[#8cc6f2] xl:whitespace-pre-line">{why.text}</p>
         <button
           type="button"
           data-cta="diferenciais-cta"
-          class="btn-slave-whats mt-7 inline-flex items-center gap-3 rounded-full bg-brand-yellow px-9 py-4 font-sans text-[18px] font-bold text-primary-dark-900 shadow-[0_16px_32px_-16px_rgba(253,224,1,0.55)] transition-colors duration-200 hover:bg-brand-yellow-dark motion-reduce:transition-none"
+          class="btn-slave-whats cta cta-yellow mt-7"
         >
           {why.cta}
-          <Icon name="arrow-right" class="size-5 shrink-0 [stroke-width:2.4]" />
+          <Icon name="arrow-right" class="shrink-0" />
         </button>
-        <p class="mt-5 flex items-center gap-2.5 font-sans text-[15px] font-medium text-neutral-light">
-          <Icon name="map-pin" class="size-5 shrink-0 text-brand-yellow" />
-          {why.area}
-        </p>
       </div>
     </div>
 
@@ -116,29 +111,31 @@ const bleedTop = RHYTHMS[rhythm]?.top ?? 0
   </div>
 
   {/* Cards sobrepostos à base do bloco navy */}
-  <div data-why class="relative z-10 mx-auto -mt-16 w-full max-w-[1680px] px-6 lg:-mt-20 lg:px-12">
+  <div data-why class="page-container relative z-10 -mt-16 lg:-mt-20">
     <ul
-      class="why-track scroll-track -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0 lg:pb-0"
+      class="why-track scroll-track -mx-6 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-3 lg:-mx-12 lg:scroll-px-12 lg:px-12 xl:mx-0 xl:grid xl:grid-cols-5 xl:gap-3 xl:overflow-visible xl:px-0 xl:pb-0 2xl:gap-4"
       aria-label={why.eyebrow}
     >
+      {/* Ícone e título na mesma linha, título sem quebra, descrição em duas linhas (pedidos
+          do usuário, 23/10/2026). A descrição reserva sempre a altura de duas linhas. */}
       {why.reasons.map((reason) => (
-        <li class="flex w-[82%] shrink-0 snap-start items-start gap-4 rounded-2xl bg-neutral-light p-5 shadow-[0_24px_48px_-26px_rgba(0,24,48,0.5)] sm:w-[46%] lg:w-auto 2xl:p-6">
-          <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-brand-yellow-soft text-[#00256f] 2xl:size-14">
-            <Icon name={reason.icon} class="size-6 2xl:size-7" />
-          </span>
-          <span class="min-w-0">
-            <h3 class="font-display text-[16px] leading-snug font-extrabold text-brand-blue-dark 2xl:text-[18px]">
+        <li class="flex w-[82%] shrink-0 snap-start flex-col rounded-2xl bg-neutral-light p-5 shadow-[0_24px_48px_-26px_rgba(0,24,48,0.5)] sm:w-[46%] lg:w-[31%] xl:w-auto xl:p-4 2xl:p-5">
+          <div class="flex items-center gap-2.5">
+            <span class="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand-yellow-soft text-[#00256f]">
+              <Icon name={reason.icon} class="size-5" />
+            </span>
+            <h3 class="font-display text-[16px] leading-snug font-extrabold whitespace-nowrap text-brand-blue-dark xl:text-[14px] 2xl:text-[16px]">
               {reason.title}
             </h3>
-            <p class="mt-1.5 font-sans text-[14px] leading-relaxed text-ink-soft 2xl:text-[15px]">
-              {reason.description}
-            </p>
-          </span>
+          </div>
+          <p class="mt-3 min-h-[3.25em] font-sans text-[14px] leading-relaxed text-ink-soft">
+            {reason.description}
+          </p>
         </li>
       ))}
     </ul>
 
-    <div class="mt-3 flex items-center justify-center gap-3 lg:hidden">
+    <div class="mt-3 flex items-center justify-center gap-3 xl:hidden">
       <button
         type="button"
         data-why-prev

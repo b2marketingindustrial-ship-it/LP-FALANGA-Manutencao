@@ -30,15 +30,15 @@ const { tone, rhythm } = Astro.props
 
 <Section id="aplicacoes" tone={tone} rhythm={rhythm}>
   {/* Cabeçalho centrado */}
-  <div class="mx-auto max-w-4xl text-center">
+  <div class="mx-auto text-center">
     <p class="inline-flex items-center gap-4 font-sans text-[13px] font-bold tracking-[0.28em] text-primary-dark uppercase sm:text-[14px]">
       <span aria-hidden="true" class="h-[4px] w-10 shrink-0 rounded-full bg-brand-yellow"></span>
       {applications.eyebrow}
     </p>
-    <h2 class="mt-4 font-display text-[2.1rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-primary-dark sm:text-[2.75rem] lg:text-[3.1rem] xl:text-[3.4rem]">
+    <h2 class="mt-4 font-display title-section leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-primary-dark lg:text-nowrap">
       {applications.title}
     </h2>
-    <p class="mt-4 font-sans text-lg leading-relaxed text-ink-soft">{applications.text}</p>
+    <p class="mt-4 font-sans text-lead text-ink-soft lg:text-nowrap">{applications.text}</p>
   </div>
 
   {/* 4 cards: o card inteiro é o CTA */}
