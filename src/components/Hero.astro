@@ -7,7 +7,7 @@
  * Desvio pedido pelo cliente em 21/10/2026 (segundo mockup da abertura): o técnico e o
  * compressor começam logo depois do texto, com a foto ancorada ao fim da coluna 1 até a
  * borda da tela. O H1 com a palavra-chave é a linha de abertura, acima da manchete
- * ("Mais eficiência." em branco, o resto em amarelo); os quatro pontos ficam numa barra
+ * (primeira linha em branco, a segunda em amarelo); os quatro pontos ficam numa barra
  * de vidro; um único CTA, em pílula amarela, com a área atendida embaixo.
  * Registrado em docs/BRIEFING.md.
  *
@@ -56,13 +56,16 @@ const isDev = import.meta.env.DEV
         </h1>
 
         {/* Manchete em duas linhas (pedido do usuário, 26/10/2026), como na LP de peças:
-            `headline` (branco) e o primeiro item de `highlight` (amarelo) abrem a primeira;
-            o resto de `highlight` fecha a segunda. */}
+            `headline` (branco) e os itens de `highlight` antes do último (amarelo) abrem a
+            primeira; o último item de `highlight` fecha a segunda, em amarelo. */}
         <p class="mt-4 font-display text-[2rem] leading-[1.06] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[2.6rem] lg:text-[2.1rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">
           <span class="block lg:whitespace-nowrap">
-            {hero.headline.join(' ')} <span class="text-brand-yellow">{hero.highlight[0]}</span>
+            {hero.headline.join(' ')}
+            {hero.highlight.length > 1 && (
+              <span class="text-brand-yellow"> {hero.highlight.slice(0, -1).join(' ')}</span>
+            )}
           </span>
-          <span class="block text-brand-yellow">{hero.highlight.slice(1).join(' ')}</span>
+          <span class="block text-brand-yellow lg:whitespace-nowrap">{hero.highlight.at(-1)}</span>
         </p>
 
         <p class="mt-5 max-w-[32rem] font-sans text-lead text-neutral-light/90">{hero.text}</p>
@@ -220,6 +223,15 @@ const isDev = import.meta.env.DEV
     .hero-photo {
       left: calc(var(--col-end) - 100px);
       right: 0;
+    }
+
+    /* Abaixo de 1440px a coluna 1 encolhe, mas a manchete e a barra de vidro dos pontos não:
+         a foto começa depois delas (~640px da borda do conteúdo), para não passar por baixo do
+         texto (26/10/2026). */
+    @media (max-width: 1439px) {
+      .hero-photo {
+        left: max(calc(var(--col-end) - 100px), calc(var(--page-edge) + 640px));
+      }
     }
 
     /* A borda esquerda da foto some no fundo da seção: o banner foi recortado do mockup e */

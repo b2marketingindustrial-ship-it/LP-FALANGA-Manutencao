@@ -53,10 +53,14 @@ export const hero = {
    * 21/10/2026). É o que o check:lp confere contra a palavra-chave da campanha.
    */
   title: 'Manutenção de compressores',
-  /** Manchete em duas linhas: `headline` em branco e `highlight[0]` em amarelo na primeira; o resto de `highlight` na segunda. */
-  headline: ['Mais eficiência.'],
-  highlight: ['Menos paradas', 'na sua indústria.'],
-  text: 'Manutenção multimarcas e suporte especializado para manter seu sistema de ar comprimido em operação.',
+  /**
+   * Manchete em duas linhas: `headline` em branco (e os itens de `highlight` antes do último,
+   * em amarelo) na primeira; o último item de `highlight`, em amarelo, na segunda. Versão A,
+   * escolhida pelo usuário em 26/10/2026, na linha da LP de peças.
+   */
+  headline: ['Sua produção não para.'],
+  highlight: ['Seu compressor também não.'],
+  text: 'Preventiva, corretiva e reconstrução para compressores multimarcas, com equipe técnica e assistência 24 horas.',
   /** Linha de área atendida abaixo do CTA, separada por ponto. */
   area: ['Unidades em Fortaleza e Recife', 'Atendimento em todo o Nordeste'],
   banner: {
