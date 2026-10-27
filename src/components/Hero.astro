@@ -53,11 +53,13 @@ const isDev = import.meta.env.DEV
           {hero.pill}
         </p>
 
-        {/* H1 com o foco da página em duas linhas: a palavra-chave em branco e o fim da frase
-            em amarelo (pedido do usuário, 26/10/2026) */}
+        {/* H1 em três linhas: a palavra-chave em branco e o fim da frase em amarelo
+            (pedido do usuário, 27/10/2026) */}
         <h1 class="mt-5 font-display text-[2rem] leading-[1.06] font-extrabold tracking-[-0.03em] text-neutral-light sm:text-[2.6rem] lg:text-[2.1rem] xl:text-[2.6rem] 2xl:text-[2.9rem]">
           <span class="block lg:whitespace-nowrap">{hero.title}</span>
-          <span class="block text-brand-yellow lg:whitespace-nowrap">{hero.tail}</span>
+          {hero.tail.map((line) => (
+            <span class="block text-brand-yellow lg:whitespace-nowrap">{line}</span>
+          ))}
         </h1>
 
         <p class="mt-5 max-w-[32rem] font-sans text-lead text-neutral-light/90">{hero.text}</p>
@@ -226,11 +228,10 @@ const isDev = import.meta.env.DEV
     }
 
     /* Desktop: a imagem tem a largura natural (altura do hero × proporção do banner) e a */
-    /* máscara é medida nela, não na caixa. Quatro rampas em curva suave (smoothstep), todas */
-    /* largas: esquerda de 0 a 27% e direita de 20% a 72% da largura, alto e pé de 26% da */
-    /* altura. A foto se dissolve no navy em todos os lados, como uma nuvem, em vez de um */
-    /* retângulo com borda esmaecida (pedido do usuário, 27/10/2026). Máscara, e não véu por */
-    /* cima, para não haver cor a casar. */
+    /* máscara é medida nela. Rampas suaves (smoothstep) e só nas bordas: esquerda de 0 a 22%, */
+    /* direita de 62% a 100%, alto e pé de 0 a 14% da altura. O miolo, onde está o técnico, */
+    /* fica 100% visível, com respiro ao redor, sem círculo de transparência (pedido do */
+    /* usuário, 27/10/2026). Máscara, e não véu por cima, para não haver cor a casar. */
     .hero-fade {
       -webkit-mask-image: none;
       mask-image: none;
@@ -240,53 +241,35 @@ const isDev = import.meta.env.DEV
       --hero-mask-left: linear-gradient(
         to right,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 3%,
-        rgb(0 0 0 / 0.13) 6%,
-        rgb(0 0 0 / 0.26) 9%,
-        rgb(0 0 0 / 0.42) 12%,
-        rgb(0 0 0 / 0.58) 15%,
-        rgb(0 0 0 / 0.74) 18%,
-        rgb(0 0 0 / 0.87) 21%,
-        rgb(0 0 0 / 0.97) 24%,
-        rgb(0 0 0 / 1) 27%
+        rgb(0 0 0 / 0.1) 4.4%,
+        rgb(0 0 0 / 0.35) 8.8%,
+        rgb(0 0 0 / 0.65) 13.2%,
+        rgb(0 0 0 / 0.9) 17.6%,
+        rgb(0 0 0 / 1) 22%
       );
       --hero-mask-right: linear-gradient(
         to right,
-        rgb(0 0 0 / 1) 20%,
-        rgb(0 0 0 / 0.97) 25.8%,
-        rgb(0 0 0 / 0.87) 31.6%,
-        rgb(0 0 0 / 0.74) 37.3%,
-        rgb(0 0 0 / 0.58) 43.1%,
-        rgb(0 0 0 / 0.42) 48.9%,
-        rgb(0 0 0 / 0.26) 54.7%,
-        rgb(0 0 0 / 0.13) 60.4%,
-        rgb(0 0 0 / 0.03) 66.2%,
-        rgb(0 0 0 / 0) 72%
+        rgb(0 0 0 / 1) 62%,
+        rgb(0 0 0 / 0.9) 69.6%,
+        rgb(0 0 0 / 0.65) 77.2%,
+        rgb(0 0 0 / 0.35) 84.8%,
+        rgb(0 0 0 / 0.1) 92.4%,
+        rgb(0 0 0 / 0) 100%
       );
       --hero-mask-top: linear-gradient(
         to bottom,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 2.9%,
-        rgb(0 0 0 / 0.13) 5.8%,
-        rgb(0 0 0 / 0.26) 8.7%,
-        rgb(0 0 0 / 0.42) 11.6%,
-        rgb(0 0 0 / 0.58) 14.4%,
-        rgb(0 0 0 / 0.74) 17.3%,
-        rgb(0 0 0 / 0.87) 20.2%,
-        rgb(0 0 0 / 0.97) 23.1%,
-        rgb(0 0 0 / 1) 26%
+        rgb(0 0 0 / 0.35) 4%,
+        rgb(0 0 0 / 0.75) 8%,
+        rgb(0 0 0 / 0.95) 11%,
+        rgb(0 0 0 / 1) 14%
       );
       --hero-mask-bottom: linear-gradient(
         to bottom,
-        rgb(0 0 0 / 1) 74%,
-        rgb(0 0 0 / 0.97) 76.9%,
-        rgb(0 0 0 / 0.87) 79.8%,
-        rgb(0 0 0 / 0.74) 82.7%,
-        rgb(0 0 0 / 0.58) 85.6%,
-        rgb(0 0 0 / 0.42) 88.4%,
-        rgb(0 0 0 / 0.26) 91.3%,
-        rgb(0 0 0 / 0.13) 94.2%,
-        rgb(0 0 0 / 0.03) 97.1%,
+        rgb(0 0 0 / 1) 86%,
+        rgb(0 0 0 / 0.95) 89%,
+        rgb(0 0 0 / 0.75) 92%,
+        rgb(0 0 0 / 0.35) 96%,
         rgb(0 0 0 / 0) 100%
       );
       -webkit-mask-image:
