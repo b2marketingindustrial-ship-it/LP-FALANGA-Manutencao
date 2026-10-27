@@ -213,13 +213,13 @@ const isDev = import.meta.env.DEV
     /* Foto em plano aberto (galpão inteiro) numa caixa de 1300px que vai do alto ao pé da */
     /* seção, preenchida por object-cover: nada de faixa navy acima ou abaixo da imagem (pedido */
     /* do usuário, 27/10/2026). Posicionada pelo sujeito: a máquina começa em 36% da imagem e o */
-    /* técnico termina em 66%. O 66% cai 22px depois do início do chat (col-end + 340px), só o ombro, e o 36% */
+    /* técnico termina em 66%. O 66% cai 2px depois do início do chat (col-end + 320px), e o 36% */
     /* fica depois do fim do título; o resto do galpão se dissolve para os lados, e a direita passa */
     /* por baixo do chat já bem esmaecida. Abaixo de 1440px a foto não recua para dentro do título. */
     .hero-photo {
       --photo-w: 1300px;
       left: max(
-        calc(var(--col-end) + 340px - var(--photo-w) * 0.66),
+        calc(var(--col-end) + 320px - var(--photo-w) * 0.66),
         calc(var(--page-edge) + 200px)
       );
       right: auto;
