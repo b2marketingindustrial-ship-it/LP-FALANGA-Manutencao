@@ -7,7 +7,8 @@
  * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md): a foto de
  * cenário já traz o técnico, então não há pessoa recortada. O CTA tem rótulo próprio
  * (`cta`). A linha de área atendida abaixo do CTA saiu em 26/10/2026, como na LP de peças,
- * e o texto foi reescrito para não repetir os cards.
+ * e o texto foi reescrito para não repetir os cards. Em 27/10/2026 a seção ganhou o tom
+ * institucional da LP de parafuso.
  */
 import type { IconName } from '@data/icons'
 import type { Photo } from '@data/types'
@@ -24,33 +25,42 @@ export interface Reason {
 export const why = {
   eyebrow: `Por que a ${site.brandShort}`,
   /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
-  titleLines: ['Reduza o tempo', 'de inatividade.'],
-  text: 'Compressor parado é produção parada. A Falanga cuida do seu sistema de ar comprimido para que isso aconteça cada vez menos.',
+  /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo.
+   *  Tom institucional, como na LP de parafuso (pedido do usuário, 27/10/2026); os 40 anos
+   *  vêm do selo da logo do cliente. */
+  titleLines: ['Há 40 anos, cuidando do', 'ar comprimido do Nordeste.'],
+  /** Cada `\n` é uma quebra forçada a partir de 1280px; abaixo disso o texto corre normal. */
+  text: 'A Falanga acompanha a sua indústria da compra à manutenção\ndo compressor, com confiabilidade e qualidade em cada etapa.',
   cta: 'Solicitar cotação',
   scene: {
     src: cenario,
     alt: 'Técnico da Falanga em manutenção de um compressor de parafuso SRP 4015, com outros compressores ao fundo',
   },
+  /**
+   * Revistos em 27/10/2026 para falar da empresa, não do serviço: saíram "Cobertura no
+   * Nordeste" (título), "Assistência 24 horas" (hero) e "Diagnóstico avançado" (cards de
+   * serviço). Sem "autorizada Schulz" até o cliente confirmar (docs/BRIEFING.md).
+   */
   reasons: [
     {
-      icon: 'map-pin',
-      title: 'Cobertura no Nordeste',
-      description: 'Atendimento em toda a região Nordeste.',
+      icon: 'badge-check',
+      title: 'Desde 1981',
+      description: 'Mais de quatro décadas atendendo a indústria.',
     },
     {
-      icon: 'clock',
-      title: 'Assistência 24 horas',
-      description: 'Suporte técnico para os imprevistos da sua operação.',
+      icon: 'layers',
+      title: 'Um só fornecedor',
+      description: 'Compressor, peças e manutenção na mesma parceria.',
+    },
+    {
+      icon: 'tools',
+      title: 'Rede de ar comprimido',
+      description: 'Projeto e execução da rede da sua planta.',
     },
     {
       icon: 'users',
-      title: 'Equipe especializada',
+      title: 'Equipe própria',
       description: 'Técnicos capacitados e certificados.',
-    },
-    {
-      icon: 'search',
-      title: 'Diagnóstico avançado',
-      description: 'Avaliação elétrica, mecânica e de controle.',
     },
     {
       icon: 'shield-check',

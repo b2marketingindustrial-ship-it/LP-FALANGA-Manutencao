@@ -4,7 +4,7 @@
  *
  * VARIANTE LOCAL desta LP, pedida pelo cliente em 21/10/2026 (mockup "Reduza o tempo de
  * inatividade", docs/BRIEFING.md): bloco navy em largura total com o fim do título em
- * amarelo, CTA em pílula amarela e a área atendida; à direita, uma foto única (o técnico
+ * amarelo, CTA em pílula amarela; à direita, uma foto única (o técnico
  * já está nela) fechada por uma faixa amarela curva; e os 5 cards sobrepostos à base,
  * com ícone em quadrado amarelo ao lado do título (trilho com rolagem abaixo de 1280px). Conteúdo e cards vão até 1450px, como
  * o "Como funciona". O contrato é o mesmo da biblioteca — 5 motivos, CTA
@@ -74,7 +74,7 @@ const titleBottom = why.titleLines.at(-1)
           ></span>
           {why.eyebrow}
         </p>
-        <h2 class="mt-4 font-display text-[2.25rem] leading-[1.04] sm:text-[2.75rem] lg:text-[3.1rem] xl:text-[3.5rem] font-extrabold tracking-[-0.03em] text-neutral-light">
+        <h2 class="mt-4 font-display title-section leading-[1.08] font-extrabold tracking-[-0.03em] text-neutral-light">
           {/* Quebra forçada só no desktop; no celular o título corre, sem "em" sozinho na linha */}
           {titleTop.map((line) => (
             <span class="lg:block">{line} </span>
