@@ -53,10 +53,10 @@ export const hero = {
   /**
    * H1 da página, agora o título grande com o foco da página (pedido do usuário, 26/10/2026,
    * como na LP de compressores de parafuso). É o que o check:lp confere contra a palavra-chave
-   * da campanha. `tail` completa a frase na segunda e terceira linhas, em amarelo.
+   * da campanha. `tail` completa a frase na segunda e terceira linhas, em amarelo, com extensão próxima da primeira (27/10/2026).
    */
   title: 'Manutenção de compressores',
-  tail: ['que mantém sua', 'produção ativa.'],
+  tail: ['que mantém sua produção', 'ativa o ano inteiro.'],
   text: 'Preventiva, corretiva e reconstrução para compressores multimarcas, com equipe técnica e assistência 24 horas.',
   /** Linha de área atendida abaixo do CTA, separada por ponto. */
   area: ['Unidades em Fortaleza e Recife', 'Atendimento em todo o Nordeste'],
