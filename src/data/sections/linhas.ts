@@ -18,6 +18,7 @@ import galeria2 from '@assets/linhas/galeria-2.webp'
 import cardContratos from '@assets/linhas/card-contratos.webp'
 import cardReconstrucao from '@assets/linhas/card-reconstrucao.png'
 import cardPreventiva from '@assets/linhas/card-preventiva.png'
+import aberturaSrp4050 from '@assets/linhas/abertura-srp4050.webp'
 
 export interface ProductLine {
   id: string
@@ -48,6 +49,10 @@ const srp4050: Photo = {
   src: cardPreventiva,
   alt: 'Compressor de parafuso Schulz SRP 4050 com a lateral em corte, mostrando os componentes internos',
 }
+const srp4050Galpao: Photo = {
+  src: aberturaSrp4050,
+  alt: 'Compressor de parafuso Schulz SRP 4050 com a lateral em corte, no piso de um galpão industrial',
+}
 const compressores: Photo = {
   src: galeria2,
   alt: 'Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga',
@@ -58,9 +63,8 @@ export const productLines = {
   title: 'Mais confiabilidade para o seu sistema de ar comprimido.',
   /** Sem a linha de área atendida desde 26/10/2026: o Nordeste fica no hero e nos diferenciais. */
   text: 'Da manutenção preventiva à reconstrução, serviços multimarcas para compressores e secadores.',
-  /** Foto 1 trocada pelo SRP 4050 em corte a pedido do usuário (27/10/2026); é a mesma do card 01,
-   *  recortada por dentro da máquina para não sobrar o fundo branco do original. */
-  gallery: [srp4050, compressores],
+  /** Foto 1: o SRP 4050 em corte num galpão, enviado pelo usuário (27/10/2026). */
+  gallery: [srp4050Galpao, compressores],
   /** O que entra na manutenção, na coluna de texto da abertura (26/10/2026). */
   highlights: [
     { icon: 'layers', label: 'Compressores e secadores' },
