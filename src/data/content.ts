@@ -11,7 +11,7 @@ import type { IconName } from './icons'
 import type { Photo } from './types'
 import { site } from './site'
 
-import heroBg from '@assets/heroBg.png'
+import heroBg from '@assets/heroBg.webp'
 
 /* ------------------------------------------------------------------ tipos */
 
@@ -62,7 +62,7 @@ export const hero = {
   area: ['Unidades em Fortaleza e Recife', 'Atendimento em todo o Nordeste'],
   banner: {
     src: heroBg,
-    alt: 'Técnico da Falanga em manutenção de compressor de parafuso aberto, numa sala com outros compressores',
+    alt: 'Técnico da Falanga em manutenção de um compressor Schulz SRP 4015 no galpão de uma fábrica',
   },
   points: [
     { icon: 'gear', line1: 'Manutenção', line2: 'preventiva' },
