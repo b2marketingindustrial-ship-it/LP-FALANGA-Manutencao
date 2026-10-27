@@ -105,7 +105,7 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 | Asset          | Arquivo esperado        | Especificação                                                                                        | Status                                                         |
 | -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Logo           | `src/assets/LOGO.png`   | logo oficial com o selo de 40 anos, 341×82, fundo transparente — baixada de falangapneumatica.com.br | entregue (baixa resolução: pedir vetor ou PNG 2×)              |
-| Banner do hero | `src/assets/heroBg.png` | 1981×900, recortado do segundo mockup do cliente (21/10/2026) e estendido à direita                  | **provisório** — pedir o arquivo original do banner, sem texto |
+| Banner do hero | `src/assets/heroBg.webp` | 1774×887, plano aberto do galpão com o técnico no SRP 4015 (27/10/2026); a máquina começa em 36% da largura e o técnico termina em 66%, e é por isso que o Hero posiciona a foto | ok |
 
 | Asset                        | Arquivo esperado                                     | Especificação                                                    | Status                                                 |
 | ---------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |

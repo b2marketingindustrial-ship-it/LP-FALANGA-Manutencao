@@ -200,12 +200,13 @@ for (const f of astroFiles) {
       'header-logo',
       'data-cta="header-cta"',
     ],
-    // Mesmo desvio: a foto vai do fim da coluna de texto até a borda da tela. Repinado em
-    // 26/10/2026 com as regras das LPs de parafuso e peças: conteúdo até 1450px e
-    // shortcode do chat de 340px, sem card.
+    // Mesmo desvio, repinado em 26/10/2026 com as regras das LPs de parafuso e peças
+    // (conteúdo até 1450px, chat de 340px sem card) e em 27/10/2026 com o banner em plano
+    // aberto: a foto tem largura fixa (`--photo-w`) e é posicionada pelo sujeito, entre o
+    // fim do título e o chat.
     'Hero.astro': [
       'grid-template-columns: minmax(0, 1fr) 270px 340px',
-      'left: calc(var(--col-end) - 100px)',
+      '--photo-w:',
       'hero-chat',
       '<slot name="shortcode">',
       'lg:w-[340px]',
@@ -569,7 +570,7 @@ async function checkAssetSpecs(manifest) {
 /** Especificação das imagens da estrutura fixa, que não pertencem a nenhuma seção. */
 const FIXED_ASSET_SPECS = [
   { dir: '.', match: 'LOGO', width: 240, height: 200, alpha: true },
-  { dir: '.', match: 'heroBg', width: 1981, height: 900, alpha: false },
+  { dir: '.', match: 'heroBg', width: 1774, height: 887, alpha: false },
   { dir: 'brands', width: 400, height: 160, alpha: null },
 ]
 
