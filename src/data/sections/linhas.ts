@@ -16,6 +16,7 @@ import type { Photo } from '@data/types'
 import galeria1 from '@assets/linhas/galeria-1.png'
 import galeria2 from '@assets/linhas/galeria-2.webp'
 import cardContratos from '@assets/linhas/card-contratos.webp'
+import cardReconstrucao from '@assets/linhas/card-reconstrucao.png'
 
 export interface ProductLine {
   id: string
@@ -27,8 +28,10 @@ export interface ProductLine {
   features: readonly [string, string, string]
   /** Exatamente um card escuro por grid. Informe sempre (true/false). */
   dark: boolean
-  /** Foto da caixa de imagem do card. Só o card de contratos tem a sua (27/10/2026); as outras ainda não chegaram. */
+  /** Foto da caixa de imagem do card. Só a preventiva/corretiva ainda não tem a sua (27/10/2026). */
   cardPhoto?: Photo
+  /** Enquadramento da foto na caixa 16:10 (`object-position`); padrão no centro. */
+  cardPhotoPosition?: string
 }
 
 export interface Highlight {
@@ -83,6 +86,10 @@ export const productLines = {
       photo: tecnico,
       features: ['Compressores e secadores', 'Disponível 24 horas', 'Técnicos certificados'],
       dark: false,
+      /** Indicada pelo usuário em 27/10/2026: a mesma foto da abertura. */
+      cardPhoto: tecnico,
+      // Foto quadrada: enquadrada pelo alto para o rosto do técnico caber na caixa 16:10.
+      cardPhotoPosition: '50% 4%',
     },
     {
       id: 'reconstrucao',
@@ -93,6 +100,11 @@ export const productLines = {
       photo: compressores,
       features: ['Compressores de parafuso', 'Peças originais', 'Performance e durabilidade'],
       dark: false,
+      /** Enviada pelo usuário em 27/10/2026, recortada sem o fundo branco do original. */
+      cardPhoto: {
+        src: cardReconstrucao,
+        alt: 'Técnico encaixando os rotores na carcaça aberta de uma unidade compressora de parafuso',
+      },
     },
     {
       id: 'contratos',

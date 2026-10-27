@@ -131,6 +131,9 @@ const [photo1, photo2] = productLines.gallery
               loading="lazy"
               decoding="async"
               class="h-full w-full object-cover"
+              style={
+                line.cardPhotoPosition ? `object-position: ${line.cardPhotoPosition}` : undefined
+              }
             />
           ) : (
             <span
