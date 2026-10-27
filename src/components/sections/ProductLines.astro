@@ -7,7 +7,8 @@
  * LP de compressores de parafuso: vira duas seções com o respiro padrão e fundo alternado.
  *   1. `#linhas` (branca) — logo depois do hero, a faixa do carrossel de marcas atendidas e,
  *      abaixo dela, a abertura em duas colunas: texto e duas fotos com a mesma altura.
- *   2. `#servicos` (cinza) — os cards de serviço, com caixa de imagem no lugar do ícone.
+ *   2. `#servicos` (branca, como o "Como funciona" logo abaixo, sem divisão entre eles) — os cards
+ *      de serviço, com caixa de imagem no lugar do ícone.
  * A faixa de CTA final saiu a pedido do usuário (26/10/2026). O contrato da seção é o
  * mesmo da biblioteca — dados, CTAs `linhas-{id}`, um card escuro, `tone`/`rhythm`; os
  * tons das duas seções são fixos aqui.
@@ -105,7 +106,7 @@ const [photo1, photo2] = productLines.gallery
 
 {/* 2. Cards de serviço, um escuro, com caixa de imagem no lugar do ícone (pedido do usuário,
     26/10/2026). Sem `cardPhoto`, a caixa mostra o espaço reservado da foto do serviço. */}
-<Section id="servicos" tone="gray" rhythm={rhythm}>
+<Section id="servicos" tone="light" rhythm={rhythm}>
   <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
     {lines.map((line, i) => (
       <article
