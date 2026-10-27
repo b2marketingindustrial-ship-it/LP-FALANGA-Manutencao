@@ -15,6 +15,7 @@ import type { Photo } from '@data/types'
 
 import galeria1 from '@assets/linhas/galeria-1.png'
 import galeria2 from '@assets/linhas/galeria-2.webp'
+import cardContratos from '@assets/linhas/card-contratos.webp'
 
 export interface ProductLine {
   id: string
@@ -26,7 +27,7 @@ export interface ProductLine {
   features: readonly [string, string, string]
   /** Exatamente um card escuro por grid. Informe sempre (true/false). */
   dark: boolean
-  /** Foto da caixa de imagem do card. Pendente: as fotos de cada serviço ainda não chegaram. */
+  /** Foto da caixa de imagem do card. Só o card de contratos tem a sua (27/10/2026); as outras ainda não chegaram. */
   cardPhoto?: Photo
 }
 
@@ -102,6 +103,11 @@ export const productLines = {
       photo: compressores,
       features: ['Programas preditivos', 'Programas preventivos', 'Com ou sem peças'],
       dark: true,
+      /** Enviada pelo usuário em 27/10/2026. */
+      cardPhoto: {
+        src: cardContratos,
+        alt: 'Compressores de diversas marcas e tipos reunidos no piso de um galpão industrial',
+      },
     },
   ],
 } as const satisfies {
