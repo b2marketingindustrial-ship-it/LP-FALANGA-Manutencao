@@ -25,7 +25,7 @@ const isDev = import.meta.env.DEV
 {/* Desktop: altura definida pelo conteúdo, com 100px de respiro acima dos textos e abaixo do botão. */}
 <section class="hero relative overflow-hidden [container-type:inline-size]" data-hero>
   {/* z1 — banner: faixa no rodapé da seção no mobile; no desktop, do fim da coluna de texto à borda da tela */}
-  <div class="hero-photo hero-fade absolute inset-x-0 bottom-0 z-[1] h-[300px] lg:inset-y-0 lg:flex lg:h-auto lg:items-center">
+  <div class="hero-photo hero-fade absolute inset-x-0 bottom-0 z-[1] h-[300px] lg:inset-y-0 lg:h-auto">
     <Picture
       src={hero.banner.src}
       alt={hero.banner.alt}
@@ -36,8 +36,8 @@ const isDev = import.meta.env.DEV
       loading="eager"
       fetchpriority="high"
       decoding="async"
-      class="h-full w-full object-cover object-center lg:h-auto"
-      pictureAttributes={{ class: 'block h-full w-full lg:h-auto' }}
+      class="h-full w-full object-cover object-center"
+      pictureAttributes={{ class: 'block h-full w-full' }}
     />
   </div>
 
@@ -210,27 +210,27 @@ const isDev = import.meta.env.DEV
       grid-template-columns: minmax(0, 1fr) 270px 340px;
     }
 
-    /* Foto em plano aberto (galpão inteiro), com largura fixa de 1200px (600px de altura), */
-    /* centrada na altura da seção e posicionada pelo sujeito: a máquina começa em 36% da */
-    /* imagem e o técnico termina em 66%. O 66% cai onde começa o chat (col-end + 318px) e o */
-    /* 36% fica logo depois do fim do título; o resto do galpão se dissolve para os lados, e a */
-    /* direita passa por baixo do chat já bem esmaecida. Abaixo de 1440px a foto não recua */
-    /* para dentro do título (27/10/2026). */
+    /* Foto em plano aberto (galpão inteiro) numa caixa de 1300px que vai do alto ao pé da */
+    /* seção, preenchida por object-cover: nada de faixa navy acima ou abaixo da imagem (pedido */
+    /* do usuário, 27/10/2026). Posicionada pelo sujeito: a máquina começa em 36% da imagem e o */
+    /* técnico termina em 66%. O 66% cai 22px depois do início do chat (col-end + 340px), só o ombro, e o 36% */
+    /* fica depois do fim do título; o resto do galpão se dissolve para os lados, e a direita passa */
+    /* por baixo do chat já bem esmaecida. Abaixo de 1440px a foto não recua para dentro do título. */
     .hero-photo {
-      --photo-w: 1200px;
+      --photo-w: 1300px;
       left: max(
-        calc(var(--col-end) + 318px - var(--photo-w) * 0.66),
+        calc(var(--col-end) + 340px - var(--photo-w) * 0.66),
         calc(var(--page-edge) + 200px)
       );
       right: auto;
       width: var(--photo-w);
     }
 
-    /* Desktop: a máscara é medida na imagem. Quatro rampas suaves (smoothstep) e longas — */
-    /* esquerda de 0 a 42%, direita de 62% a 96%, alto de 0 a 26% e pé de 82% a 100% — mais */
-    /* uma elipse que arredonda os cantos. A foto vira uma mancha de luz no navy, sem borda */
-    /* nem canto de retângulo; o sujeito (36–66% × 28–88%) continua inteiro (27/10/2026). */
-    /* Máscara, e não véu por cima, para não haver cor a casar. */
+    /* Desktop: a máscara é medida na imagem e só dissolve os lados, em rampas suaves */
+    /* (smoothstep) e longas — esquerda de 0 a 40%, direita de 62% a 96%. No alto e no pé a foto */
+    /* encosta nas bordas da seção, sem rampa, para não sobrar margem navy. Sem círculo de */
+    /* transparência; o sujeito (36–66%) continua inteiro. Máscara, e não véu por cima, para não */
+    /* haver cor a casar. */
     .hero-fade {
       -webkit-mask-image: none;
       mask-image: none;
@@ -240,16 +240,16 @@ const isDev = import.meta.env.DEV
       --hero-mask-left: linear-gradient(
         to right,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 4.2%,
-        rgb(0 0 0 / 0.1) 8.4%,
-        rgb(0 0 0 / 0.22) 12.6%,
-        rgb(0 0 0 / 0.38) 16.8%,
-        rgb(0 0 0 / 0.55) 21%,
-        rgb(0 0 0 / 0.72) 25.2%,
-        rgb(0 0 0 / 0.86) 29.4%,
-        rgb(0 0 0 / 0.95) 33.6%,
-        rgb(0 0 0 / 0.99) 37.8%,
-        rgb(0 0 0 / 1) 42%
+        rgb(0 0 0 / 0.03) 4%,
+        rgb(0 0 0 / 0.1) 8%,
+        rgb(0 0 0 / 0.22) 12%,
+        rgb(0 0 0 / 0.38) 16%,
+        rgb(0 0 0 / 0.55) 20%,
+        rgb(0 0 0 / 0.72) 24%,
+        rgb(0 0 0 / 0.86) 28%,
+        rgb(0 0 0 / 0.95) 32%,
+        rgb(0 0 0 / 0.99) 36%,
+        rgb(0 0 0 / 1) 40%
       );
       --hero-mask-right: linear-gradient(
         to right,
@@ -265,50 +265,10 @@ const isDev = import.meta.env.DEV
         rgb(0 0 0 / 0.03) 92.6%,
         rgb(0 0 0 / 0) 96%
       );
-      --hero-mask-top: linear-gradient(
-        to bottom,
-        rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 2.6%,
-        rgb(0 0 0 / 0.1) 5.2%,
-        rgb(0 0 0 / 0.22) 7.8%,
-        rgb(0 0 0 / 0.38) 10.4%,
-        rgb(0 0 0 / 0.55) 13%,
-        rgb(0 0 0 / 0.72) 15.6%,
-        rgb(0 0 0 / 0.86) 18.2%,
-        rgb(0 0 0 / 0.95) 20.8%,
-        rgb(0 0 0 / 0.99) 23.4%,
-        rgb(0 0 0 / 1) 26%
-      );
-      --hero-mask-bottom: linear-gradient(
-        to bottom,
-        rgb(0 0 0 / 1) 82%,
-        rgb(0 0 0 / 0.99) 83.8%,
-        rgb(0 0 0 / 0.95) 85.6%,
-        rgb(0 0 0 / 0.86) 87.4%,
-        rgb(0 0 0 / 0.72) 89.2%,
-        rgb(0 0 0 / 0.55) 91%,
-        rgb(0 0 0 / 0.38) 92.8%,
-        rgb(0 0 0 / 0.22) 94.6%,
-        rgb(0 0 0 / 0.1) 96.4%,
-        rgb(0 0 0 / 0.03) 98.2%,
-        rgb(0 0 0 / 0) 100%
-      );
-      --hero-mask-oval: radial-gradient(
-        ellipse 74% 80% at 50% 56%,
-        rgb(0 0 0 / 1) 50%,
-        rgb(0 0 0 / 0.9) 64%,
-        rgb(0 0 0 / 0.65) 78%,
-        rgb(0 0 0 / 0.3) 90%,
-        rgb(0 0 0 / 0) 100%
-      );
-      -webkit-mask-image:
-        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top),
-        var(--hero-mask-bottom), var(--hero-mask-oval);
-      -webkit-mask-composite: source-in, source-in, source-in, source-in;
-      mask-image:
-        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top),
-        var(--hero-mask-bottom), var(--hero-mask-oval);
-      mask-composite: intersect, intersect, intersect, intersect;
+      -webkit-mask-image: var(--hero-mask-left), var(--hero-mask-right);
+      -webkit-mask-composite: source-in;
+      mask-image: var(--hero-mask-left), var(--hero-mask-right);
+      mask-composite: intersect;
     }
   }
 </style>
