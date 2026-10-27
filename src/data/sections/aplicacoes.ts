@@ -5,7 +5,7 @@
  * As quatro partes do sistema de ar vêm do que o material diz que a Falanga atende.
  *
  * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md). A faixa de CTA que
- * fechava a seção saiu em 26/10/2026, como nas outras LPs da Falanga. A foto 1 é a do site do cliente; as fotos 2–4 foram
+ * fechava a seção saiu em 26/10/2026, como nas outras LPs da Falanga. A foto 1 é o corte da unidade compressora enviado pelo usuário (27/10/2026); as fotos 2–4 foram
  * recortadas do mockup, provisórias até os originais chegarem.
  */
 import type { Photo } from '@data/types'
@@ -34,7 +34,7 @@ export const applications = {
         'Manutenção e reconstrução de unidades compressoras para recuperar desempenho e confiabilidade.',
       photo: {
         src: app1,
-        alt: 'Técnico da Falanga em manutenção de um compressor de parafuso Schulz SRP 4015',
+        alt: 'Corte de uma unidade compressora de parafuso, com os rotores, rolamentos e engrenagens à mostra',
       },
     },
     {
