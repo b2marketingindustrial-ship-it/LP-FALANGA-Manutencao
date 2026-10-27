@@ -210,25 +210,27 @@ const isDev = import.meta.env.DEV
       grid-template-columns: minmax(0, 1fr) 270px 340px;
     }
 
-    /* Foto em plano aberto (galpão inteiro), com largura fixa de 1100px, centrada na altura da */
-    /* seção e posicionada pelo sujeito: a máquina começa em 36% da imagem e o técnico termina */
-    /* em 66%. O 66% cai onde começa o chat (col-end + 318px) e o 36% fica depois do fim do */
-    /* título; o resto do galpão se dissolve para os dois lados, e a direita passa por baixo do */
-    /* chat já bem esmaecida. Abaixo de 1440px a foto não recua para dentro do título (27/10/2026). */
+    /* Foto em plano aberto (galpão inteiro), com largura fixa de 1200px (600px de altura), */
+    /* centrada na altura da seção e posicionada pelo sujeito: a máquina começa em 36% da */
+    /* imagem e o técnico termina em 66%. O 66% cai onde começa o chat (col-end + 318px) e o */
+    /* 36% fica logo depois do fim do título; o resto do galpão se dissolve para os lados, e a */
+    /* direita passa por baixo do chat já bem esmaecida. Abaixo de 1440px a foto não recua */
+    /* para dentro do título (27/10/2026). */
     .hero-photo {
-      --photo-w: 1100px;
+      --photo-w: 1200px;
       left: max(
         calc(var(--col-end) + 318px - var(--photo-w) * 0.66),
-        calc(var(--page-edge) + 260px)
+        calc(var(--page-edge) + 200px)
       );
       right: auto;
       width: var(--photo-w);
     }
 
-    /* Desktop: a máscara é medida na imagem. Rampas suaves (smoothstep) só nas bordas: */
-    /* esquerda de 0 a 36%, direita de 68% a 94%, alto e pé de 14% da altura. Sem círculo de */
-    /* transparência (pedido do usuário, 27/10/2026). Máscara, e não véu por cima, para não */
-    /* haver cor a casar. */
+    /* Desktop: a máscara é medida na imagem. Quatro rampas suaves (smoothstep) e longas — */
+    /* esquerda de 0 a 42%, direita de 62% a 96%, alto de 0 a 26% e pé de 82% a 100% — mais */
+    /* uma elipse que arredonda os cantos. A foto vira uma mancha de luz no navy, sem borda */
+    /* nem canto de retângulo; o sujeito (36–66% × 28–88%) continua inteiro (27/10/2026). */
+    /* Máscara, e não véu por cima, para não haver cor a casar. */
     .hero-fade {
       -webkit-mask-image: none;
       mask-image: none;
@@ -238,65 +240,75 @@ const isDev = import.meta.env.DEV
       --hero-mask-left: linear-gradient(
         to right,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 3.6%,
-        rgb(0 0 0 / 0.1) 7.2%,
-        rgb(0 0 0 / 0.22) 10.8%,
-        rgb(0 0 0 / 0.38) 14.4%,
-        rgb(0 0 0 / 0.55) 18%,
-        rgb(0 0 0 / 0.72) 21.6%,
-        rgb(0 0 0 / 0.86) 25.2%,
-        rgb(0 0 0 / 0.95) 28.8%,
-        rgb(0 0 0 / 0.99) 32.4%,
-        rgb(0 0 0 / 1) 36%
+        rgb(0 0 0 / 0.03) 4.2%,
+        rgb(0 0 0 / 0.1) 8.4%,
+        rgb(0 0 0 / 0.22) 12.6%,
+        rgb(0 0 0 / 0.38) 16.8%,
+        rgb(0 0 0 / 0.55) 21%,
+        rgb(0 0 0 / 0.72) 25.2%,
+        rgb(0 0 0 / 0.86) 29.4%,
+        rgb(0 0 0 / 0.95) 33.6%,
+        rgb(0 0 0 / 0.99) 37.8%,
+        rgb(0 0 0 / 1) 42%
       );
       --hero-mask-right: linear-gradient(
         to right,
-        rgb(0 0 0 / 1) 68%,
-        rgb(0 0 0 / 0.99) 70.6%,
-        rgb(0 0 0 / 0.95) 73.2%,
-        rgb(0 0 0 / 0.86) 75.8%,
-        rgb(0 0 0 / 0.72) 78.4%,
-        rgb(0 0 0 / 0.55) 81%,
-        rgb(0 0 0 / 0.38) 83.6%,
-        rgb(0 0 0 / 0.22) 86.2%,
-        rgb(0 0 0 / 0.1) 88.8%,
-        rgb(0 0 0 / 0.03) 91.4%,
-        rgb(0 0 0 / 0) 94%
+        rgb(0 0 0 / 1) 62%,
+        rgb(0 0 0 / 0.99) 65.4%,
+        rgb(0 0 0 / 0.95) 68.8%,
+        rgb(0 0 0 / 0.86) 72.2%,
+        rgb(0 0 0 / 0.72) 75.6%,
+        rgb(0 0 0 / 0.55) 79%,
+        rgb(0 0 0 / 0.38) 82.4%,
+        rgb(0 0 0 / 0.22) 85.8%,
+        rgb(0 0 0 / 0.1) 89.2%,
+        rgb(0 0 0 / 0.03) 92.6%,
+        rgb(0 0 0 / 0) 96%
       );
       --hero-mask-top: linear-gradient(
         to bottom,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 1.4%,
-        rgb(0 0 0 / 0.1) 2.8%,
-        rgb(0 0 0 / 0.22) 4.2%,
-        rgb(0 0 0 / 0.38) 5.6%,
-        rgb(0 0 0 / 0.55) 7%,
-        rgb(0 0 0 / 0.72) 8.4%,
-        rgb(0 0 0 / 0.86) 9.8%,
-        rgb(0 0 0 / 0.95) 11.2%,
-        rgb(0 0 0 / 0.99) 12.6%,
-        rgb(0 0 0 / 1) 14%
+        rgb(0 0 0 / 0.03) 2.6%,
+        rgb(0 0 0 / 0.1) 5.2%,
+        rgb(0 0 0 / 0.22) 7.8%,
+        rgb(0 0 0 / 0.38) 10.4%,
+        rgb(0 0 0 / 0.55) 13%,
+        rgb(0 0 0 / 0.72) 15.6%,
+        rgb(0 0 0 / 0.86) 18.2%,
+        rgb(0 0 0 / 0.95) 20.8%,
+        rgb(0 0 0 / 0.99) 23.4%,
+        rgb(0 0 0 / 1) 26%
       );
       --hero-mask-bottom: linear-gradient(
         to bottom,
-        rgb(0 0 0 / 1) 86%,
-        rgb(0 0 0 / 0.99) 87.4%,
-        rgb(0 0 0 / 0.95) 88.8%,
-        rgb(0 0 0 / 0.86) 90.2%,
-        rgb(0 0 0 / 0.72) 91.6%,
-        rgb(0 0 0 / 0.55) 93%,
-        rgb(0 0 0 / 0.38) 94.4%,
-        rgb(0 0 0 / 0.22) 95.8%,
-        rgb(0 0 0 / 0.1) 97.2%,
-        rgb(0 0 0 / 0.03) 98.6%,
+        rgb(0 0 0 / 1) 82%,
+        rgb(0 0 0 / 0.99) 83.8%,
+        rgb(0 0 0 / 0.95) 85.6%,
+        rgb(0 0 0 / 0.86) 87.4%,
+        rgb(0 0 0 / 0.72) 89.2%,
+        rgb(0 0 0 / 0.55) 91%,
+        rgb(0 0 0 / 0.38) 92.8%,
+        rgb(0 0 0 / 0.22) 94.6%,
+        rgb(0 0 0 / 0.1) 96.4%,
+        rgb(0 0 0 / 0.03) 98.2%,
+        rgb(0 0 0 / 0) 100%
+      );
+      --hero-mask-oval: radial-gradient(
+        ellipse 74% 80% at 50% 56%,
+        rgb(0 0 0 / 1) 50%,
+        rgb(0 0 0 / 0.9) 64%,
+        rgb(0 0 0 / 0.65) 78%,
+        rgb(0 0 0 / 0.3) 90%,
         rgb(0 0 0 / 0) 100%
       );
       -webkit-mask-image:
-        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top), var(--hero-mask-bottom);
-      -webkit-mask-composite: source-in, source-in, source-in;
+        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top),
+        var(--hero-mask-bottom), var(--hero-mask-oval);
+      -webkit-mask-composite: source-in, source-in, source-in, source-in;
       mask-image:
-        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top), var(--hero-mask-bottom);
-      mask-composite: intersect, intersect, intersect;
+        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top),
+        var(--hero-mask-bottom), var(--hero-mask-oval);
+      mask-composite: intersect, intersect, intersect, intersect;
     }
   }
 </style>
