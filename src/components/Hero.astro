@@ -36,7 +36,7 @@ const isDev = import.meta.env.DEV
       loading="eager"
       fetchpriority="high"
       decoding="async"
-      class="h-full w-full object-cover object-left"
+      class="h-full w-full object-cover object-left lg:w-auto lg:max-w-none"
       pictureAttributes={{ class: 'block h-full w-full' }}
     />
   </div>
@@ -225,17 +225,34 @@ const isDev = import.meta.env.DEV
       }
     }
 
-    /* A borda esquerda da foto some no fundo da seção: o banner foi recortado do mockup e */
-    /* começa no gabinete do compressor aberto. Esmaecido curto, para a frente dele aparecer. */
-    /* Máscara, e não véu por cima, para não haver cor a casar. */
+    /* Desktop: a imagem tem a largura natural (altura do hero × proporção do banner) e a */
+    /* máscara é medida nela, não na caixa: a foto ocupa os primeiros ~35% do banner e o resto */
+    /* é a extensão azul, mais clara que o navy da seção. A borda esquerda some em 10% e a */
+    /* direita se dissolve devagar, de 19% a 38%, com paradas em curva (ease-out) — sem linha */
+    /* visível e sem a extensão azul aparecer (pedido do usuário, 27/10/2026). Máscara, e não */
+    /* véu por cima, para não haver cor a casar. */
     .hero-fade {
-      -webkit-mask-image: linear-gradient(
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+
+    .hero-fade :global(img) {
+      --hero-mask: linear-gradient(
         to right,
-        transparent 0,
-        rgb(0 0 0 / 0.6) 50px,
-        #000 120px
+        transparent 0%,
+        rgb(0 0 0 / 0.3) 3%,
+        rgb(0 0 0 / 0.7) 6%,
+        #000 10%,
+        #000 19%,
+        rgb(0 0 0 / 0.85) 23%,
+        rgb(0 0 0 / 0.62) 27%,
+        rgb(0 0 0 / 0.38) 30.5%,
+        rgb(0 0 0 / 0.18) 33.5%,
+        rgb(0 0 0 / 0.06) 36%,
+        transparent 38%
       );
-      mask-image: linear-gradient(to right, transparent 0, rgb(0 0 0 / 0.6) 50px, #000 120px);
+      -webkit-mask-image: var(--hero-mask);
+      mask-image: var(--hero-mask);
     }
   }
 </style>
