@@ -44,6 +44,10 @@ const tecnico: Photo = {
   src: galeria1,
   alt: 'Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015',
 }
+const srp4050: Photo = {
+  src: cardPreventiva,
+  alt: 'Compressor de parafuso Schulz SRP 4050 com a lateral em corte, mostrando os componentes internos',
+}
 const compressores: Photo = {
   src: galeria2,
   alt: 'Compressores de parafuso Schulz SRP 4030 sobre paletes no galpão da Falanga',
@@ -54,7 +58,9 @@ export const productLines = {
   title: 'Mais confiabilidade para o seu sistema de ar comprimido.',
   /** Sem a linha de área atendida desde 26/10/2026: o Nordeste fica no hero e nos diferenciais. */
   text: 'Da manutenção preventiva à reconstrução, serviços multimarcas para compressores e secadores.',
-  gallery: [tecnico, compressores],
+  /** Foto 1 trocada pelo SRP 4050 em corte a pedido do usuário (27/10/2026); é a mesma do card 01,
+   *  recortada por dentro da máquina para não sobrar o fundo branco do original. */
+  gallery: [srp4050, compressores],
   /** O que entra na manutenção, na coluna de texto da abertura (26/10/2026). */
   highlights: [
     { icon: 'layers', label: 'Compressores e secadores' },
@@ -78,12 +84,7 @@ export const productLines = {
       features: ['Inspeção de vazamentos', 'Limpeza de filtros', 'Inspeção de componentes'],
       dark: false,
       /** Enviada pelo usuário em 27/10/2026. */
-      cardPhoto: {
-        src: cardPreventiva,
-        alt: 'Compressor de parafuso Schulz SRP 4050 com a lateral em corte, mostrando os componentes internos',
-      },
-      // Foto quase quadrada: a caixa 16:10 mostra o miolo da máquina, com os componentes internos.
-      cardPhotoPosition: '50% 45%',
+      cardPhoto: srp4050,
     },
     {
       id: 'assistencia-tecnica',
