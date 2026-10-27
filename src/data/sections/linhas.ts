@@ -17,6 +17,7 @@ import galeria1 from '@assets/linhas/galeria-1.png'
 import galeria2 from '@assets/linhas/galeria-2.webp'
 import cardContratos from '@assets/linhas/card-contratos.webp'
 import cardReconstrucao from '@assets/linhas/card-reconstrucao.png'
+import cardPreventiva from '@assets/linhas/card-preventiva.png'
 
 export interface ProductLine {
   id: string
@@ -28,7 +29,7 @@ export interface ProductLine {
   features: readonly [string, string, string]
   /** Exatamente um card escuro por grid. Informe sempre (true/false). */
   dark: boolean
-  /** Foto da caixa de imagem do card. Só a preventiva/corretiva ainda não tem a sua (27/10/2026). */
+  /** Foto da caixa de imagem do card. Todos os cards têm a sua desde 27/10/2026. */
   cardPhoto?: Photo
   /** Enquadramento da foto na caixa 16:10 (`object-position`); padrão no centro. */
   cardPhotoPosition?: string
@@ -76,6 +77,13 @@ export const productLines = {
       photo: tecnico,
       features: ['Inspeção de vazamentos', 'Limpeza de filtros', 'Inspeção de componentes'],
       dark: false,
+      /** Enviada pelo usuário em 27/10/2026. */
+      cardPhoto: {
+        src: cardPreventiva,
+        alt: 'Compressor de parafuso Schulz SRP 4050 com a lateral em corte, mostrando os componentes internos',
+      },
+      // Foto quase quadrada: a caixa 16:10 mostra o miolo da máquina, com os componentes internos.
+      cardPhotoPosition: '50% 45%',
     },
     {
       id: 'assistencia-tecnica',
