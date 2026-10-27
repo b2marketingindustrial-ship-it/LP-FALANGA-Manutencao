@@ -24,11 +24,11 @@ export interface Reason {
 
 export const why = {
   eyebrow: `Por que a ${site.brandShort}`,
-  /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo. */
-  /** Cada item é uma linha do H2 (quebra forçada): a primeira em branco, a segunda em amarelo.
+  /** Cada item é uma linha do H2 (quebra forçada): as duas primeiras em branco, a última em amarelo. */
+  /** Cada item é uma linha do H2 (quebra forçada): as duas primeiras em branco, a última em amarelo.
    *  Tom institucional, como na LP de parafuso (pedido do usuário, 27/10/2026); os 40 anos
    *  vêm do selo da logo do cliente. */
-  titleLines: ['Há 40 anos, cuidando do', 'ar comprimido do Nordeste.'],
+  titleLines: ['Há 40 anos cuidando', 'do ar comprimido das', 'indústrias do Nordeste.'],
   /** Cada `\n` é uma quebra forçada a partir de 1280px; abaixo disso o texto corre normal. */
   text: 'A Falanga acompanha a sua indústria da compra à manutenção\ndo compressor, com confiabilidade e qualidade em cada etapa.',
   cta: 'Solicitar cotação',
@@ -70,7 +70,7 @@ export const why = {
   ],
 } as const satisfies {
   eyebrow: string
-  titleLines: readonly [string, string]
+  titleLines: readonly [string, string, string]
   text: string
   cta: string
   scene: Photo
