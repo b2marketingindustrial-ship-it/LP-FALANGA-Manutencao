@@ -226,11 +226,11 @@ const isDev = import.meta.env.DEV
     }
 
     /* Desktop: a imagem tem a largura natural (altura do hero × proporção do banner) e a */
-    /* máscara é medida nela, não na caixa. Duas rampas em curva suave (smoothstep): a da */
-    /* esquerda apaga a borda do recorte; a da direita é longa, de 14% a 64% da imagem, e */
-    /* dissolve a foto e a extensão azul do banner no navy da seção, sem faixa nem pico de */
-    /* opacidade em volta do técnico (pedido do usuário, 27/10/2026). Máscara, e não véu */
-    /* por cima, para não haver cor a casar. */
+    /* máscara é medida nela, não na caixa. Quatro rampas em curva suave (smoothstep), todas */
+    /* largas: esquerda de 0 a 27% e direita de 20% a 72% da largura, alto e pé de 26% da */
+    /* altura. A foto se dissolve no navy em todos os lados, como uma nuvem, em vez de um */
+    /* retângulo com borda esmaecida (pedido do usuário, 27/10/2026). Máscara, e não véu por */
+    /* cima, para não haver cor a casar. */
     .hero-fade {
       -webkit-mask-image: none;
       mask-image: none;
@@ -240,33 +240,61 @@ const isDev = import.meta.env.DEV
       --hero-mask-left: linear-gradient(
         to right,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 1.8%,
-        rgb(0 0 0 / 0.13) 3.6%,
-        rgb(0 0 0 / 0.26) 5.3%,
-        rgb(0 0 0 / 0.42) 7.1%,
-        rgb(0 0 0 / 0.58) 8.9%,
-        rgb(0 0 0 / 0.74) 10.7%,
-        rgb(0 0 0 / 0.87) 12.4%,
-        rgb(0 0 0 / 0.97) 14.2%,
-        rgb(0 0 0 / 1) 16%
+        rgb(0 0 0 / 0.03) 3%,
+        rgb(0 0 0 / 0.13) 6%,
+        rgb(0 0 0 / 0.26) 9%,
+        rgb(0 0 0 / 0.42) 12%,
+        rgb(0 0 0 / 0.58) 15%,
+        rgb(0 0 0 / 0.74) 18%,
+        rgb(0 0 0 / 0.87) 21%,
+        rgb(0 0 0 / 0.97) 24%,
+        rgb(0 0 0 / 1) 27%
       );
       --hero-mask-right: linear-gradient(
         to right,
-        rgb(0 0 0 / 1) 14%,
-        rgb(0 0 0 / 0.97) 19.6%,
-        rgb(0 0 0 / 0.87) 25.1%,
-        rgb(0 0 0 / 0.74) 30.7%,
-        rgb(0 0 0 / 0.58) 36.2%,
-        rgb(0 0 0 / 0.42) 41.8%,
-        rgb(0 0 0 / 0.26) 47.3%,
-        rgb(0 0 0 / 0.13) 52.9%,
-        rgb(0 0 0 / 0.03) 58.4%,
-        rgb(0 0 0 / 0) 64%
+        rgb(0 0 0 / 1) 20%,
+        rgb(0 0 0 / 0.97) 25.8%,
+        rgb(0 0 0 / 0.87) 31.6%,
+        rgb(0 0 0 / 0.74) 37.3%,
+        rgb(0 0 0 / 0.58) 43.1%,
+        rgb(0 0 0 / 0.42) 48.9%,
+        rgb(0 0 0 / 0.26) 54.7%,
+        rgb(0 0 0 / 0.13) 60.4%,
+        rgb(0 0 0 / 0.03) 66.2%,
+        rgb(0 0 0 / 0) 72%
       );
-      -webkit-mask-image: var(--hero-mask-left), var(--hero-mask-right);
-      -webkit-mask-composite: source-in;
-      mask-image: var(--hero-mask-left), var(--hero-mask-right);
-      mask-composite: intersect;
+      --hero-mask-top: linear-gradient(
+        to bottom,
+        rgb(0 0 0 / 0) 0%,
+        rgb(0 0 0 / 0.03) 2.9%,
+        rgb(0 0 0 / 0.13) 5.8%,
+        rgb(0 0 0 / 0.26) 8.7%,
+        rgb(0 0 0 / 0.42) 11.6%,
+        rgb(0 0 0 / 0.58) 14.4%,
+        rgb(0 0 0 / 0.74) 17.3%,
+        rgb(0 0 0 / 0.87) 20.2%,
+        rgb(0 0 0 / 0.97) 23.1%,
+        rgb(0 0 0 / 1) 26%
+      );
+      --hero-mask-bottom: linear-gradient(
+        to bottom,
+        rgb(0 0 0 / 1) 74%,
+        rgb(0 0 0 / 0.97) 76.9%,
+        rgb(0 0 0 / 0.87) 79.8%,
+        rgb(0 0 0 / 0.74) 82.7%,
+        rgb(0 0 0 / 0.58) 85.6%,
+        rgb(0 0 0 / 0.42) 88.4%,
+        rgb(0 0 0 / 0.26) 91.3%,
+        rgb(0 0 0 / 0.13) 94.2%,
+        rgb(0 0 0 / 0.03) 97.1%,
+        rgb(0 0 0 / 0) 100%
+      );
+      -webkit-mask-image:
+        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top), var(--hero-mask-bottom);
+      -webkit-mask-composite: source-in, source-in, source-in;
+      mask-image:
+        var(--hero-mask-left), var(--hero-mask-right), var(--hero-mask-top), var(--hero-mask-bottom);
+      mask-composite: intersect, intersect, intersect;
     }
   }
 </style>
