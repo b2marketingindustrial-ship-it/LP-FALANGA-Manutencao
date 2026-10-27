@@ -45,9 +45,9 @@ const tecnico: Photo = {
   src: galeria1,
   alt: 'Técnico da Falanga na manutenção de um compressor de parafuso Schulz SRP 4015',
 }
-const srp4050: Photo = {
+const secador: Photo = {
   src: cardPreventiva,
-  alt: 'Compressor de parafuso Schulz SRP 4050 com a lateral em corte, mostrando os componentes internos',
+  alt: 'Secador de ar comprimido industrial azul e branco em uma sala de máquinas, com tubulação ao fundo',
 }
 const srp4050Galpao: Photo = {
   src: aberturaSrp4050,
@@ -88,7 +88,7 @@ export const productLines = {
       features: ['Inspeção de vazamentos', 'Limpeza de filtros', 'Inspeção de componentes'],
       dark: false,
       /** Enviada pelo usuário em 27/10/2026. */
-      cardPhoto: srp4050,
+      cardPhoto: secador,
     },
     {
       id: 'assistencia-tecnica',
