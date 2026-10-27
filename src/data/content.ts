@@ -55,8 +55,8 @@ export const hero = {
    * como na LP de compressores de parafuso). É o que o check:lp confere contra a palavra-chave
    * da campanha. `tail` completa a frase na segunda e terceira linhas, em amarelo, com extensão próxima da primeira (27/10/2026).
    */
-  title: 'Manutenção de compressores',
-  tail: ['que mantém sua produção', 'ativa o ano inteiro.'],
+  title: 'Manutenção que protege',
+  tail: ['o desempenho da', 'sua operação.'],
   text: 'Preventiva, corretiva e reconstrução para compressores multimarcas, com equipe técnica e assistência 24 horas.',
   /** Linha de área atendida abaixo do CTA, separada por ponto. */
   area: ['Unidades em Fortaleza e Recife', 'Atendimento em todo o Nordeste'],

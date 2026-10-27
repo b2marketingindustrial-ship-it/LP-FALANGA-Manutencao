@@ -8,7 +8,7 @@ export const site = {
   /** Nome curto usado em frases como "Por que a …" (entrada 2). */
   brandShort: 'Falanga',
   /** Produto principal, no plural (entrada 3). Vai na tagline do header e no H1. */
-  product: 'Manutenção de compressores',
+  product: 'Manutenção de compressores multimarcas',
   /** Contexto de uso (entrada 4). Completa o H1 e o title. */
   context: 'ar comprimido industrial',
   /** URL absoluta da página no ar (entrada 10). Usada em canonical e og:url. */

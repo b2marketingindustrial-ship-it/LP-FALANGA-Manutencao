@@ -226,11 +226,12 @@ const isDev = import.meta.env.DEV
       width: var(--photo-w);
     }
 
-    /* Desktop: a máscara é medida na imagem e só dissolve os lados, em rampas suaves */
-    /* (smoothstep) e longas — esquerda de 0 a 40%, direita de 62% a 96%. No alto e no pé a foto */
-    /* encosta nas bordas da seção, sem rampa, para não sobrar margem navy. Sem círculo de */
-    /* transparência; o sujeito (36–66%) continua inteiro. Máscara, e não véu por cima, para não */
-    /* haver cor a casar. */
+    /* Desktop: a máscara é medida na imagem e só dissolve os lados. À esquerda a foto fica fraca */
+    /* (no máximo 30%) em toda a faixa que passa atrás do título e do subtítulo — teto claro e */
+    /* ponte amarela derrubavam o contraste do texto (27/10/2026) — e só ganha força entre 33% e */
+    /* 39%, logo antes da máquina (36%), cujo gabinete escuro esconde a transição. À direita, rampa */
+    /* suave (smoothstep) de 62% a 96%. No alto e no pé a foto encosta nas bordas da seção, sem */
+    /* rampa, para não sobrar margem navy. Máscara, e não véu por cima, para não haver cor a casar. */
     .hero-fade {
       -webkit-mask-image: none;
       mask-image: none;
@@ -240,16 +241,14 @@ const isDev = import.meta.env.DEV
       --hero-mask-left: linear-gradient(
         to right,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 4%,
-        rgb(0 0 0 / 0.1) 8%,
-        rgb(0 0 0 / 0.22) 12%,
-        rgb(0 0 0 / 0.38) 16%,
-        rgb(0 0 0 / 0.55) 20%,
-        rgb(0 0 0 / 0.72) 24%,
-        rgb(0 0 0 / 0.86) 28%,
-        rgb(0 0 0 / 0.95) 32%,
-        rgb(0 0 0 / 0.99) 36%,
-        rgb(0 0 0 / 1) 40%
+        rgb(0 0 0 / 0.04) 8%,
+        rgb(0 0 0 / 0.12) 16%,
+        rgb(0 0 0 / 0.22) 24%,
+        rgb(0 0 0 / 0.3) 30%,
+        rgb(0 0 0 / 0.4) 33%,
+        rgb(0 0 0 / 0.62) 35%,
+        rgb(0 0 0 / 0.88) 37%,
+        rgb(0 0 0 / 1) 39%
       );
       --hero-mask-right: linear-gradient(
         to right,
