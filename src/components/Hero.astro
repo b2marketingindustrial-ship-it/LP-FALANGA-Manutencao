@@ -25,7 +25,7 @@ const isDev = import.meta.env.DEV
 {/* Desktop: altura definida pelo conteúdo, com 100px de respiro acima dos textos e abaixo do botão. */}
 <section class="hero relative overflow-hidden [container-type:inline-size]" data-hero>
   {/* z1 — banner: faixa no rodapé da seção no mobile; no desktop, do fim da coluna de texto à borda da tela */}
-  <div class="hero-photo hero-fade absolute inset-x-0 bottom-0 z-[1] h-[300px] lg:inset-y-0 lg:h-auto">
+  <div class="hero-photo hero-fade absolute inset-x-0 bottom-0 z-[1] h-[300px] lg:inset-y-0 lg:flex lg:h-auto lg:items-center">
     <Picture
       src={hero.banner.src}
       alt={hero.banner.alt}
@@ -36,8 +36,8 @@ const isDev = import.meta.env.DEV
       loading="eager"
       fetchpriority="high"
       decoding="async"
-      class="h-full w-full object-cover object-left lg:w-auto lg:max-w-none"
-      pictureAttributes={{ class: 'block h-full w-full' }}
+      class="h-full w-full object-cover object-left lg:h-auto"
+      pictureAttributes={{ class: 'block h-full w-full lg:h-auto' }}
     />
   </div>
 
@@ -210,28 +210,25 @@ const isDev = import.meta.env.DEV
       grid-template-columns: minmax(0, 1fr) 270px 340px;
     }
 
-    /* A foto começa 100px antes do fim da coluna 1 — o texto (máx. 32rem) acaba antes disso — */
-    /* e vai até a borda da tela. Com o hero de ao menos 752px, o compressor aberto e o técnico */
-    /* (primeiros ~30% do banner) caem logo depois do texto, e o técnico fica livre do card do */
-    /* chat a partir de ~1440px. */
+    /* Foto em plano aberto, com a cena inteira e a largura fixa de 720px, centrada na altura da */
+    /* seção. Entre o fim do texto e o chat só cabem ~370px, então ela é posicionada pelo sujeito: */
+    /* máquina e técnico ocupam de 27% a 78% da imagem, e o 78% cai onde começa o chat */
+    /* (col-end + 318px). O que sobra à esquerda (bancada) passa por baixo do título, já dissolvido */
+    /* pela rampa. Abaixo de 1440px, a foto não recua para dentro do título (27/10/2026). */
     .hero-photo {
-      left: calc(var(--col-end) - 100px);
-      right: 0;
+      --photo-w: 720px;
+      left: max(
+        calc(var(--col-end) + 318px - var(--photo-w) * 0.78),
+        calc(var(--page-edge) + 500px)
+      );
+      right: auto;
+      width: var(--photo-w);
     }
 
-    /* Abaixo de 1440px a coluna 1 encolhe, mas a manchete e a barra de pontos não: */
-    /* a foto começa depois delas (~640px da borda do conteúdo), fora do texto (26/10/2026). */
-    @media (max-width: 1439px) {
-      .hero-photo {
-        left: max(calc(var(--col-end) - 100px), calc(var(--page-edge) + 640px));
-      }
-    }
-
-    /* Desktop: a imagem tem a largura natural (altura do hero × proporção do banner) e a */
-    /* máscara é medida nela. Rampas suaves (smoothstep) e só nas bordas: esquerda de 0 a 34%, */
-    /* direita de 66% a 100%, alto e pé de 18% da altura. O miolo, onde está o técnico, */
-    /* fica 100% visível, com respiro ao redor, sem círculo de transparência (pedido do */
-    /* usuário, 27/10/2026). Máscara, e não véu por cima, para não haver cor a casar. */
+    /* Desktop: a máscara é medida na imagem. Rampas suaves (smoothstep) só nas bordas: */
+    /* esquerda de 0 a 30%, direita de 74% a 100%, alto e pé de 18% da altura. Sem círculo de */
+    /* transparência (pedido do usuário, 27/10/2026). Máscara, e não véu por cima, para não */
+    /* haver cor a casar. */
     .hero-fade {
       -webkit-mask-image: none;
       mask-image: none;
@@ -241,29 +238,29 @@ const isDev = import.meta.env.DEV
       --hero-mask-left: linear-gradient(
         to right,
         rgb(0 0 0 / 0) 0%,
-        rgb(0 0 0 / 0.03) 3.4%,
-        rgb(0 0 0 / 0.1) 6.8%,
-        rgb(0 0 0 / 0.22) 10.2%,
-        rgb(0 0 0 / 0.38) 13.6%,
-        rgb(0 0 0 / 0.55) 17%,
-        rgb(0 0 0 / 0.72) 20.4%,
-        rgb(0 0 0 / 0.86) 23.8%,
-        rgb(0 0 0 / 0.95) 27.2%,
-        rgb(0 0 0 / 0.99) 30.6%,
-        rgb(0 0 0 / 1) 34%
+        rgb(0 0 0 / 0.03) 3%,
+        rgb(0 0 0 / 0.1) 6%,
+        rgb(0 0 0 / 0.22) 9%,
+        rgb(0 0 0 / 0.38) 12%,
+        rgb(0 0 0 / 0.55) 15%,
+        rgb(0 0 0 / 0.72) 18%,
+        rgb(0 0 0 / 0.86) 21%,
+        rgb(0 0 0 / 0.95) 24%,
+        rgb(0 0 0 / 0.99) 27%,
+        rgb(0 0 0 / 1) 30%
       );
       --hero-mask-right: linear-gradient(
         to right,
-        rgb(0 0 0 / 1) 66%,
-        rgb(0 0 0 / 0.99) 69.4%,
-        rgb(0 0 0 / 0.95) 72.8%,
-        rgb(0 0 0 / 0.86) 76.2%,
-        rgb(0 0 0 / 0.72) 79.6%,
-        rgb(0 0 0 / 0.55) 83%,
-        rgb(0 0 0 / 0.38) 86.4%,
-        rgb(0 0 0 / 0.22) 89.8%,
-        rgb(0 0 0 / 0.1) 93.2%,
-        rgb(0 0 0 / 0.03) 96.6%,
+        rgb(0 0 0 / 1) 74%,
+        rgb(0 0 0 / 0.99) 76.6%,
+        rgb(0 0 0 / 0.95) 79.2%,
+        rgb(0 0 0 / 0.86) 81.8%,
+        rgb(0 0 0 / 0.72) 84.4%,
+        rgb(0 0 0 / 0.55) 87%,
+        rgb(0 0 0 / 0.38) 89.6%,
+        rgb(0 0 0 / 0.22) 92.2%,
+        rgb(0 0 0 / 0.1) 94.8%,
+        rgb(0 0 0 / 0.03) 97.4%,
         rgb(0 0 0 / 0) 100%
       );
       --hero-mask-top: linear-gradient(
