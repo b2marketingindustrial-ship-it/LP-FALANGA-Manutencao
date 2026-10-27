@@ -5,7 +5,7 @@
  * As quatro partes do sistema de ar vêm do que o material diz que a Falanga atende.
  *
  * Variante local do mockup do cliente (21/10/2026, docs/BRIEFING.md). A faixa de CTA que
- * fechava a seção saiu em 26/10/2026, como nas outras LPs da Falanga. A foto 1 é o corte da unidade compressora enviado pelo usuário (27/10/2026); as fotos 2–4 foram
+ * fechava a seção saiu em 26/10/2026, como nas outras LPs da Falanga. A foto 1 é o corte da unidade compressora enviado pelo usuário (27/10/2026); a foto 2, o secador SRS 170 enviado pelo usuário (27/10/2026); as fotos 3 e 4 foram
  * recortadas do mockup, provisórias até os originais chegarem.
  */
 import type { Photo } from '@data/types'
@@ -42,7 +42,10 @@ export const applications = {
       label: 'Secadores de ar',
       description:
         'Assistência técnica e manutenção para preservar a eficiência da secagem do ar comprimido.',
-      photo: { src: app2, alt: 'Secador de ar comprimido industrial em sala de máquinas' },
+      photo: {
+        src: app2,
+        alt: 'Secador de ar comprimido Schulz SRS 170 sobre o piso de um galpão industrial',
+      },
     },
     {
       id: 'tratamento',
