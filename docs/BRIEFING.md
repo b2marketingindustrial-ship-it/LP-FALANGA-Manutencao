@@ -102,10 +102,10 @@ Derivada em: 21/10/2026 · comando aplicado: `npm run compose -- linhas processo
 
 ## Assets
 
-| Asset          | Arquivo esperado         | Especificação                                                                                                                                                                    | Status                                            |
-| -------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| Logo           | `src/assets/LOGO.png`    | logo oficial com o selo de 40 anos, 341×82, fundo transparente — baixada de falangapneumatica.com.br                                                                             | entregue (baixa resolução: pedir vetor ou PNG 2×) |
-| Banner do hero | `src/assets/heroBg.webp` | 1774×887, plano aberto do galpão com o técnico no SRP 4015 (27/10/2026); a máquina começa em 36% da largura e o técnico termina em 66%, e é por isso que o Hero posiciona a foto | ok                                                |
+| Asset          | Arquivo esperado         | Especificação                                                                                                                                                                    | Status   |
+| -------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Logo           | `src/assets/LOGO.png`    | logo nova empilhada (símbolo sobre o nome), enviada pelo cliente em 10/11/2026; recortada em 1197×641 com fundo transparente                                                     | entregue |
+| Banner do hero | `src/assets/heroBg.webp` | 1774×887, plano aberto do galpão com o técnico no SRP 4015 (27/10/2026); a máquina começa em 36% da largura e o técnico termina em 66%, e é por isso que o Hero posiciona a foto | ok       |
 
 | Asset                        | Arquivo esperado                                     | Especificação                                                    | Status                                                 |
 | ---------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |

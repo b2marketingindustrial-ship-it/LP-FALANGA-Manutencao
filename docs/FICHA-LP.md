@@ -388,7 +388,7 @@ Famílias sem bloco que as responda: **marca Schulz** (atendimento à marca não
 
 | O que falta                                           | Quem resolve        | Especificação                                                                                      |
 | ----------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------- |
-| Logo em alta resolução                                | cliente             | a de `src/assets/LOGO.png` (341×82) veio do site; pedir vetor ou PNG 2× com fundo transparente     |
+| Logo em alta resolução                                | cliente             | logo nova entregue em 10/11/2026 (PNG 1254×1254, recortada em 1197×641); vetor ainda é bem-vindo   |
 | Banner do hero original                               | designer            | o atual foi recortado do mockup; pedir o arquivo sem texto, 1981×900, compressor no primeiro terço |
 | Fotos da galeria de serviços em alta                  | cliente             | as de `src/assets/linhas/` vieram do site (450×451 e 680×682); pedir os originais                  |
 | Fotos das aplicações em alta                          | cliente ou designer | as atuais são provisórias (site e recorte do mockup); pedir os originais em 1200×900               |
